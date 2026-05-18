@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的建筑作品集</title>
+    <title>XIN HE - 建筑作品集</title>
     <style>
         /* 基础样式复位 */
         * {
@@ -13,10 +13,11 @@
         }
 
         body {
-            font-family: "Helvetica Neue", Arial, sans-serif; /* 现代极简字体 */
-            background-color: #FAFAFA; /* 浅灰白背景，不刺眼 */
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            background-color: #FAFAFA;
             color: #333;
             line-height: 1.6;
+            scroll-behavior: smooth; /* 点击导航时平滑滚动 */
         }
 
         /* 顶部导航栏 */
@@ -24,7 +25,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 40px 10%;
+            padding: 30px 10%;
+            background-color: rgba(250, 250, 250, 0.95);
+            position: sticky; /* 让导航栏固定在顶部 */
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
         .logo {
@@ -36,7 +42,7 @@
         nav a {
             text-decoration: none;
             color: #888;
-            margin-left: 30px;
+            margin-left: 25px;
             font-size: 14px;
             transition: color 0.3s;
         }
@@ -47,39 +53,52 @@
 
         /* 简短自我介绍 */
         .intro {
-            padding: 40px 10%;
+            padding: 60px 10%;
             font-size: 18px;
             max-width: 800px;
             color: #555;
         }
 
+        /* 分类板块标题 */
+        .category-title {
+            padding: 40px 10% 20px 10%;
+            font-size: 22px;
+            font-weight: bold;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 30px;
+            color: #111;
+        }
+
         /* 作品网格展示区 */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 自动响应式网格 */
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
             padding: 0 10% 60px 10%;
         }
 
+        /* 单个作品卡片（关键互动区域） */
         .project {
+            position: relative; /* 为弹出层做定位准备 */
             overflow: hidden;
-            background-color: #eee;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             cursor: pointer;
         }
 
         .project img {
             width: 100%;
-            height: 300px;
-            object-fit: cover; /* 保证图片不变形 */
-            transition: transform 0.5s ease;
-        }
-
-        .project:hover img {
-            transform: scale(1.05); /* 鼠标悬停时图片微微放大 */
+            height: 250px;
+            object-fit: cover;
+            display: block;
         }
 
         .project-info {
-            padding: 15px 0;
+            padding: 15px 20px;
+            background: #fff;
+            position: relative;
+            z-index: 2;
         }
 
         .project-title {
@@ -87,9 +106,33 @@
             font-weight: bold;
         }
 
-        .project-category {
-            font-size: 12px;
-            color: #888;
+        /* 隐藏的介绍弹出层 */
+        .project-overlay {
+            position: absolute;
+            bottom: 100%; /* 初始状态藏在上方 */
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85); /* 半透明黑色背景 */
+            color: #fff;
+            padding: 30px 20px;
+            transition: all 0.4s ease-in-out; /* 动画过渡效果 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0;
+            z-index: 1;
+        }
+
+        .project-overlay p {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* 鼠标滑过时的效果 */
+        .project:hover .project-overlay {
+            bottom: 0; /* 滑过时降下来覆盖图片 */
+            opacity: 1; /* 变为完全可见 */
         }
 
         /* 底部信息 */
@@ -98,7 +141,7 @@
             padding: 40px 0;
             font-size: 12px;
             color: #aaa;
-            border-top: 1px solid #eee;
+            background-color: #eee;
         }
     </style>
 </head>
@@ -107,44 +150,77 @@
     <header>
         <div class="logo">XIN HE</div>
         <nav>
-            <a href="#">作品 GALLERY</a>
-            <a href="#">关于 ABOUT</a>
-            <a href="#">联系 CONTACT</a>
+            <a href="#physical-models">手工建筑模型</a>
+            <a href="#digital-renders">电子渲染设计</a>
+            <a href="#2d-drawings">2D建筑绘画</a>
         </nav>
     </header>
 
     <section class="intro">
-        <p>你好，我是一名建筑设计师。这里记录了我在空间形态、材料与光影方面的设计探索。</p>
+        <p>你好，我是 Xin He。这是一个专注于空间、材质与光影探索的建筑设计作品集。</p>
     </section>
 
+    <div id="physical-models" class="category-title">手工建筑模型 (Physical Models)</div>
     <section class="gallery">
+        
         <div class="project">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="建筑项目1">
+            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="石膏模型">
             <div class="project-info">
-                <div class="project-title">城市美术馆改造</div>
-                <div class="project-category">公共建筑 / 2023</div>
+                <div class="project-title">极简几何石膏体</div>
+            </div>
+            <div class="project-overlay">
+                <p><strong>材料：</strong> 高密度石膏<br>
+                <strong>概念：</strong> 探讨基本几何体在自然光下的光影变幻。通过切割与重组，形成内部迷宫般的空间体验。</p>
             </div>
         </div>
 
         <div class="project">
-            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="建筑项目2">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="木构模型">
             <div class="project-info">
-                <div class="project-title">悬崖边的住宅</div>
-                <div class="project-category">私人居住 / 2024</div>
+                <div class="project-title">榫卯结构展亭模型</div>
+            </div>
+            <div class="project-overlay">
+                <p><strong>材料：</strong> 椴木板、亚克力<br>
+                <strong>概念：</strong> 结合传统榫卯工艺与现代参数化设计，1:20 比例真实还原节点受力逻辑。</p>
             </div>
         </div>
 
+    </section>
+
+    <div id="digital-renders" class="category-title">电子渲染设计 (Digital Renders)</div>
+    <section class="gallery">
+        
         <div class="project">
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="建筑项目3">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="美术馆渲染">
             <div class="project-info">
-                <div class="project-title">可持续木构展馆</div>
-                <div class="project-category">参数化设计 / 2025</div>
+                <div class="project-title">水畔美术馆</div>
+            </div>
+            <div class="project-overlay">
+                <p><strong>软件：</strong> Rhino, V-Ray, Photoshop<br>
+                <strong>说明：</strong> 重点表达建筑与水面反光的互动关系，采用冷色调突出混凝土的冷峻感。</p>
             </div>
         </div>
+
+    </section>
+
+    <div id="2d-drawings" class="category-title">2D建筑绘画 (2D Drawings)</div>
+    <section class="gallery">
+        
+        <div class="project">
+            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="线稿图">
+            <div class="project-info">
+                <div class="project-title">城市剖透视分析图</div>
+            </div>
+            <div class="project-overlay">
+                <p><strong>媒介：</strong> AutoCAD, Illustrator<br>
+                <strong>说明：</strong> 深入剖析高密度城市中的人流走向与地下管网系统，采用极简黑白线条呈现。</p>
+            </div>
+        </div>
+
     </section>
 
     <footer>
-        &copy; 2026 Your Name. All Rights Reserved.
+        &copy; 2026 XIN HE. All Rights Reserved.
     </footer>
 
 </body>
