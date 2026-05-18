@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XIN HE - 建筑作品集</title>
+    <title>XIN HE - Architectural Portfolio</title>
     <style>
-        /* 基础样式复位 */
+        /* Base Reset */
         * {
             margin: 0;
             padding: 0;
@@ -17,17 +17,17 @@
             background-color: #FAFAFA;
             color: #333;
             line-height: 1.6;
-            scroll-behavior: smooth; /* 点击导航时平滑滚动 */
+            scroll-behavior: smooth;
         }
 
-        /* 顶部导航栏 */
+        /* Navigation Bar */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 30px 10%;
             background-color: rgba(250, 250, 250, 0.95);
-            position: sticky; /* 让导航栏固定在顶部 */
+            position: sticky;
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
@@ -51,7 +51,7 @@
             color: #000;
         }
 
-        /* 简短自我介绍 */
+        /* Introduction Section */
         .intro {
             padding: 60px 10%;
             font-size: 18px;
@@ -59,7 +59,7 @@
             color: #555;
         }
 
-        /* 分类板块标题 */
+        /* Category Title */
         .category-title {
             padding: 40px 10% 20px 10%;
             font-size: 22px;
@@ -69,7 +69,7 @@
             color: #111;
         }
 
-        /* 作品网格展示区 */
+        /* Gallery Grid */
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -77,9 +77,9 @@
             padding: 0 10% 60px 10%;
         }
 
-        /* 单个作品卡片（关键互动区域） */
+        /* Project Card */
         .project {
-            position: relative; /* 为弹出层做定位准备 */
+            position: relative;
             overflow: hidden;
             background-color: #fff;
             border-radius: 4px;
@@ -106,17 +106,17 @@
             font-weight: bold;
         }
 
-        /* 隐藏的介绍弹出层 */
+        /* Hover Overlay */
         .project-overlay {
             position: absolute;
-            bottom: 100%; /* 初始状态藏在上方 */
+            bottom: 100%;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.85); /* 半透明黑色背景 */
+            background-color: rgba(0, 0, 0, 0.85);
             color: #fff;
-            padding: 30px 20px;
-            transition: all 0.4s ease-in-out; /* 动画过渡效果 */
+            padding: 25px 20px;
+            transition: all 0.4s ease-in-out;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -125,17 +125,16 @@
         }
 
         .project-overlay p {
-            font-size: 14px;
-            line-height: 1.8;
+            font-size: 13px;
+            line-height: 1.7;
         }
 
-        /* 鼠标滑过时的效果 */
         .project:hover .project-overlay {
-            bottom: 0; /* 滑过时降下来覆盖图片 */
-            opacity: 1; /* 变为完全可见 */
+            bottom: 0;
+            opacity: 1;
         }
 
-        /* 底部信息 */
+        /* Footer */
         footer {
             text-align: center;
             padding: 40px 0;
@@ -150,70 +149,70 @@
     <header>
         <div class="logo">XIN HE</div>
         <nav>
-            <a href="#physical-models">手工建筑模型</a>
-            <a href="#digital-renders">电子渲染设计</a>
-            <a href="#2d-drawings">2D建筑绘画</a>
+            <a href="#physical-models">Physical Models</a>
+            <a href="#digital-renders">Digital Renders</a>
+            <a href="#2d-drawings">2D Drawings</a>
         </nav>
     </header>
 
     <section class="intro">
-        <p>你好，我是 Xin He。这是一个专注于空间、材质与光影探索的建筑设计作品集。</p>
+        <p>Hello, I am Xin He. This is an architectural portfolio dedicated to the exploration of space, materiality, and tectonic form.</p>
     </section>
 
-    <div id="physical-models" class="category-title">手工建筑模型 (Physical Models)</div>
+    <div id="physical-models" class="category-title">Physical Models</div>
     <section class="gallery">
         
         <div class="project">
-            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="石膏模型">
+            <img src="helix-tower.jpg" alt="Helix Tower Model">
             <div class="project-info">
-                <div class="project-title">极简几何石膏体</div>
+                <div class="project-title">Helix Tower</div>
             </div>
             <div class="project-overlay">
-                <p><strong>材料：</strong> 高密度石膏<br>
-                <strong>概念：</strong> 探讨基本几何体在自然光下的光影变幻。通过切割与重组，形成内部迷宫般的空间体验。</p>
+                <p><strong>Concept:</strong> An architectural exploration of helical structures, featuring a spatial stacking of wooden sticks of equal length positioned tangentially to a circle and rotating upward at a constant angle.<br><br>
+                <strong>Analysis:</strong> A structural study driven by innovative tectonic logic. The entire model stands vertically on a single plane, seamlessly demonstrating architectural mechanical equilibrium.</p>
             </div>
         </div>
 
         <div class="project">
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="木构模型">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Timber Pavilion">
             <div class="project-info">
-                <div class="project-title">榫卯结构展亭模型</div>
+                <div class="project-title">Interlocking Timber Pavilion</div>
             </div>
             <div class="project-overlay">
-                <p><strong>材料：</strong> 椴木板、亚克力<br>
-                <strong>概念：</strong> 结合传统榫卯工艺与现代参数化设计，1:20 比例真实还原节点受力逻辑。</p>
-            </div>
-        </div>
-
-    </section>
-
-    <div id="digital-renders" class="category-title">电子渲染设计 (Digital Renders)</div>
-    <section class="gallery">
-        
-        <div class="project">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="美术馆渲染">
-            <div class="project-info">
-                <div class="project-title">水畔美术馆</div>
-            </div>
-            <div class="project-overlay">
-                <p><strong>软件：</strong> Rhino, V-Ray, Photoshop<br>
-                <strong>说明：</strong> 重点表达建筑与水面反光的互动关系，采用冷色调突出混凝土的冷峻感。</p>
+                <p><strong>Material:</strong> Basswood, Acrylic<br><br>
+                <strong>Description:</strong> A 1:20 scale model integrating traditional joinery with parametric design to test joint stress distribution.</p>
             </div>
         </div>
 
     </section>
 
-    <div id="2d-drawings" class="category-title">2D建筑绘画 (2D Drawings)</div>
+    <div id="digital-renders" class="category-title">Digital Renders</div>
     <section class="gallery">
         
         <div class="project">
-            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="线稿图">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Waterfront Museum">
             <div class="project-info">
-                <div class="project-title">城市剖透视分析图</div>
+                <div class="project-title">Waterfront Art Museum</div>
             </div>
             <div class="project-overlay">
-                <p><strong>媒介：</strong> AutoCAD, Illustrator<br>
-                <strong>说明：</strong> 深入剖析高密度城市中的人流走向与地下管网系统，采用极简黑白线条呈现。</p>
+                <p><strong>Software:</strong> Rhino, V-Ray, Photoshop<br><br>
+                <strong>Description:</strong> An investigation into the dialog between monolithic concrete and water reflections under overcast lighting.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <div id="2d-drawings" class="category-title">2D Drawings</div>
+    <section class="gallery">
+        
+        <div class="project">
+            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sectional Perspective">
+            <div class="project-info">
+                <div class="project-title">Urban Sectional Perspective</div>
+            </div>
+            <div class="project-overlay">
+                <p><strong>Medium:</strong> AutoCAD, Illustrator<br><br>
+                <strong>Description:</strong> A detailed analytical drawing dissecting pedestrian circulation and underground infrastructure within a high-density urban context.</p>
             </div>
         </div>
 
