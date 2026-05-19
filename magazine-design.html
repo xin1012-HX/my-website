@@ -27,13 +27,46 @@
             min-height: 90vh;
         }
 
-        /* 顶部导航 */
+        /* --- 导航栏整体样式 --- */
         header { 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             padding: 1.5vw 2vw; 
             border-bottom: 1px solid var(--line-color); 
             background-color: #fff;
         }
-        
+
+        /* --- 品牌 Logo 与文字并排容器（与主页完全一致） --- */
+        .brand-container {
+            display: flex;
+            align-items: center; 
+            gap: 20px; 
+            text-decoration: none;
+            color: var(--text-color); 
+            transition: opacity 0.3s ease;
+        }
+
+        .brand-container:hover {
+            opacity: 0.7;
+        }
+
+        .brand-logo {
+            height: 100px; 
+            width: auto;
+            display: block;
+        }
+
+        .brand-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px; 
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+
+        /* --- 返回主页按钮 --- */
         .back-button { 
             text-decoration: none; 
             color: var(--text-color); 
@@ -45,7 +78,7 @@
         }
         .back-button:hover { opacity: 0.6; }
 
-        /* 页面标题区 */
+        /* --- 页面标题区 --- */
         .project-header { 
             padding: 60px 2vw 40px 2vw; 
             text-align: center; 
@@ -68,12 +101,12 @@
             margin: 0 auto;
         }
 
-        /* 四宫格画廊区 (四宫格核心代码) */
+        /* --- 四宫格画廊区 --- */
         .grid-gallery { 
             display: grid; 
-            grid-template-columns: 1fr 1fr; /* 两列平分，形成 2x2 */
-            background-color: var(--line-color); /* 利用背景色作为边框线 */
-            gap: 1px; /* 图片之间的 1px 缝隙会透出黑色，形成极简边框 */
+            grid-template-columns: 1fr 1fr; 
+            background-color: var(--line-color); 
+            gap: 1px; 
         }
 
         .magazine-item {
@@ -89,16 +122,15 @@
             width: 100%; 
             max-width: 500px;
             height: auto; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* 给杂志加一点轻微的立体阴影 */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
             margin-bottom: 30px;
             transition: transform 0.4s ease;
         }
 
         .magazine-item img:hover {
-            transform: scale(1.02); /* 鼠标悬浮时微微放大 */
+            transform: scale(1.02); 
         }
 
-        /* 图片下方的英文标注 */
         .magazine-caption {
             font-family: 'Playfair Display', serif;
             font-size: 18px;
@@ -107,7 +139,7 @@
             text-align: center;
         }
 
-        /* 底部版权 */
+        /* --- 底部版权 --- */
         footer { 
             text-align: center; 
             padding: 30px 0; 
@@ -118,21 +150,27 @@
             border-top: 1px solid var(--line-color);
         }
 
-        /* 手机端响应式：变成竖排一列 */
+        /* --- 手机端响应式 --- */
         @media (max-width: 768px) {
             .grid-gallery { grid-template-columns: 1fr; }
             .project-header h1 { font-size: 28px; }
+            .brand-logo { height: 60px; }
+            .brand-text { font-size: 18px; }
         }
     </style>
 </head>
 <body>
 
 <div class="wrapper">
-   <header style="display: flex; justify-content: space-between; align-items: center;">
-        <a href="index.html">
-            <img src="logo.png" alt="Triumphal Architecture Logo" style="height: 60px; width: auto;">
+    
+    <header>
+        <a href="index.html" class="brand-container">
+            <img src="logo.png" alt="Triumphal Architecture Logo" class="brand-logo">
+            <div class="brand-text">
+                Triumphal<br>Architecture
+            </div>
         </a>
-        <a href="index.html" class="back-button" style="margin-left: auto;">← Back to Index</a>
+        <a href="index.html" class="back-button">← Back to Index</a>
     </header>
 
     <section class="project-header">
