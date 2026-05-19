@@ -3,234 +3,251 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XIN HE - Architectural Portfolio</title>
+    <title>TRIUMPHAL ARCHITECTURE | Archive</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Base Reset */
+        /* --- 基础重置 --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            font-family: "Helvetica Neue", Arial, sans-serif;
-            background-color: #FAFAFA;
-            color: #333;
-            line-height: 1.6;
-            scroll-behavior: smooth;
+        :root {
+            --bg-color: #F4F4F4; /* 高级灰白背景 */
+            --text-color: #111111;
+            --line-color: #111111; /* 呼应Logo的制图线 */
+            --brand-red: #7B1113;  /* 提取自你的 Book Cover 的深红色 */
         }
 
-        /* Navigation Bar */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.4;
+            /* 外边框留白，打造画册感 */
+            padding: 20px; 
+        }
+
+        /* --- 导航栏 (Header) --- */
         header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            padding: 30px 10%;
-            background-color: rgba(250, 250, 250, 0.95);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            align-items: flex-end;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--line-color);
+            margin-bottom: 40px;
         }
 
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
+        .brand-logo {
+            width: 150px;
+            /* 这里假设你的logo去底后叫 triumphal-logo.png */
+            /* 如果还没去底，这行会显示一张替代的品牌文字 */
+        }
+
+        .brand-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
             letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         nav a {
             text-decoration: none;
-            color: #888;
-            margin-left: 25px;
-            font-size: 14px;
+            color: var(--text-color);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-left: 40px;
             transition: color 0.3s;
         }
 
         nav a:hover {
-            color: #000;
+            color: var(--brand-red);
         }
 
-        /* Introduction Section */
-        .intro {
-            padding: 60px 10%;
-            font-size: 18px;
-            max-width: 800px;
-            color: #555;
-        }
-
-        /* Category Title */
-        .category-title {
-            padding: 40px 10% 20px 10%;
-            font-size: 22px;
-            font-weight: bold;
-            border-bottom: 1px solid #ddd;
-            margin-bottom: 30px;
-            color: #111;
-        }
-
-        /* Gallery Grid */
-        .gallery {
+        /* --- 品牌宣言区 (Manifesto/Hero) --- */
+        .hero-section {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            padding: 0 10% 60px 10%;
-            align-items: start;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+            padding-bottom: 60px;
+            border-bottom: 1px solid var(--line-color);
         }
 
-        /* Project Card */
-        .project {
-            position: relative;
-            overflow: hidden;
-            background-color: #fff;
-            border-radius: 4px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            cursor: pointer;
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4vw;
+            line-height: 1.1;
+            margin-bottom: 20px;
         }
 
-        .project img {
-    width: 100%;
-    height: auto; /* 高度自适应，不再有任何生硬的裁剪和遮挡 */
-    display: block;
+        .hero-text p {
+            font-size: 15px;
+            color: #444;
+            max-width: 80%;
+            margin-bottom: 20px;
         }
 
-        .project-info {
-            padding: 15px 20px;
-            background: #fff;
-            position: relative;
-            z-index: 2;
-        }
-
-        .project-title {
-            font-size: 16px;
-            font-weight: bold;
-        }
-
-        /* Hover Overlay */
-        .project-overlay {
-            position: absolute;
-            bottom: 100%;
-            left: 0;
+        .hero-image img {
             width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
-            color: #fff;
-            padding: 25px 20px;
-            transition: all 0.4s ease-in-out;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            opacity: 0;
-            z-index: 1;
+            height: auto;
+            border: 1px solid var(--line-color); /* 增加制图线框 */
+            filter: grayscale(100%);
+            transition: filter 0.5s ease;
         }
 
-        .project-overlay p {
-            font-size: 13px;
-            line-height: 1.7;
+        .hero-image img:hover {
+            filter: grayscale(0%);
         }
 
-        .project:hover .project-overlay {
-            bottom: 0;
-            opacity: 1;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px 0;
+        /* --- 档案列表区 (Archive Grid) --- */
+        .archive-header {
             font-size: 12px;
-            color: #aaa;
-            background-color: #eee;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .archive-list {
+            border-top: 1px solid var(--line-color);
+        }
+
+        /* 单个档案条目 */
+        .archive-item {
+            display: grid;
+            grid-template-columns: 3fr 1fr 1fr 1fr; /* 杂志目录排版：标题、年份、类型、图片 */
+            align-items: center;
+            padding: 25px 0;
+            border-bottom: 1px solid var(--line-color);
+            text-decoration: none;
+            color: var(--text-color);
+            transition: background-color 0.3s, padding-left 0.3s;
+        }
+
+        .archive-item:hover {
+            background-color: #E8E8E8;
+            padding-left: 20px; /* 悬停时微微向右缩进 */
+            color: var(--brand-red);
+        }
+
+        .item-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 400;
+        }
+
+        .item-meta {
+            font-size: 13px;
+            color: #555;
+            text-transform: uppercase;
+        }
+
+        /* 条目缩略图悬停效果 */
+        .item-thumb {
+            width: 100px;
+            height: 60px;
+            object-fit: cover;
+            justify-self: end;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.4s ease;
+            border: 1px solid var(--line-color);
+        }
+
+        .archive-item:hover .item-thumb {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* --- 页脚 --- */
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            text-transform: uppercase;
+            border-top: 1px solid var(--line-color);
+        }
+
+        /* --- 移动端响应式 --- */
+        @media (max-width: 768px) {
+            .hero-section { grid-template-columns: 1fr; }
+            .archive-item { grid-template-columns: 1fr; gap: 10px; padding: 20px 0; }
+            .item-thumb { display: none; }
+            .archive-item:hover { padding-left: 0; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">XIN HE</div>
+        <div class="brand-text">
+            Triumphal<br>Architecture.
+        </div>
         <nav>
-            <a href="#physical-models">Physical Models</a>
-            <a href="#digital-renders">Digital Renders</a>
-            <a href="#2d-drawings">2D Drawings</a>
+            <a href="#archive">Archive</a>
+            <a href="#about">Studio</a>
+            <a href="#contact">Contact</a>
         </nav>
     </header>
 
-    <section class="intro">
-        <p>Hello, I am Xin He. This is an architectural portfolio dedicated to the exploration of space, materiality, and tectonic form.</p>
-    </section>
-
-    <div id="physical-models" class="category-title">Physical Models</div>
-    <section class="gallery">
-        
-        <a href="helix-tower.html" class="project" style="display: block; color: inherit; text-decoration: none;">
-            <img src="helix-tower.jpg" alt="Helix Tower Model">
-            <div class="project-info">
-                <div class="project-title">Helix Tower</div>
-            </div>
-            <div class="project-overlay">
-                <p><strong>Concept:</strong> An architectural exploration of helical structures, featuring a spatial stacking of wooden sticks of equal length positioned tangentially to a circle and rotating upward at a constant angle.<br><br>
-                <strong>Analysis:</strong> A structural study driven by innovative tectonic logic. The entire model stands vertically on a single plane, seamlessly demonstrating architectural mechanical equilibrium.</p>
-            </div>
-        </a>
-
-        <a href="flower-in-the-rock.html" class="project" style="display: block; color: inherit; text-decoration: none;">
-            <img src="flower-rock-cover.jpg" alt="Flower in the Rock Model">
-            <div class="project-info">
-                <div class="project-title">Flower in the Rock</div>
-            </div>
-            <div class="project-overlay">
-                <p><strong>Concept:</strong> An exploration of the interface between architecture and the raw forces of nature, inspired by the resilience of flora sprouting from barren stone. The architecture acts as the delicate 'flower' emerging from the solid 'rock'.<br><br>
-                <strong>Design:</strong> The topographical base forms a concave cliff with dynamic protrusions. Lightweight timber structures cantilever outward to form an observation deck supported by dynamic struts, while dwellings nestle into the crevices and a skeletal frame crowns the peak.</p>
-            </div>
-        </a>
-
-        <a href="germination.html" class="project" style="display: block; color: inherit; text-decoration: none;">
-            <img src="germination-cover.jpg" alt="Germination Model">
-            <div class="project-info">
-                <div class="project-title">Germination</div>
-            </div>
-            <div class="project-overlay">
-                <p><strong>Concept:</strong> A 3D tectonic composition inspired by the upward growth of a white dulcamara. It captures the plant's stable, rapid, yet unpredictable vitality.<br><br>
-                <strong>Morphology:</strong> The architectural elements directly correspond to the botanical anatomy: the root maps to the pedestal, the stem to the vertical support, the branch to the spatial extensions, and the flower bloom to the crowning building form.</p>
-            </div>
-        </a>
-
-    </section>
-
-    <div id="digital-renders" class="category-title">Digital Renders</div>
-    <section class="gallery">
-        
-        <div class="project">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Waterfront Museum">
-            <div class="project-info">
-                <div class="project-title">Waterfront Art Museum</div>
-            </div>
-            <div class="project-overlay">
-                <p><strong>Software:</strong> Rhino, V-Ray, Photoshop<br><br>
-                <strong>Description:</strong> An investigation into the dialog between monolithic concrete and water reflections under overcast lighting.</p>
-            </div>
+    <section class="hero-section" id="about">
+        <div class="hero-text">
+            <h1>Exquisite &<br>Graceful.</h1>
+            <p>An innovative architecture designer focused on perfect balancing fashion and ergonomics, specializing in transforming bold concepts from sketches to reality while providing design leadership and technical guidance.</p>
+            <p style="font-family: 'Playfair Display', serif; font-style: italic; color: var(--brand-red);">"Every flower and tree tells a story, every wall and tile holds meaning." — Xin He</p>
         </div>
-
+        <div class="hero-image">
+            <img src="book-cover.jpg" alt="Triumphal Architecture Book Cover" onerror="this.src='https://images.unsplash.com/photo-1600607688066-890987f18a86?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'">
+        </div>
     </section>
 
-    <div id="2d-drawings" class="category-title">2D Drawings</div>
-    <section class="gallery">
+    <div class="archive-header" id="archive">
+        <span>Selected Projects</span>
+        <span>Index 001 - 004</span>
+    </div>
+
+    <section class="archive-list">
         
-        <div class="project">
-            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sectional Perspective">
-            <div class="project-info">
-                <div class="project-title">Urban Sectional Perspective</div>
-            </div>
-            <div class="project-overlay">
-                <p><strong>Medium:</strong> AutoCAD, Illustrator<br><br>
-                <strong>Description:</strong> A detailed analytical drawing dissecting pedestrian circulation and underground infrastructure within a high-density urban context.</p>
-            </div>
-        </div>
+        <a href="#" class="archive-item">
+            <div class="item-title">Chinese Courtyard</div>
+            <div class="item-meta">2026</div>
+            <div class="item-meta">Cultural / Study</div>
+            <img src="https://images.unsplash.com/photo-1590059378825-9f5b35c05ab3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Thumb" class="item-thumb">
+        </a>
+
+        <a href="flower-in-the-rock.html" class="archive-item">
+            <div class="item-title">Flower in the Rock</div>
+            <div class="item-meta">2025</div>
+            <div class="item-meta">Tectonic Model</div>
+            <img src="flower-rock-cover.jpg" alt="Thumb" class="item-thumb" onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'">
+        </a>
+
+        <a href="germination.html" class="archive-item">
+            <div class="item-title">Germination</div>
+            <div class="item-meta">2024</div>
+            <div class="item-meta">Morphology</div>
+            <img src="germination-cover.jpg" alt="Thumb" class="item-thumb" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'">
+        </a>
+
+        <a href="helix-tower.html" class="archive-item">
+            <div class="item-title">Helix Tower</div>
+            <div class="item-meta">2024</div>
+            <div class="item-meta">Structure Concept</div>
+            <img src="helix-tower.jpg" alt="Thumb" class="item-thumb" onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'">
+        </a>
 
     </section>
 
     <footer>
-        &copy; 2026 XIN HE. All Rights Reserved.
+        <div>&copy; 2026 Triumphal Architecture.</div>
+        <div>Designed by Xin He</div>
     </footer>
 
 </body>
