@@ -150,6 +150,11 @@
             animation: scroll-left 40s linear infinite; 
         }
 
+        /* 给第二行添加反向滚动的动画 */
+        .scrolling-banner-track.reverse {
+            animation: scroll-right 40s linear infinite;
+        }
+
         .scrolling-banner-track img {
             height: 350px; 
             object-fit: cover;
@@ -157,9 +162,16 @@
             pointer-events: none; 
         }
 
+        /* 向左滚动的动画核心 */
         @keyframes scroll-left {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); } 
+        }
+
+        /* 向右滚动的动画核心 */
+        @keyframes scroll-right {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); } 
         }
 
         /* --- 档案列表区样式 --- */
@@ -318,8 +330,15 @@
 
     <section class="scrolling-banner">
         <div class="scrolling-banner-track">
-            <img src="panorama.jpg" alt="Triumphal Architecture Panorama">
-            <img src="panorama.jpg" alt="Triumphal Architecture Panorama">
+            <img src="panorama.jpg" alt="Triumphal Architecture Panorama 1">
+            <img src="panorama.jpg" alt="Triumphal Architecture Panorama 1">
+        </div>
+    </section>
+
+    <section class="scrolling-banner">
+        <div class="scrolling-banner-track reverse">
+            <img src="panorama2.jpg" alt="Triumphal Architecture Panorama 2">
+            <img src="panorama2.jpg" alt="Triumphal Architecture Panorama 2">
         </div>
     </section>
 
