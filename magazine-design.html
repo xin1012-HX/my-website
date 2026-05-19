@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture Magazine Design - TRIUMPHAL ARCHITECTURE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg-color: #F4F4F4; 
+            --text-color: #111;
+            --line-color: #111; 
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-color); 
+            line-height: 1.6;
+            padding: 2vw;
+        }
+
+        .wrapper {
+            border: 1px solid var(--line-color);
+            min-height: 90vh;
+        }
+
+        /* 顶部导航 */
+        header { 
+            padding: 1.5vw 2vw; 
+            border-bottom: 1px solid var(--line-color); 
+            background-color: #fff;
+        }
+        
+        .back-button { 
+            text-decoration: none; 
+            color: var(--text-color); 
+            font-size: 12px; 
+            text-transform: uppercase;
+            letter-spacing: 1px; 
+            transition: opacity 0.3s; 
+            font-weight: 500;
+        }
+        .back-button:hover { opacity: 0.6; }
+
+        /* 页面标题区 */
+        .project-header { 
+            padding: 60px 2vw 40px 2vw; 
+            text-align: center; 
+            border-bottom: 1px solid var(--line-color);
+            background-color: var(--bg-color);
+        }
+
+        .project-header h1 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 40px; 
+            margin-bottom: 20px; 
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
+        }
+
+        .project-header p { 
+            font-size: 14px; 
+            color: #555; 
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 四宫格画廊区 (四宫格核心代码) */
+        .grid-gallery { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; /* 两列平分，形成 2x2 */
+            background-color: var(--line-color); /* 利用背景色作为边框线 */
+            gap: 1px; /* 图片之间的 1px 缝隙会透出黑色，形成极简边框 */
+        }
+
+        .magazine-item {
+            background-color: #fff;
+            padding: 4vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .magazine-item img { 
+            width: 100%; 
+            max-width: 500px;
+            height: auto; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* 给杂志加一点轻微的立体阴影 */
+            margin-bottom: 30px;
+            transition: transform 0.4s ease;
+        }
+
+        .magazine-item img:hover {
+            transform: scale(1.02); /* 鼠标悬浮时微微放大 */
+        }
+
+        /* 图片下方的英文标注 */
+        .magazine-caption {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-align: center;
+        }
+
+        /* 底部版权 */
+        footer { 
+            text-align: center; 
+            padding: 30px 0; 
+            font-size: 11px; 
+            text-transform: uppercase;
+            color: #888; 
+            background-color: #fff;
+            border-top: 1px solid var(--line-color);
+        }
+
+        /* 手机端响应式：变成竖排一列 */
+        @media (max-width: 768px) {
+            .grid-gallery { grid-template-columns: 1fr; }
+            .project-header h1 { font-size: 28px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <header>
+        <a href="index.html" class="back-button">← Back to Archive Index</a>
+    </header>
+
+    <section class="project-header">
+        <h1>Architecture Magazine Design</h1>
+        <p>An editorial design exploration combining architectural concepts with typography. The covers encapsulate distinct architectural typologies, showcasing a multidisciplinary approach to visual communication.</p>
+    </section>
+
+    <section class="grid-gallery">
+        
+        <div class="magazine-item">
+            <img src="cover-urban.jpg" alt="Urban Architecture Design">
+            <div class="magazine-caption">Urban Architecture Design</div>
+        </div>
+
+        <div class="magazine-item">
+            <img src="cover-residential.jpg" alt="Residential Architecture Design">
+            <div class="magazine-caption">Residential Architecture Design</div>
+        </div>
+
+        <div class="magazine-item">
+            <img src="cover-interior.jpg" alt="Interior Design">
+            <div class="magazine-caption">Interior Design</div>
+        </div>
+
+        <div class="magazine-item">
+            <img src="cover-chinese.jpg" alt="Chinese Architecture">
+            <div class="magazine-caption">Chinese Architecture</div>
+        </div>
+
+    </section>
+
+    <footer>
+        &copy; 2026 TRIUMPHAL ARCHITECTURE. ALL RIGHTS RESERVED.
+    </footer>
+</div>
+
+</body>
+</html>
