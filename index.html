@@ -37,11 +37,33 @@
             border-bottom: 1px solid var(--line-color);
         }
 
+       /* --- 品牌 Logo 与文字的组合容器 --- */
+        .brand-container {
+            display: flex;
+            align-items: center; /* 让 Logo 和文字垂直居中对齐 */
+            gap: 20px; /* Logo 和文字之间的间距 */
+            text-decoration: none;
+            color: var(--text-color); /* 确保文字是黑色的，不是链接蓝 */
+            transition: opacity 0.3s ease;
+        }
+
+        .brand-container:hover {
+            opacity: 0.7;
+        }
+
         .brand-logo {
-            height: 70px; /* 控制Logo的高度，让它在导航栏里显得精致不臃肿 */
+            height: 100px; /* 我把 Logo 高度从 70px 放大到了 100px。如果还嫌小，你可以改成 120px */
             width: auto;
             display: block;
-            transition: opacity 0.3s ease;
+        }
+
+        .brand-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px; /* 文字稍微调大一点点 */
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            line-height: 1.1;
         }
 
         .brand-logo:hover {
@@ -289,16 +311,14 @@
 <body>
 
 <div class="wrapper">
-    <header>
-        <a href="index.html">
+   <header>
+        <a href="index.html" class="brand-container">
             <img src="logo.png" alt="Triumphal Architecture Logo" class="brand-logo">
+            <div class="brand-text">
+                Triumphal<br>Architecture
+            </div>
         </a>
         <nav>
-            <a href="#studio">Studio</a>
-            <a href="#archive">Index</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
             <a href="#studio">Studio</a>
             <a href="#archive">Index</a>
             <a href="#contact">Contact</a>
