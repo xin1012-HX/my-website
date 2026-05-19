@@ -3,29 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Germination - XIN HE</title>
+    <title>Germination - TRIUMPHAL ARCHITECTURE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: "Helvetica Neue", Arial, sans-serif; background-color: #FAFAFA; color: #333; line-height: 1.6; }
         
-        header { padding: 30px 10%; background-color: rgba(250, 250, 250, 0.95); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .back-button { text-decoration: none; color: #888; font-size: 14px; letter-spacing: 1px; transition: color 0.3s; }
-        .back-button:hover { color: #000; }
+        :root {
+            --bg-color: #F4F4F4; 
+            --text-color: #111;
+            --line-color: #111; 
+            --brand-red: #7B1113;
+        }
 
-        .project-header { padding: 60px 10% 40px 10%; max-width: 900px; margin: 0 auto; text-align: center; }
-        .project-header h1 { font-size: 32px; margin-bottom: 20px; letter-spacing: 2px; text-transform: uppercase; }
-        .project-header p { font-size: 16px; color: #555; text-align: left; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-color); 
+            line-height: 1.6;
+            padding: 2vw;
+        }
 
-        .image-stack { display: flex; flex-direction: column; align-items: center; padding: 0 10% 60px 10%; gap: 40px; }
-        .image-stack img { width: 100%; max-width: 1000px; height: auto; border-radius: 4px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .wrapper {
+            border: 1px solid var(--line-color);
+            min-height: 90vh;
+        }
 
-        footer { text-align: center; padding: 40px 0; font-size: 12px; color: #aaa; background-color: #eee; }
+        /* --- 导航栏整体样式 --- */
+        header { 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5vw 2vw; 
+            border-bottom: 1px solid var(--line-color); 
+            background-color: #fff;
+        }
+
+        /* --- 品牌 Logo 与文字并排容器 --- */
+        .brand-container {
+            display: flex;
+            align-items: center; 
+            gap: 20px; 
+            text-decoration: none;
+            color: var(--text-color); 
+            transition: opacity 0.3s ease;
+        }
+
+        .brand-container:hover { opacity: 0.7; }
+
+        .brand-logo {
+            height: 100px; 
+            width: auto;
+            display: block;
+        }
+
+        .brand-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px; 
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+
+        /* --- 返回主页按钮 --- */
+        .back-button { 
+            text-decoration: none; 
+            color: var(--text-color); 
+            font-size: 12px; 
+            text-transform: uppercase;
+            letter-spacing: 1px; 
+            transition: opacity 0.3s; 
+            font-weight: 500;
+        }
+        .back-button:hover { opacity: 0.6; }
+
+        /* --- 页面标题区 --- */
+        .project-header { 
+            padding: 60px 4vw 40px 4vw; 
+            text-align: center; 
+            border-bottom: 1px solid var(--line-color);
+            background-color: var(--bg-color);
+        }
+
+        .project-header h1 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 40px; 
+            margin-bottom: 20px; 
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
+        }
+
+        .project-header p { 
+            font-size: 15px; 
+            color: #444; 
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: justify;
+        }
+
+        /* --- 沉浸式大图排列区 --- */
+        .image-stack { 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            padding: 40px 2vw; 
+            gap: 40px; 
+            background-color: #fff;
+        }
+
+        .image-stack img { 
+            width: 100%; 
+            max-width: 1000px; 
+            height: auto; 
+            border: 1px solid var(--line-color);
+        }
+
+        /* --- 底部版权 --- */
+        footer { 
+            text-align: center; 
+            padding: 30px 0; 
+            font-size: 11px; 
+            text-transform: uppercase;
+            color: #888; 
+            background-color: #fff;
+            border-top: 1px solid var(--line-color);
+        }
+
+        /* --- 手机端响应式 --- */
+        @media (max-width: 768px) {
+            .project-header h1 { font-size: 28px; }
+            .brand-logo { height: 60px; }
+            .brand-text { font-size: 18px; }
+        }
     </style>
 </head>
 <body>
 
+<div class="wrapper">
+    
     <header>
-        <a href="index.html" class="back-button">← Back to Portfolio</a>
+        <a href="index.html" class="brand-container">
+            <img src="logo.png" alt="Triumphal Architecture Logo" class="brand-logo">
+            <div class="brand-text">
+                Triumphal<br>Architecture
+            </div>
+        </a>
+        <a href="index.html" class="back-button">← Back to Index</a>
     </header>
 
     <section class="project-header">
@@ -35,15 +158,15 @@
 
     <section class="image-stack">
         <img src="germination-diagram.jpg" alt="Morphology Mapping Diagram">
-        
         <img src="germination-1.jpg" alt="Germination Detail 1">
         <img src="germination-2.jpg" alt="Germination Detail 2">
         <img src="germination-3.jpg" alt="Germination Detail 3">
     </section>
 
     <footer>
-        &copy; 2026 XIN HE. All Rights Reserved.
+        &copy; 2026 TRIUMPHAL ARCHITECTURE. ALL RIGHTS RESERVED.
     </footer>
+</div>
 
 </body>
 </html>
