@@ -12,7 +12,7 @@
             --bg-color: #F4F4F4; 
             --text-color: #111;
             --line-color: #111; 
-            --brand-red: #7B1113; /* 提取自你的Book Cover */
+            --brand-red: #7B1113; 
         }
 
         body {
@@ -20,17 +20,15 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.5;
-            padding: 2vw; /* 四周留白 */
+            padding: 2vw; 
         }
 
-        /* --- 顶层边框容器 (Archive 风格核心) --- */
         .wrapper {
             border: 1px solid var(--line-color);
             display: flex;
             flex-direction: column;
         }
 
-        /* --- 导航栏 --- */
         header {
             display: flex;
             justify-content: space-between;
@@ -61,7 +59,6 @@
 
         nav a:hover { color: var(--brand-red); }
 
-        /* --- 跑马灯宣言 (Archivebydm 标志性元素) --- */
         .marquee-container {
             border-bottom: 1px solid var(--line-color);
             padding: 10px 0;
@@ -85,7 +82,6 @@
             100% { transform: translateX(-100%); }
         }
 
-        /* --- 工作室介绍 (Studio/About) --- */
         .studio-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -139,7 +135,34 @@
             color: var(--brand-red);
         }
 
-        /* --- 档案列表区 (Archive Index) --- */
+        /* --- 动态长图滚动区样式 --- */
+        .scrolling-banner {
+            width: 100%;
+            overflow: hidden;
+            border-bottom: 1px solid var(--line-color);
+            display: flex;
+            background-color: #000;
+        }
+
+        .scrolling-banner-track {
+            display: flex;
+            width: max-content;
+            animation: scroll-left 40s linear infinite; 
+        }
+
+        .scrolling-banner-track img {
+            height: 350px; 
+            object-fit: cover;
+            display: block;
+            pointer-events: none; 
+        }
+
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } 
+        }
+
+        /* --- 档案列表区样式 --- */
         .archive-header {
             padding: 15px 2vw;
             font-size: 11px;
@@ -151,7 +174,6 @@
             background-color: #fff;
         }
 
-        /* 单个档案条目 */
         .archive-item {
             display: grid;
             grid-template-columns: 0.5fr 3fr 1fr 1fr 1fr; 
@@ -185,7 +207,6 @@
             opacity: 0.8;
         }
 
-        /* 悬停微缩图 */
         .item-thumb {
             width: 120px;
             height: 80px;
@@ -205,7 +226,7 @@
             border: 1px solid #fff;
         }
 
-        /* --- 底部联系区域 (Tabular Footer) --- */
+        /* --- 底部联络区样式 --- */
         footer {
             border-top: 1px solid var(--line-color);
             display: grid;
@@ -238,10 +259,10 @@
 
         .footer-block a:hover { text-decoration: underline; }
 
-        /* 响应式 */
         @media (max-width: 768px) {
             .studio-section { grid-template-columns: 1fr; }
             .studio-info { border-right: none; border-bottom: 1px solid var(--line-color); }
+            .scrolling-banner-track img { height: 180px; }
             .archive-item { grid-template-columns: 1fr; gap: 10px; padding: 20px; }
             .item-title { font-size: 24px; }
             .item-index, .item-thumb { display: none; }
@@ -292,6 +313,13 @@
                 <span>Virtual Environments</span>
                 <span>Brand Sponsorship</span>
             </div>
+        </div>
+    </section>
+
+    <section class="scrolling-banner">
+        <div class="scrolling-banner-track">
+            <img src="panorama.jpg" alt="Triumphal Architecture Panorama">
+            <img src="panorama.jpg" alt="Triumphal Architecture Panorama">
         </div>
     </section>
 
