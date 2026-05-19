@@ -75,6 +75,7 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             padding: 0 10% 60px 10%;
+            align-items: start;
         }
 
         /* Project Card */
@@ -88,10 +89,9 @@
         }
 
         .project img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            display: block;
+    width: 100%;
+    height: auto; /* 高度自适应，不再有任何生硬的裁剪和遮挡 */
+    display: block;
         }
 
         .project-info {
