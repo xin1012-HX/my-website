@@ -4,251 +4,381 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TRIUMPHAL ARCHITECTURE | Archive</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* --- 基础重置 --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --bg-color: #F4F4F4; /* 高级灰白背景 */
-            --text-color: #111111;
-            --line-color: #111111; /* 呼应Logo的制图线 */
-            --brand-red: #7B1113;  /* 提取自你的 Book Cover 的深红色 */
+            --bg-color: #F4F4F4; 
+            --text-color: #111;
+            --line-color: #111; 
+            --brand-red: #7B1113; /* 提取自你的Book Cover */
         }
 
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.4;
-            /* 外边框留白，打造画册感 */
-            padding: 20px; 
+            line-height: 1.5;
+            padding: 2vw; /* 四周留白 */
         }
 
-        /* --- 导航栏 (Header) --- */
+        /* --- 顶层边框容器 (Archive 风格核心) --- */
+        .wrapper {
+            border: 1px solid var(--line-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- 导航栏 --- */
         header {
             display: flex;
             justify-content: space-between;
-            align-items: flex-end;
-            padding-bottom: 20px;
+            align-items: center;
+            padding: 1.5vw 2vw;
             border-bottom: 1px solid var(--line-color);
-            margin-bottom: 40px;
-        }
-
-        .brand-logo {
-            width: 150px;
-            /* 这里假设你的logo去底后叫 triumphal-logo.png */
-            /* 如果还没去底，这行会显示一张替代的品牌文字 */
         }
 
         .brand-text {
             font-family: 'Playfair Display', serif;
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
+            line-height: 1.1;
         }
 
         nav a {
             text-decoration: none;
             color: var(--text-color);
-            font-size: 13px;
+            font-size: 12px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-left: 40px;
+            letter-spacing: 1.5px;
+            margin-left: 3vw;
+            font-weight: 500;
             transition: color 0.3s;
         }
 
-        nav a:hover {
+        nav a:hover { color: var(--brand-red); }
+
+        /* --- 跑马灯宣言 (Archivebydm 标志性元素) --- */
+        .marquee-container {
+            border-bottom: 1px solid var(--line-color);
+            padding: 10px 0;
+            overflow: hidden;
+            background-color: #E8E8E8;
             color: var(--brand-red);
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 14px;
+            letter-spacing: 1px;
+            white-space: nowrap;
         }
 
-        /* --- 品牌宣言区 (Manifesto/Hero) --- */
-        .hero-section {
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* --- 工作室介绍 (Studio/About) --- */
+        .studio-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 60px;
-            padding-bottom: 60px;
             border-bottom: 1px solid var(--line-color);
         }
 
-        .hero-text h1 {
+        .studio-info {
+            padding: 4vw;
+            border-right: 1px solid var(--line-color);
+        }
+
+        .studio-info h1 {
             font-family: 'Playfair Display', serif;
             font-size: 4vw;
             line-height: 1.1;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
-        .hero-text p {
-            font-size: 15px;
+        .studio-info p {
+            font-size: 14px;
             color: #444;
-            max-width: 80%;
             margin-bottom: 20px;
+            text-align: justify;
         }
 
-        .hero-image img {
-            width: 100%;
-            height: auto;
-            border: 1px solid var(--line-color); /* 增加制图线框 */
-            filter: grayscale(100%);
-            transition: filter 0.5s ease;
-        }
-
-        .hero-image img:hover {
-            filter: grayscale(0%);
-        }
-
-        /* --- 档案列表区 (Archive Grid) --- */
-        .archive-header {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
+        .studio-services {
+            padding: 4vw;
             display: flex;
+            flex-direction: column;
             justify-content: space-between;
         }
 
-        .archive-list {
-            border-top: 1px solid var(--line-color);
+        .section-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .services-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+
+        .services-list span::before {
+            content: '— ';
+            color: var(--brand-red);
+        }
+
+        /* --- 档案列表区 (Archive Index) --- */
+        .archive-header {
+            padding: 15px 2vw;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--line-color);
+            background-color: #fff;
         }
 
         /* 单个档案条目 */
         .archive-item {
             display: grid;
-            grid-template-columns: 3fr 1fr 1fr 1fr; /* 杂志目录排版：标题、年份、类型、图片 */
+            grid-template-columns: 0.5fr 3fr 1fr 1fr 1fr; 
             align-items: center;
-            padding: 25px 0;
+            padding: 2vw;
             border-bottom: 1px solid var(--line-color);
             text-decoration: none;
             color: var(--text-color);
-            transition: background-color 0.3s, padding-left 0.3s;
+            transition: background-color 0.3s, color 0.3s;
+            position: relative;
         }
+
+        .archive-item:last-child { border-bottom: none; }
 
         .archive-item:hover {
-            background-color: #E8E8E8;
-            padding-left: 20px; /* 悬停时微微向右缩进 */
-            color: var(--brand-red);
+            background-color: var(--text-color);
+            color: var(--bg-color);
         }
 
+        .item-index { font-size: 12px; font-weight: 300; }
+        
         .item-title {
             font-family: 'Playfair Display', serif;
-            font-size: 32px;
+            font-size: 2.5vw;
             font-weight: 400;
         }
 
         .item-meta {
-            font-size: 13px;
-            color: #555;
+            font-size: 12px;
             text-transform: uppercase;
+            opacity: 0.8;
         }
 
-        /* 条目缩略图悬停效果 */
+        /* 悬停微缩图 */
         .item-thumb {
-            width: 100px;
-            height: 60px;
+            width: 120px;
+            height: 80px;
             object-fit: cover;
             justify-self: end;
             opacity: 0;
-            transform: translateX(-20px);
+            transform: scale(0.95);
             transition: all 0.4s ease;
-            border: 1px solid var(--line-color);
+            position: absolute;
+            right: 2vw;
         }
 
         .archive-item:hover .item-thumb {
             opacity: 1;
-            transform: translateX(0);
+            transform: scale(1);
+            z-index: 10;
+            border: 1px solid #fff;
         }
 
-        /* --- 页脚 --- */
+        /* --- 底部联系区域 (Tabular Footer) --- */
         footer {
-            margin-top: 60px;
-            padding-top: 20px;
-            display: flex;
-            justify-content: space-between;
-            font-size: 12px;
-            text-transform: uppercase;
             border-top: 1px solid var(--line-color);
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            background-color: #fff;
         }
 
-        /* --- 移动端响应式 --- */
+        .footer-block {
+            padding: 2vw;
+            border-right: 1px solid var(--line-color);
+            font-size: 12px;
+        }
+
+        .footer-block:last-child { border-right: none; }
+        
+        .footer-block h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--brand-red);
+        }
+
+        .footer-block p, .footer-block a {
+            color: var(--text-color);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 5px;
+            line-height: 1.6;
+        }
+
+        .footer-block a:hover { text-decoration: underline; }
+
+        /* 响应式 */
         @media (max-width: 768px) {
-            .hero-section { grid-template-columns: 1fr; }
-            .archive-item { grid-template-columns: 1fr; gap: 10px; padding: 20px 0; }
-            .item-thumb { display: none; }
-            .archive-item:hover { padding-left: 0; }
+            .studio-section { grid-template-columns: 1fr; }
+            .studio-info { border-right: none; border-bottom: 1px solid var(--line-color); }
+            .archive-item { grid-template-columns: 1fr; gap: 10px; padding: 20px; }
+            .item-title { font-size: 24px; }
+            .item-index, .item-thumb { display: none; }
+            footer { grid-template-columns: 1fr 1fr; }
+            .footer-block:nth-child(2) { border-right: none; }
+            .footer-block:nth-child(1), .footer-block:nth-child(2) { border-bottom: 1px solid var(--line-color); }
         }
     </style>
 </head>
 <body>
 
+<div class="wrapper">
     <header>
         <div class="brand-text">
-            Triumphal<br>Architecture.
+            Triumphal<br>Architecture
         </div>
         <nav>
-            <a href="#archive">Archive</a>
-            <a href="#about">Studio</a>
+            <a href="#studio">Studio</a>
+            <a href="#archive">Index</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
 
-    <section class="hero-section" id="about">
-        <div class="hero-text">
-            <h1>Exquisite &<br>Graceful.</h1>
-            <p>An innovative architecture designer focused on perfect balancing fashion and ergonomics, specializing in transforming bold concepts from sketches to reality while providing design leadership and technical guidance.</p>
-            <p style="font-family: 'Playfair Display', serif; font-style: italic; color: var(--brand-red);">"Every flower and tree tells a story, every wall and tile holds meaning." — Xin He</p>
+    <div class="marquee-container">
+        <div class="marquee-content">
+            "Every flower and tree tells a story, every wall and tile holds meaning." — Overturning traditional concepts & enhancing modern aesthetics.
         </div>
-        <div class="hero-image">
-            <img src="book-cover.jpg" alt="Triumphal Architecture Book Cover" onerror="this.src='https://images.unsplash.com/photo-1600607688066-890987f18a86?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'">
+    </div>
+
+    <section class="studio-section" id="studio">
+        <div class="studio-info">
+            <div class="section-label">01 // The Philosophy</div>
+            <h1>Exquisite & Graceful.</h1>
+            <p>Founded by Xin (Louis) He, Triumphal Architecture derives its philosophy from the precision of draft schemas and the enduring triumph of structure. Our mission is to seamlessly integrate architecture with our clients' visions, overturning traditional paradigms to enhance modern aesthetics.</p>
+            <p>As an incoming B.S. Architecture student at UIUC and a multi-award winner of the AIA Toledo HSDC, Louis He brings a rigorous, sincere attitude to every project, ensuring "High Quality" and "Safety" from physical constructions to virtual game environments.</p>
+        </div>
+        <div class="studio-services">
+            <div class="section-label">02 // Capabilities</div>
+            <div class="services-list">
+                <span>Architecture Design</span>
+                <span>Interior Design</span>
+                <span>Blueprint Drafting</span>
+                <span>Decoration Projects</span>
+                <span>Civil Engineering</span>
+                <span>Physical Modeling</span>
+                <span>Urban Planning</span>
+                <span>Government Bidding</span>
+                <span>Virtual Environments</span>
+                <span>Brand Sponsorship</span>
+            </div>
         </div>
     </section>
 
     <div class="archive-header" id="archive">
-        <span>Selected Projects</span>
-        <span>Index 001 - 004</span>
+        <span>Index / Selected Works</span>
+        <span>2024 — 2026</span>
     </div>
 
     <section class="archive-list">
         
         <a href="#" class="archive-item">
+            <div class="item-index">001</div>
+            <div class="item-title">Aurora Shelter "Home"</div>
+            <div class="item-meta">2025</div>
+            <div class="item-meta">Social Architecture</div>
+            <img src="aurora-home.jpg" alt="Thumb" class="item-thumb" onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&w=400&q=80'">
+        </a>
+
+        <a href="#" class="archive-item">
+            <div class="item-index">002</div>
+            <div class="item-title">Z-Day: Orc Rampage</div>
+            <div class="item-meta">2025</div>
+            <div class="item-meta">Virtual/Game Env.</div>
+            <img src="z-day.jpg" alt="Thumb" class="item-thumb" onerror="this.src='https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-4.0.3&w=400&q=80'">
+        </a>
+
+        <a href="chinese-courtyard.html" class="archive-item">
+            <div class="item-index">003</div>
             <div class="item-title">Chinese Courtyard</div>
             <div class="item-meta">2026</div>
-            <div class="item-meta">Cultural / Study</div>
-            <img src="https://images.unsplash.com/photo-1590059378825-9f5b35c05ab3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Thumb" class="item-thumb">
+            <div class="item-meta">Cultural Study</div>
+            <img src="chinese-courtyard.jpg" alt="Thumb" class="item-thumb" onerror="this.src='https://images.unsplash.com/photo-1590059378825-9f5b35c05ab3?ixlib=rb-4.0.3&w=400&q=80'">
         </a>
 
         <a href="flower-in-the-rock.html" class="archive-item">
+            <div class="item-index">004</div>
             <div class="item-title">Flower in the Rock</div>
             <div class="item-meta">2025</div>
             <div class="item-meta">Tectonic Model</div>
-            <img src="flower-rock-cover.jpg" alt="Thumb" class="item-thumb" onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'">
+            <img src="flower-rock-cover.jpg" alt="Thumb" class="item-thumb" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&w=400&q=80'">
         </a>
 
         <a href="germination.html" class="archive-item">
+            <div class="item-index">005</div>
             <div class="item-title">Germination</div>
             <div class="item-meta">2024</div>
             <div class="item-meta">Morphology</div>
-            <img src="germination-cover.jpg" alt="Thumb" class="item-thumb" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'">
+            <img src="germination-cover.jpg" alt="Thumb" class="item-thumb" onerror="this.src='https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&w=400&q=80'">
         </a>
 
         <a href="helix-tower.html" class="archive-item">
+            <div class="item-index">006</div>
             <div class="item-title">Helix Tower</div>
             <div class="item-meta">2024</div>
             <div class="item-meta">Structure Concept</div>
-            <img src="helix-tower.jpg" alt="Thumb" class="item-thumb" onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'">
+            <img src="helix-tower.jpg" alt="Thumb" class="item-thumb" onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&w=400&q=80'">
         </a>
 
     </section>
 
-    <footer>
-        <div>&copy; 2026 Triumphal Architecture.</div>
-        <div>Designed by Xin He</div>
+    <footer id="contact">
+        <div class="footer-block">
+            <h4>Director</h4>
+            <p>Xin (Louis) He<br>He/Him</p>
+            <p>B.S. Architecture<br>UIUC Class of 2030</p>
+        </div>
+        <div class="footer-block">
+            <h4>Inquiries</h4>
+            <a href="mailto:26xhe@mvcds.org">26xhe@mvcds.org</a>
+            <a href="mailto:xin521iloveu@outlook.com">xin521iloveu@outlook.com</a>
+            <p>+1 (567) 413-0509</p>
+            <p>WeChat: douya-7485</p>
+        </div>
+        <div class="footer-block">
+            <h4>Locations</h4>
+            <p><strong>Toledo, OH, USA</strong><br>Maumee Valley CDS</p>
+            <p style="margin-top: 10px;"><strong>Beijing, China</strong><br>Room 501, Bldg 20<br>Qicai Huayuan, Haidian</p>
+        </div>
+        <div class="footer-block">
+            <h4>Social / Connect</h4>
+            <a href="#">LinkedIn</a>
+            <a href="#">Instagram</a>
+            <a href="#">Behance</a>
+            <p style="margin-top: 20px; font-size: 10px; color: #888;">&copy; 2026 Triumphal Architecture.<br>All Rights Reserved.</p>
+        </div>
     </footer>
+</div>
 
 </body>
 </html>
