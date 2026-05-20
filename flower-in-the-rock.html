@@ -12,7 +12,7 @@
             --bg-color: #F4F4F4; 
             --text-color: #111;
             --line-color: #111; 
-            --brand-red: #7B1113;
+            --warm-bg: #FAF8F5; /* 温馨暖米色背景 */
         }
 
         body { 
@@ -38,7 +38,6 @@
             background-color: #fff;
         }
 
-        /* --- 品牌 Logo 与文字并排容器 --- */
         .brand-container {
             display: flex;
             align-items: center; 
@@ -101,21 +100,43 @@
             text-align: justify;
         }
 
-        /* --- 沉浸式大图排列区 --- */
-        .image-stack { 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            padding: 40px 2vw; 
-            gap: 40px; 
-            background-color: #fff;
+        /* --- 温馨画廊区 (2x2 边缘对齐布局) --- */
+        .warm-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 左右两列平分 */
+            gap: 3vw;
+            padding: 4vw;
+            background-color: var(--warm-bg); 
         }
 
-        .image-stack img { 
-            width: 100%; 
-            max-width: 1000px; 
-            height: auto; 
-            border: 1px solid var(--line-color);
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            /* 关键代码：强制图片按照 3:4 的比例展示，配合 cover 实现裁切，保证边缘绝对平齐！ */
+            aspect-ratio: 3 / 4; 
+            object-fit: cover; 
+            object-position: center; /* 居中裁切 */
+            border-radius: 6px; 
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06); 
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: translateY(-5px); 
+        }
+
+        .gallery-caption {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 15px;
+            color: #666;
+            text-align: center;
+            letter-spacing: 1px;
         }
 
         /* --- 底部版权 --- */
@@ -131,6 +152,7 @@
 
         /* --- 手机端响应式 --- */
         @media (max-width: 768px) {
+            .warm-gallery { grid-template-columns: 1fr; } 
             .project-header h1 { font-size: 28px; }
             .brand-logo { height: 60px; }
             .brand-text { font-size: 18px; }
@@ -156,11 +178,28 @@
         <p>This project explores the interface between architecture and the raw forces of nature, taking inspiration from the resilience of plants sprouting stubbornly from barren stone. In this metaphorical translation, the architecture acts as the delicate 'flower' emerging from the solid 'rock' of the cliff face. <br><br> Constructed with layered corrugated cardboard to represent tectonic topography and light timber for the architectural interventions, the model features a concave cliff with dramatic high and low protrusions. From this rugged terrain, lightweight structures cantilever outward to form a viewing deck supported by angled struts. Dwellings are intimately nestled deep into the cliff's crevices, while a skeletal structural frame crowns the peak, expressing a poetic tension between heavy earth and fragile, reaching architecture.</p>
     </section>
 
-    <section class="image-stack">
-        <img src="flower-rock-1.jpg" alt="Flower in the Rock Detail 1">
-        <img src="flower-rock-2.jpg" alt="Flower in the Rock Detail 2">
-        <img src="flower-rock-3.jpg" alt="Flower in the Rock Detail 3">
-        <img src="flower-rock-4.jpg" alt="Flower in the Rock Detail 4">
+    <section class="warm-gallery">
+        
+        <div class="gallery-item">
+            <img src="flower-rock-1.jpg" alt="Structural Mapping">
+            <div class="gallery-caption">Structural Mapping</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="flower-rock-2.jpg" alt="Top View">
+            <div class="gallery-caption">Top View</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="flower-rock-3.png" alt="Light & Shadow">
+            <div class="gallery-caption">Light & Shadow</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="flower-rock-4.jpg" alt="Full View">
+            <div class="gallery-caption">Full View</div>
+        </div>
+
     </section>
 
     <footer>
