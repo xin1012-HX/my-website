@@ -29,17 +29,39 @@
             flex-direction: column;
         }
 
+        /* --- 导航栏样式 --- */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1.5vw 2vw;
             border-bottom: 1px solid var(--line-color);
+            background-color: #fff;
+        }
+
+        /* Logo与品牌名并排容器 */
+        .brand-container {
+            display: flex;
+            align-items: center; 
+            gap: 20px; 
+            text-decoration: none;
+            color: var(--text-color); 
+            transition: opacity 0.3s ease;
+        }
+
+        .brand-container:hover {
+            opacity: 0.7;
+        }
+
+        .brand-logo {
+            height: 100px; 
+            width: auto;
+            display: block;
         }
 
         .brand-text {
             font-family: 'Playfair Display', serif;
-            font-size: 24px;
+            font-size: 26px; 
             font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -59,6 +81,7 @@
 
         nav a:hover { color: var(--brand-red); }
 
+        /* --- 跑马灯 --- */
         .marquee-container {
             border-bottom: 1px solid var(--line-color);
             padding: 10px 0;
@@ -82,6 +105,7 @@
             100% { transform: translateX(-100%); }
         }
 
+        /* --- 工作室介绍 --- */
         .studio-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -135,7 +159,7 @@
             color: var(--brand-red);
         }
 
-        /* --- 动态长图滚动区样式 --- */
+        /* --- 双层长图滚动 --- */
         .scrolling-banner {
             width: 100%;
             overflow: hidden;
@@ -150,6 +174,10 @@
             animation: scroll-left 40s linear infinite; 
         }
 
+        .scrolling-banner-track.reverse {
+            animation: scroll-right 40s linear infinite;
+        }
+
         .scrolling-banner-track img {
             height: 350px; 
             object-fit: cover;
@@ -162,7 +190,12 @@
             100% { transform: translateX(-50%); } 
         }
 
-        /* --- 档案列表区样式 --- */
+        @keyframes scroll-right {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); } 
+        }
+
+        /* --- 档案索引区 --- */
         .archive-header {
             padding: 15px 2vw;
             font-size: 11px;
@@ -171,6 +204,10 @@
             display: flex;
             justify-content: space-between;
             border-bottom: 1px solid var(--line-color);
+            background-color: #fff;
+        }
+
+        .archive-list {
             background-color: #fff;
         }
 
@@ -226,7 +263,7 @@
             border: 1px solid #fff;
         }
 
-        /* --- 底部联络区样式 --- */
+        /* --- 底部联络区 --- */
         footer {
             border-top: 1px solid var(--line-color);
             display: grid;
@@ -269,6 +306,8 @@
             footer { grid-template-columns: 1fr 1fr; }
             .footer-block:nth-child(2) { border-right: none; }
             .footer-block:nth-child(1), .footer-block:nth-child(2) { border-bottom: 1px solid var(--line-color); }
+            .brand-logo { height: 60px; }
+            .brand-text { font-size: 18px; }
         }
     </style>
 </head>
@@ -276,9 +315,12 @@
 
 <div class="wrapper">
     <header>
-        <div class="brand-text">
-            Triumphal<br>Architecture
-        </div>
+        <a href="index.html" class="brand-container">
+            <img src="logo.png" alt="Triumphal Architecture Logo" class="brand-logo">
+            <div class="brand-text">
+                Triumphal<br>Architecture
+            </div>
+        </a>
         <nav>
             <a href="#studio">Studio</a>
             <a href="#archive">Index</a>
@@ -318,8 +360,15 @@
 
     <section class="scrolling-banner">
         <div class="scrolling-banner-track">
-            <img src="panorama.jpg" alt="Triumphal Architecture Panorama">
-            <img src="panorama.jpg" alt="Triumphal Architecture Panorama">
+            <img src="panorama.jpg" alt="Triumphal Architecture Panorama 1">
+            <img src="panorama.jpg" alt="Triumphal Architecture Panorama 1">
+        </div>
+    </section>
+
+    <section class="scrolling-banner">
+        <div class="scrolling-banner-track reverse">
+            <img src="panorama2.jpg" alt="Triumphal Architecture Panorama 2">
+            <img src="panorama2.jpg" alt="Triumphal Architecture Panorama 2">
         </div>
     </section>
 
@@ -330,28 +379,28 @@
 
     <section class="archive-list">
         
-        <a href="#" class="archive-item">
+        <a href="aurora-home.html" class="archive-item">
             <div class="item-index">001</div>
             <div class="item-title">Aurora Shelter "Home"</div>
             <div class="item-meta">2025</div>
             <div class="item-meta">Social Architecture</div>
-            <img src="aurora-home.jpg" alt="Thumb" class="item-thumb" onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&w=400&q=80'">
+            <img src="aurora-birdseye.jpg" alt="Thumb" class="item-thumb" onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&w=400&q=80'">
         </a>
 
-        <a href="#" class="archive-item">
+        <a href="z-day.html" class="archive-item">
             <div class="item-index">002</div>
-            <div class="item-title">Z-Day: Orc Rampage</div>
+            <div class="item-title">Z-Day: Rise of the Horde</div>
             <div class="item-meta">2025</div>
             <div class="item-meta">Virtual/Game Env.</div>
-            <img src="z-day.jpg" alt="Thumb" class="item-thumb" onerror="this.src='https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-4.0.3&w=400&q=80'">
+            <img src="z-day-camera.jpg" alt="Thumb" class="item-thumb" onerror="this.src='https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-4.0.3&w=400&q=80'">
         </a>
 
-        <a href="chinese-courtyard.html" class="archive-item">
+        <a href="magazine-design.html" class="archive-item">
             <div class="item-index">003</div>
-            <div class="item-title">Chinese Courtyard</div>
+            <div class="item-title">Architecture Magazine Design</div>
             <div class="item-meta">2026</div>
-            <div class="item-meta">Cultural Study</div>
-            <img src="chinese-courtyard.jpg" alt="Thumb" class="item-thumb" onerror="this.src='https://images.unsplash.com/photo-1590059378825-9f5b35c05ab3?ixlib=rb-4.0.3&w=400&q=80'">
+            <div class="item-meta">Editorial / Print</div>
+            <img src="cover-chinese.jpg" alt="Thumb" class="item-thumb" onerror="this.src='https://images.unsplash.com/photo-1590059378825-9f5b35c05ab3?ixlib=rb-4.0.3&w=400&q=80'">
         </a>
 
         <a href="flower-in-the-rock.html" class="archive-item">
@@ -396,7 +445,7 @@
         <div class="footer-block">
             <h4>Locations</h4>
             <p><strong>Toledo, OH, USA</strong><br>Maumee Valley CDS</p>
-            <p style="margin-top: 10px;"><strong>Beijing, China</strong><br>Room 501, Bldg 20<br>Qicai Huayuan, Haidian</p>
+            <p style="margin-top: 10px;"><strong>Beijing, China</strong><br>Qicai Huayuan, Haidian</p>
         </div>
         <div class="footer-block">
             <h4>Social / Connect</h4>
