@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurora Shelter "Home" - TRIUMPHAL ARCHITECTURE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg-color: #F4F4F4; 
+            --text-color: #111;
+            --line-color: #111; 
+            --warm-bg: #FAF8F5; /* 温馨的暖米色背景 */
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-color); 
+            line-height: 1.6;
+            padding: 2vw;
+        }
+
+        .wrapper {
+            border: 1px solid var(--line-color);
+            min-height: 90vh;
+        }
+
+        /* --- 导航栏 --- */
+        header { 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5vw 2vw; 
+            border-bottom: 1px solid var(--line-color); 
+            background-color: #fff;
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center; 
+            gap: 20px; 
+            text-decoration: none;
+            color: var(--text-color); 
+            transition: opacity 0.3s ease;
+        }
+
+        .brand-container:hover { opacity: 0.7; }
+
+        .brand-logo { height: 100px; width: auto; display: block; }
+
+        .brand-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px; 
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+
+        .back-button { 
+            text-decoration: none; 
+            color: var(--text-color); 
+            font-size: 12px; 
+            text-transform: uppercase;
+            letter-spacing: 1px; 
+            transition: opacity 0.3s; 
+            font-weight: 500;
+        }
+        .back-button:hover { opacity: 0.6; }
+
+        /* --- 页面标题与故事背景区 --- */
+        .project-header { 
+            padding: 80px 4vw 60px 4vw; 
+            text-align: center; 
+            border-bottom: 1px solid var(--line-color);
+            background-color: var(--bg-color);
+        }
+
+        .project-header h1 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 42px; 
+            margin-bottom: 30px; 
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
+        }
+
+        .project-header p { 
+            font-size: 15px; 
+            color: #444; 
+            max-width: 850px;
+            margin: 0 auto 20px auto;
+            text-align: justify;
+            line-height: 1.8;
+        }
+
+        /* --- 温馨画廊区 (2列布局) --- */
+        .warm-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3vw;
+            padding: 4vw;
+            background-color: var(--warm-bg); /* 暖色背景 */
+        }
+
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px; /* 微微的圆角显得更有温度 */
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06); /* 柔和的弥散阴影 */
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: translateY(-5px); /* 鼠标悬浮微微上浮 */
+        }
+
+        .gallery-caption {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 15px;
+            color: #666;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        /* --- 底部版权 --- */
+        footer { 
+            text-align: center; 
+            padding: 30px 0; 
+            font-size: 11px; 
+            text-transform: uppercase;
+            color: #888; 
+            background-color: #fff;
+            border-top: 1px solid var(--line-color);
+        }
+
+        /* --- 手机端响应式 --- */
+        @media (max-width: 768px) {
+            .warm-gallery { grid-template-columns: 1fr; }
+            .project-header h1 { font-size: 28px; }
+            .brand-logo { height: 60px; }
+            .brand-text { font-size: 18px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    
+    <header>
+        <a href="index.html" class="brand-container">
+            <img src="logo.png" alt="Triumphal Architecture Logo" class="brand-logo">
+            <div class="brand-text">
+                Triumphal<br>Architecture
+            </div>
+        </a>
+        <a href="index.html" class="back-button">← Back to Index</a>
+    </header>
+
+    <section class="project-header">
+        <h1>Aurora Shelter "Home"</h1>
+        <p>Beyond academia, my experiences in the streets and shelters of the Toledo community allowed me to grasp the deeper significance of architecture. During winter, I often saw unhoused individuals standing along Toledo’s freezing streets, clutching torn pieces of cardboard with faint words of "home needed." I rarely dared to meet their eyes or linger my gaze, because I was afraid that misplaced pity might compromise the dignity they struggled to preserve. Yet I could not stop wondering where they would go once they disappeared from those corners—whether they had found shelter, or simply been carried away by the harsh wind.</p>
+        <p>Fate is something that is hard to explain. In early 2025, I was given the opportunity to confront these questions directly through the AIA Toledo architectural competition, where I designed a shelter for unhoused women and children. During the early stages of the project, I visited the Aurora Project and spoke with residents who had experienced displacement. Their concerns were not about form or structure, but about safety, dignity, and the simple need for a place that could truly be called "home."</p>
+        <p>In response, I rejected an institutional shelter model and instead designed a residential environment grounded in Toledo’s local style. By drawing on familiar spatial patterns, I sought to restore a sense of belonging and dignity rather than reinforce marginalization. When the Toledo City Council formally recognized the project, I realized that architecture’s power extends beyond providing shelter, which can participate in public dialogue and contribute to social healing.</p>
+    </section>
+
+    <section class="warm-gallery">
+        
+        <div class="gallery-item">
+            <img src="aurora-front-yard.jpg" alt="Front Yard">
+            <div class="gallery-caption">Front Yard</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="aurora-front-gate.jpg" alt="Front Gate">
+            <div class="gallery-caption">Front Gate</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="aurora-parking.jpg" alt="Parking Lot">
+            <div class="gallery-caption">Parking Lot</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="aurora-pathway.jpg" alt="Pathway">
+            <div class="gallery-caption">Pathway</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="aurora-back-garden.jpg" alt="Back Garden">
+            <div class="gallery-caption">Back Garden</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="aurora-parking-top.jpg" alt="Parking Lot Top View">
+            <div class="gallery-caption">Parking Lot Top View</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="aurora-birdseye.jpg" alt="Bird's-Eye View">
+            <div class="gallery-caption">Bird's-Eye View</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="aurora-east-pathway.jpg" alt="East Pathway">
+            <div class="gallery-caption">East Pathway</div>
+        </div>
+
+    </section>
+
+    <footer>
+        &copy; 2026 TRIUMPHAL ARCHITECTURE. ALL RIGHTS RESERVED.
+    </footer>
+</div>
+
+</body>
+</html>
