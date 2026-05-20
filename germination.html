@@ -104,6 +104,7 @@
             gap: 3vw;
             padding: 4vw;
             background-color: var(--warm-bg); 
+            align-items: start; /* 关键修复：让两列图片顶部绝对对齐，互不拉扯 */
         }
 
         .gallery-item {
@@ -112,12 +113,10 @@
             gap: 15px;
         }
 
-        .gallery-item img {
+       .gallery-item img {
             width: 100%;
-            /* 👇 这两行是核心魔法！强制统一比例，边缘绝对对齐 👇 */
-            aspect-ratio: 3 / 4; 
-            object-fit: cover; 
-            object-position: center;
+            height: auto; /* 关键修复：高度根据图片原始比例自动计算，100%保留原图信息 */
+            display: block;
             border-radius: 6px; 
             box-shadow: 0 8px 24px rgba(0,0,0,0.06); 
             transition: transform 0.4s ease;
