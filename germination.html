@@ -12,7 +12,7 @@
             --bg-color: #F4F4F4; 
             --text-color: #111;
             --line-color: #111; 
-            --warm-bg: #FAF8F5; /* 引入温馨的暖米色背景 */
+            --warm-bg: #FAF8F5; 
         }
 
         body { 
@@ -28,7 +28,6 @@
             min-height: 90vh;
         }
 
-        /* --- 导航栏整体样式 --- */
         header { 
             display: flex;
             justify-content: space-between;
@@ -64,7 +63,6 @@
             line-height: 1.1;
         }
 
-        /* --- 返回主页按钮 --- */
         .back-button { 
             text-decoration: none; 
             color: var(--text-color); 
@@ -76,7 +74,6 @@
         }
         .back-button:hover { opacity: 0.6; }
 
-        /* --- 页面标题区 --- */
         .project-header { 
             padding: 60px 4vw 40px 4vw; 
             text-align: center; 
@@ -103,7 +100,7 @@
         /* --- 温馨画廊区 (2列并排布局) --- */
         .warm-gallery {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* 分为左右两列 */
+            grid-template-columns: 1fr 1fr; 
             gap: 3vw;
             padding: 4vw;
             background-color: var(--warm-bg); 
@@ -117,7 +114,10 @@
 
         .gallery-item img {
             width: 100%;
-            height: auto;
+            /* 👇 这两行是核心魔法！强制统一比例，边缘绝对对齐 👇 */
+            aspect-ratio: 3 / 4; 
+            object-fit: cover; 
+            object-position: center;
             border-radius: 6px; 
             box-shadow: 0 8px 24px rgba(0,0,0,0.06); 
             transition: transform 0.4s ease;
@@ -136,7 +136,6 @@
             letter-spacing: 1px;
         }
 
-        /* --- 底部版权 --- */
         footer { 
             text-align: center; 
             padding: 30px 0; 
@@ -147,9 +146,8 @@
             border-top: 1px solid var(--line-color);
         }
 
-        /* --- 手机端响应式 --- */
         @media (max-width: 768px) {
-            .warm-gallery { grid-template-columns: 1fr; } /* 手机端自动变回单列 */
+            .warm-gallery { grid-template-columns: 1fr; } 
             .project-header h1 { font-size: 28px; }
             .brand-logo { height: 60px; }
             .brand-text { font-size: 18px; }
