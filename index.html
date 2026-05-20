@@ -37,37 +37,13 @@
             border-bottom: 1px solid var(--line-color);
         }
 
-       /* --- 品牌 Logo 与文字的组合容器 --- */
-        .brand-container {
-            display: flex;
-            align-items: center; /* 让 Logo 和文字垂直居中对齐 */
-            gap: 20px; /* Logo 和文字之间的间距 */
-            text-decoration: none;
-            color: var(--text-color); /* 确保文字是黑色的，不是链接蓝 */
-            transition: opacity 0.3s ease;
-        }
-
-        .brand-container:hover {
-            opacity: 0.7;
-        }
-
-        .brand-logo {
-            height: 100px; /* 我把 Logo 高度从 70px 放大到了 100px。如果还嫌小，你可以改成 120px */
-            width: auto;
-            display: block;
-        }
-
         .brand-text {
             font-family: 'Playfair Display', serif;
-            font-size: 26px; /* 文字稍微调大一点点 */
+            font-size: 24px;
             font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
             line-height: 1.1;
-        }
-
-        .brand-logo:hover {
-            opacity: 0.7; /* 鼠标悬停时会有微微变淡的高级交互效果 */
         }
 
         nav a {
@@ -174,11 +150,6 @@
             animation: scroll-left 40s linear infinite; 
         }
 
-        /* 给第二行添加反向滚动的动画 */
-        .scrolling-banner-track.reverse {
-            animation: scroll-right 40s linear infinite;
-        }
-
         .scrolling-banner-track img {
             height: 350px; 
             object-fit: cover;
@@ -186,16 +157,9 @@
             pointer-events: none; 
         }
 
-        /* 向左滚动的动画核心 */
         @keyframes scroll-left {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); } 
-        }
-
-        /* 向右滚动的动画核心 */
-        @keyframes scroll-right {
-            0% { transform: translateX(-50%); }
-            100% { transform: translateX(0); } 
         }
 
         /* --- 档案列表区样式 --- */
@@ -311,13 +275,10 @@
 <body>
 
 <div class="wrapper">
-   <header>
-        <a href="index.html" class="brand-container">
-            <img src="logo.png" alt="Triumphal Architecture Logo" class="brand-logo">
-            <div class="brand-text">
-                Triumphal<br>Architecture
-            </div>
-        </a>
+    <header>
+        <div class="brand-text">
+            Triumphal<br>Architecture
+        </div>
         <nav>
             <a href="#studio">Studio</a>
             <a href="#archive">Index</a>
@@ -357,15 +318,8 @@
 
     <section class="scrolling-banner">
         <div class="scrolling-banner-track">
-            <img src="panorama.jpg" alt="Triumphal Architecture Panorama 1">
-            <img src="panorama.jpg" alt="Triumphal Architecture Panorama 1">
-        </div>
-    </section>
-
-    <section class="scrolling-banner">
-        <div class="scrolling-banner-track reverse">
-            <img src="panorama2.jpg" alt="Triumphal Architecture Panorama 2">
-            <img src="panorama2.jpg" alt="Triumphal Architecture Panorama 2">
+            <img src="panorama.jpg" alt="Triumphal Architecture Panorama">
+            <img src="panorama.jpg" alt="Triumphal Architecture Panorama">
         </div>
     </section>
 
@@ -384,20 +338,20 @@
             <img src="aurora-home.jpg" alt="Thumb" class="item-thumb" onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&w=400&q=80'">
         </a>
 
-        <a href="z-day.html" class="archive-item">
+        <a href="#" class="archive-item">
             <div class="item-index">002</div>
-            <div class="item-title">Z-Day: Rise of the Horde</div>
+            <div class="item-title">Z-Day: Orc Rampage</div>
             <div class="item-meta">2025</div>
             <div class="item-meta">Virtual/Game Env.</div>
-            <img src="z-day-camera.jpg" alt="Thumb" class="item-thumb" onerror="this.src='https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-4.0.3&w=400&q=80'">
+            <img src="z-day.jpg" alt="Thumb" class="item-thumb" onerror="this.src='https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-4.0.3&w=400&q=80'">
         </a>
 
-        <a href="magazine-design.html" class="archive-item">
+        <a href="chinese-courtyard.html" class="archive-item">
             <div class="item-index">003</div>
-            <div class="item-title">Architecture Magazine Design</div>
+            <div class="item-title">Chinese Courtyard</div>
             <div class="item-meta">2026</div>
-            <div class="item-meta">Editorial / Print</div>
-            <img src="cover-chinese.jpg" alt="Thumb" class="item-thumb" onerror="this.src='https://images.unsplash.com/photo-1590059378825-9f5b35c05ab3?ixlib=rb-4.0.3&w=400&q=80'">
+            <div class="item-meta">Cultural Study</div>
+            <img src="chinese-courtyard.jpg" alt="Thumb" class="item-thumb" onerror="this.src='https://images.unsplash.com/photo-1590059378825-9f5b35c05ab3?ixlib=rb-4.0.3&w=400&q=80'">
         </a>
 
         <a href="flower-in-the-rock.html" class="archive-item">
@@ -435,14 +389,14 @@
         <div class="footer-block">
             <h4>Inquiries</h4>
             <a href="mailto:26xhe@mvcds.org">26xhe@mvcds.org</a>
-            <a href="mailto:xin521iloveu@gmail.com">xin521iloveu@gmail.com</a>
+            <a href="mailto:xin521iloveu@outlook.com">xin521iloveu@outlook.com</a>
             <p>+1 (567) 413-0509</p>
             <p>WeChat: douya-7485</p>
         </div>
         <div class="footer-block">
             <h4>Locations</h4>
-            <p><strong>Toledo, OH, USA</strong><br>Maumee Valley Country Day School</p>
-            <p style="margin-top: 10px;"><strong>Beijing, China</strong><br>Qicai Huayuan, Haidian</p>
+            <p><strong>Toledo, OH, USA</strong><br>Maumee Valley CDS</p>
+            <p style="margin-top: 10px;"><strong>Beijing, China</strong><br>Room 501, Bldg 20<br>Qicai Huayuan, Haidian</p>
         </div>
         <div class="footer-block">
             <h4>Social / Connect</h4>
