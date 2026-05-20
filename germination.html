@@ -12,7 +12,7 @@
             --bg-color: #F4F4F4; 
             --text-color: #111;
             --line-color: #111; 
-            --brand-red: #7B1113;
+            --warm-bg: #FAF8F5; /* 引入温馨的暖米色背景 */
         }
 
         body { 
@@ -38,7 +38,6 @@
             background-color: #fff;
         }
 
-        /* --- 品牌 Logo 与文字并排容器 --- */
         .brand-container {
             display: flex;
             align-items: center; 
@@ -101,21 +100,40 @@
             text-align: justify;
         }
 
-        /* --- 沉浸式大图排列区 --- */
-        .image-stack { 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            padding: 40px 2vw; 
-            gap: 40px; 
-            background-color: #fff;
+        /* --- 温馨画廊区 (2列并排布局) --- */
+        .warm-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 分为左右两列 */
+            gap: 3vw;
+            padding: 4vw;
+            background-color: var(--warm-bg); 
         }
 
-        .image-stack img { 
-            width: 100%; 
-            max-width: 1000px; 
-            height: auto; 
-            border: 1px solid var(--line-color);
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px; 
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06); 
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: translateY(-5px); 
+        }
+
+        .gallery-caption {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 15px;
+            color: #666;
+            text-align: center;
+            letter-spacing: 1px;
         }
 
         /* --- 底部版权 --- */
@@ -131,6 +149,7 @@
 
         /* --- 手机端响应式 --- */
         @media (max-width: 768px) {
+            .warm-gallery { grid-template-columns: 1fr; } /* 手机端自动变回单列 */
             .project-header h1 { font-size: 28px; }
             .brand-logo { height: 60px; }
             .brand-text { font-size: 18px; }
@@ -156,11 +175,28 @@
         <p>"Germination" is a spatial exploration driven by the biological morphology of the white dulcamara. The project translates the plant's upward trajectory—characterized by its stability, rapid expansion, and unpredictable directional shifts—into a rigid geometric language. <br><br> By systematically mapping botanical anatomy to tectonic elements, the organic growth process becomes readable in the architecture: the <strong>Root</strong> anchors the composition as the foundational Pedestal; the <strong>Stem</strong> transforms into the primary vertical Support; the <strong>Branches</strong> cantilever outward as dynamic spatial Extensions; and the <strong>Flower Bloom</strong> culminates as the peak Building form. This composition bridges the organic vitality of nature with the structural logic of constructed space.</p>
     </section>
 
-    <section class="image-stack">
-        <img src="germination-diagram.jpg" alt="Morphology Mapping Diagram">
-        <img src="germination-1.jpg" alt="Germination Detail 1">
-        <img src="germination-2.jpg" alt="Germination Detail 2">
-        <img src="germination-3.jpg" alt="Germination Detail 3">
+    <section class="warm-gallery">
+        
+        <div class="gallery-item">
+            <img src="germination-diagram.jpg" alt="Structural Mapping">
+            <div class="gallery-caption">Structural Mapping</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="white-dulcamara.jpg" alt="White Dulcamara">
+            <div class="gallery-caption">White Dulcamara</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="germination-1.jpg" alt="Morphology 01">
+            <div class="gallery-caption">Morphology 01</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="germination-2.jpg" alt="Morphology 02">
+            <div class="gallery-caption">Morphology 02</div>
+        </div>
+
     </section>
 
     <footer>
