@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z-Day: Rise of the Horde - TRIUMPHAL ARCHITECTURE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg-color: #F4F4F4; 
+            --text-color: #111;
+            --line-color: #111; 
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-color); 
+            line-height: 1.6;
+            padding: 2vw;
+        }
+
+        .wrapper {
+            border: 1px solid var(--line-color);
+            min-height: 90vh;
+        }
+
+        /* --- 导航栏 --- */
+        header { 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5vw 2vw; 
+            border-bottom: 1px solid var(--line-color); 
+            background-color: #fff;
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center; 
+            gap: 20px; 
+            text-decoration: none;
+            color: var(--text-color); 
+            transition: opacity 0.3s ease;
+        }
+
+        .brand-container:hover { opacity: 0.7; }
+
+        .brand-logo { height: 100px; width: auto; display: block; }
+
+        .brand-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px; 
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+
+        .back-button { 
+            text-decoration: none; 
+            color: var(--text-color); 
+            font-size: 12px; 
+            text-transform: uppercase;
+            letter-spacing: 1px; 
+            transition: opacity 0.3s; 
+            font-weight: 500;
+        }
+        .back-button:hover { opacity: 0.6; }
+
+        /* --- 页面标题与故事背景区 --- */
+        .project-header { 
+            padding: 60px 4vw 40px 4vw; 
+            text-align: center; 
+            border-bottom: 1px solid var(--line-color);
+            background-color: var(--bg-color);
+        }
+
+        .project-header h1 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 40px; 
+            margin-bottom: 20px; 
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
+        }
+
+        .project-header p { 
+            font-size: 14px; 
+            color: #444; 
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        /* --- 媒体展示网格区 --- */
+        .media-gallery {
+            display: flex;
+            flex-direction: column;
+            background-color: var(--line-color);
+            gap: 1px; /* 生成 1px 的边框 */
+        }
+
+        /* 上半部分：左右两张并排照片 */
+        .image-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+        }
+
+        .media-item {
+            background-color: #000; /* 游戏场景底色用黑色更能衬托氛围 */
+            padding: 2vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .media-item img, .media-item video {
+            width: 100%;
+            height: auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin-bottom: 20px;
+        }
+
+        .media-caption {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #aaa;
+            text-align: center;
+        }
+
+        /* 底部版权 */
+        footer { 
+            text-align: center; 
+            padding: 30px 0; 
+            font-size: 11px; 
+            text-transform: uppercase;
+            color: #888; 
+            background-color: #fff;
+            border-top: 1px solid var(--line-color);
+        }
+
+        @media (max-width: 768px) {
+            .image-row { grid-template-columns: 1fr; }
+            .project-header h1 { font-size: 28px; }
+            .brand-logo { height: 60px; }
+            .brand-text { font-size: 18px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <header>
+        <a href="index.html" class="brand-container">
+            <img src="logo.png" alt="Triumphal Architecture Logo" class="brand-logo">
+            <div class="brand-text">
+                Triumphal<br>Architecture
+            </div>
+        </a>
+        <a href="index.html" class="back-button">← Back to Index</a>
+    </header>
+
+    <section class="project-header">
+        <h1>Z-Day: Rise of the Horde</h1>
+        <p><strong>World-Building & Narrative:</strong> Set in the dystopian future of 2047, the world is engulfed in a high-tech nuclear war where traditional nuclear weapons are no longer the ultimate lethal threat. Amidst the chaos, a bio-research facility named <em>HelixCore</em> is desperately developing an anti-radiation vaccine. A sudden explosive tremor breaches containment, causing a rapid leak of the highly volatile Nexis-9 virus. Lead researcher Barr is directly exposed, triggering an uncontrollable and agonizing mutation. As his physical form distorts and tears through his hazmat suit, he transforms into a sentient, mutated undead. Consumed by panic, Barr rampages through the lab, inadvertently knocking over nuclear waste and breaching the main reactor—leading to an uncontrollable fusion meltdown. Agent 1012, a tactical operative, is dispatched following the facility's distress signal with a critical mission: shut down the reactor and lock down the site. Currently in development, this sequence represents the climactic ending of Part I, laying the groundwork for upcoming chapters exploring nuclear fallout, viral mutation, and the technological arms race.</p>
+    </section>
+
+    <section class="media-gallery">
+        
+        <div class="image-row">
+            <div class="media-item">
+                <img src="z-day-camera.jpg" alt="Z-Day Camera View">
+                <div class="media-caption">Camera View</div>
+            </div>
+            <div class="media-item">
+                <img src="z-day-birdseye.jpg" alt="Z-Day Bird's-eye View">
+                <div class="media-caption">Bird's-Eye View</div>
+            </div>
+        </div>
+
+        <div class="media-item" style="padding: 4vw 8vw;">
+            <video controls autoplay muted loop>
+                <source src="z-day-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="media-caption">Z-DAY: Rise of the Horde - Ending Sequence Prototype</div>
+        </div>
+
+    </section>
+
+    <footer>
+        &copy; 2026 TRIUMPHAL ARCHITECTURE. ALL RIGHTS RESERVED.
+    </footer>
+</div>
+
+</body>
+</html>
