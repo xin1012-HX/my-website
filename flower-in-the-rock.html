@@ -101,12 +101,13 @@
         }
 
         /* --- 温馨画廊区 (2x2 边缘对齐布局) --- */
-        .warm-gallery {
+       .warm-gallery {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* 左右两列平分 */
+            grid-template-columns: 1fr 1fr; 
             gap: 3vw;
             padding: 4vw;
             background-color: var(--warm-bg); 
+            align-items: start; /* 关键修复：让两列图片顶部绝对对齐，互不拉扯 */
         }
 
         .gallery-item {
@@ -117,10 +118,8 @@
 
         .gallery-item img {
             width: 100%;
-            /* 关键代码：强制图片按照 3:4 的比例展示，配合 cover 实现裁切，保证边缘绝对平齐！ */
-            aspect-ratio: 3 / 4; 
-            object-fit: cover; 
-            object-position: center; /* 居中裁切 */
+            height: auto; /* 关键修复：高度根据图片原始比例自动计算，100%保留原图信息 */
+            display: block;
             border-radius: 6px; 
             box-shadow: 0 8px 24px rgba(0,0,0,0.06); 
             transition: transform 0.4s ease;
