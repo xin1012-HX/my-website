@@ -12,7 +12,7 @@
             --bg-color: #F4F4F4; 
             --text-color: #111;
             --line-color: #111; 
-            --brand-red: #7B1113;
+            --warm-bg: #FAF8F5; /* 温馨暖米色背景 */
         }
 
         body { 
@@ -38,7 +38,6 @@
             background-color: #fff;
         }
 
-        /* --- 品牌 Logo 与文字并排容器 --- */
         .brand-container {
             display: flex;
             align-items: center; 
@@ -101,21 +100,42 @@
             text-align: justify;
         }
 
-        /* --- 沉浸式大图排列区 --- */
-        .image-stack { 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            padding: 40px 2vw; 
-            gap: 40px; 
-            background-color: #fff;
+        /* --- 温馨画廊区 (2列高低自适应对齐布局) --- */
+        .warm-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 左右两列平分 */
+            gap: 3vw;
+            padding: 4vw;
+            background-color: var(--warm-bg); 
+            align-items: start; /* 顶部绝对对齐，原图不裁剪 */
         }
 
-        .image-stack img { 
-            width: 100%; 
-            max-width: 1000px; 
-            height: auto; 
-            border: 1px solid var(--line-color);
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto; /* 保证高度自适应，100%保留完整设计细节 */
+            display: block;
+            border-radius: 6px; 
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06); 
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: translateY(-5px); 
+        }
+
+        .gallery-caption {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 15px;
+            color: #666;
+            text-align: center;
+            letter-spacing: 1px;
         }
 
         /* --- 底部版权 --- */
@@ -131,6 +151,7 @@
 
         /* --- 手机端响应式 --- */
         @media (max-width: 768px) {
+            .warm-gallery { grid-template-columns: 1fr; } 
             .project-header h1 { font-size: 28px; }
             .brand-logo { height: 60px; }
             .brand-text { font-size: 18px; }
@@ -157,10 +178,38 @@
         <strong>Analysis:</strong> A structural study driven by innovative tectonic logic. The entire model stands vertically on a single plane, seamlessly demonstrating architectural mechanical equilibrium.</p>
     </section>
 
-    <section class="image-stack">
-        <img src="helix-tower-1.jpg" alt="Helix Tower Detail 1">
-        <img src="helix-tower-2.jpg" alt="Helix Tower Detail 2">
-        <img src="helix-tower-3.jpg" alt="Helix Tower Detail 3">
+    <section class="warm-gallery">
+        
+        <div class="gallery-item">
+            <img src="helix-analysis-1.jpg" alt="Geometric Analysis 01">
+            <div class="gallery-caption">Geometric Analysis 01</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="helix-elevation.jpg" alt="Elevation View">
+            <div class="gallery-caption">Elevation View</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="helix-analysis-2.jpg" alt="Geometric Analysis 02">
+            <div class="gallery-caption">Geometric Analysis 02</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="helix-top-view.jpg" alt="Top View">
+            <div class="gallery-caption">Top View</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="helix-1.jpg" alt="Morphology 01">
+            <div class="gallery-caption">Morphology 01</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="helix-2.jpg" alt="Morphology 02">
+            <div class="gallery-caption">Morphology 02</div>
+        </div>
+
     </section>
 
     <footer>
