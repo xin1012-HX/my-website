@@ -100,11 +100,11 @@
             font-size: 15px; 
             color: #444; 
             max-width: 900px;
-            margin: 0 auto 20px auto;
+            margin: 0 auto;
             text-align: justify;
         }
 
-        /* --- 温馨对齐画廊区 --- */
+        /* --- 温馨画廊网格区 --- */
         .warm-gallery {
             display: grid;
             grid-template-columns: 1fr 1fr; 
@@ -140,6 +140,30 @@
             letter-spacing: 1px;
         }
 
+        /* --- 专门针对这三段文字的排版样式 --- */
+        .text-block {
+            padding: 2vw; /* 给文字留出呼吸空间 */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .text-block h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .text-block p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
         /* 底部版权 */
         footer { 
             text-align: center; 
@@ -156,6 +180,7 @@
             .project-header h1 { font-size: 28px; }
             .brand-logo { height: 60px; }
             .brand-text { font-size: 18px; }
+            .text-block { padding: 0; margin-top: 20px; }
         }
     </style>
 </head>
@@ -178,7 +203,7 @@
         
         <p><strong>Site Analysis:</strong> Hyden is a small town in the US state of Kentucky facing severe socioeconomic challenges, including limited employment, high population loss, an aging demographic, and a serious substance abuse problem. The design tackles these local issues with architectural ingenuity, introducing a vertically stacked 'productive space' where crafts and gardening serve to relieve stress and combat local drug addiction.</p>
         
-        <p><strong>Concept:</strong> Adopting the concept of 'mobile bridges', the building links the three natural elements of the neighborhood—the river, the park, and the forest—forming a cultural 'flow belt'. The architecture extends outward like a bridge, with each section serving as a distinct functional hub. The Forest Direction offers stepped reading areas with glass underfoot for permeability; the River Direction features multimedia and viewing areas elevated over the water; while the Park Direction provides an open indoor space for medical and psychological support alongside sustainable agriculture workshops.</p>
+        <p style="margin-top: 15px;"><strong>Concept:</strong> Adopting the concept of 'mobile bridges', the building links the three natural elements of the neighborhood—the river, the park, and the forest—forming a cultural 'flow belt'. The architecture extends outward like a bridge, with each section serving as a distinct functional hub.</p>
     </section>
 
     <section class="warm-gallery">
@@ -195,6 +220,11 @@
         <div class="gallery-item">
             <img src="tiny-interior-river.jpg" alt="Interior (River Direction)">
             <div class="gallery-caption">Interior (River Direction)</div>
+            
+            <div class="text-block" style="margin-top: 40px;">
+                <h3>River Direction</h3>
+                <p>The middle part of the bridge can be situated above the river, with a multimedia reading area on the ground floor and a viewing area on the first floor, with bookshelves rising to the first floor with steps. The building is erected on a concrete structure with a glass floor that allows the user to see the river at their feet.</p>
+            </div>
         </div>
         <div class="gallery-item">
             <img src="tiny-section-river.jpg" alt="Section (River Direction)">
@@ -204,6 +234,11 @@
         <div class="gallery-item">
             <img src="tiny-interior-forest.jpg" alt="Interior (Forest Direction)">
             <div class="gallery-caption">Interior (Forest Direction)</div>
+            
+            <div class="text-block" style="margin-top: 40px;">
+                <h3>Forest Direction</h3>
+                <p>One end of the bridge is connected to the forest. Users view and read from stepped chairs, with glass underneath the steps, and a glance across to the woods on the other side gives a sense of permeability. At the end of the ground floor is a meditation area. The first floor is elevated with bookshelves.</p>
+            </div>
         </div>
         <div class="gallery-item">
             <img src="tiny-section-forest.jpg" alt="Section (Forest Direction)">
@@ -213,6 +248,11 @@
         <div class="gallery-item">
             <img src="tiny-interior-park.jpg" alt="Interior (Park Direction)">
             <div class="gallery-caption">Interior (Park Direction)</div>
+            
+            <div class="text-block" style="margin-top: 40px;">
+                <h3>Park Direction</h3>
+                <p>The indoor public space is an open space for medical and psychological support, where small workshops on sustainable agriculture and handicrafts can also be held, leading to spiritual healing and collective activities.</p>
+            </div>
         </div>
         <div class="gallery-item">
             <img src="tiny-section-park.jpg" alt="Section (Park Direction)">
