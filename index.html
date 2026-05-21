@@ -98,69 +98,80 @@
             100% { transform: translateX(-100%); }
         }
 
-        /* --- 核心修改：个人信息居中排版 --- */
+        /* --- 艺术网页：全居中、拉长式美学排版 --- */
         .studio-section {
             border-bottom: 1px solid var(--line-color);
-            background-color: #fff; /* 提亮背景色，让头像区更纯粹 */
+            background-color: #fff; 
         }
 
         .studio-info {
-            padding: 6vw 4vw;
-            max-width: 1000px; /* 限制最大宽度 */
-            margin: 0 auto; /* 让整个文字和头像容器在网页中绝对居中 */
+            padding: 8vw 4vw 7vw 4vw;
+            max-width: 900px; /* 完美契合长句行宽的黄金艺术比例 */
+            margin: 0 auto; 
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* 确保所有核心元素严格中轴线对齐 */
         }
 
         .section-label {
             font-size: 10px;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
             color: #666;
-            text-align: center; /* 标签居中 */
+            text-align: center;
         }
 
         .studio-info h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 4vw;
+            font-size: 4.5vw;
+            font-weight: 400;
             line-height: 1.1;
-            margin-bottom: 40px;
-            text-align: center; /* 标题居中 */
+            margin-bottom: 50px;
+            text-align: center;
+            letter-spacing: 1px;
         }
 
-        /* 头像与文字的杂志风排版 */
+        /* 肖像居上结构 */
         .author-profile {
             display: flex;
-            gap: 40px; /* 加大间距让排版更舒展 */
-            align-items: flex-start;
+            flex-direction: column;
+            align-items: center; /* 头像置顶并居中 */
+            gap: 45px; /* 头像与下方拉长文本之间的艺术留白 */
+            width: 100%;
         }
 
         .author-photo {
-            width: 160px; /* 稍微放大了一点头像，因为现在没有右边栏了，空间更充足 */
-            height: 160px;
+            width: 180px; /* 独立置顶后，将头像调大，更具主理人标杆感 */
+            height: 180px;
             object-fit: cover;
             border: 1px solid var(--line-color);
-            padding: 4px; 
+            padding: 5px; 
             background-color: #fff;
-            flex-shrink: 0; 
-            transition: filter 0.4s ease;
+            transition: filter 0.4s ease, transform 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
 
         .author-photo:hover {
-            filter: grayscale(100%); 
+            filter: grayscale(100%);
+            transform: scale(1.02);
         }
 
+        /* 下方拉长的文字介绍 */
         .author-text {
             display: flex;
             flex-direction: column;
-            gap: 15px; 
+            gap: 20px; 
+            width: 100%;
         }
 
         .author-text p {
             font-size: 15px;
-            color: #444;
-            text-align: justify;
+            color: #333;
+            text-align: justify; /* 左右两端完全对齐，呈现如纸张印刷般的豆腐块边缘 */
             margin: 0;
-            line-height: 1.8; /* 增加行高，让阅读更舒适 */
+            line-height: 1.9; /* 宽屏拉长后，加大行高能让视线换行时极度舒适 */
+            letter-spacing: 0.3px;
         }
 
         /* --- 双层长图滚动 --- */
@@ -300,10 +311,10 @@
 
         /* --- 手机端响应式 --- */
         @media (max-width: 768px) {
-            .studio-info h1 { font-size: 32px; }
-            .author-profile { flex-direction: column; align-items: center; gap: 20px; }
-            .author-photo { width: 120px; height: 120px; }
-            .author-text p { text-align: center; text-align-last: center; }
+            .studio-info h1 { font-size: 36px; margin-bottom: 35px; }
+            .author-profile { gap: 30px; }
+            .author-photo { width: 130px; height: 130px; }
+            .author-text p { text-align: center; }
             
             .scrolling-banner-track img { height: 180px; }
             .archive-item { grid-template-columns: 1fr; gap: 10px; padding: 20px; }
@@ -347,6 +358,7 @@
             
             <div class="author-profile">
                 <img src="profile.jpg" alt="Xin (Louis) He Profile" class="author-photo">
+                
                 <div class="author-text">
                     <p>Founded by Xin (Louis) He, Triumphal Architecture derives its philosophy from the precision of draft schemas and the enduring triumph of structure. Our mission is to seamlessly integrate architecture with our clients' visions, overturning traditional paradigms to enhance modern aesthetics.</p>
                     <p>As an incoming B.S. Architecture student at UIUC and a multi-award winner of the AIA Toledo HSDC, Louis He brings a rigorous, sincere attitude to every project, ensuring "High Quality" and "Safety" from physical constructions to virtual game environments.</p>
