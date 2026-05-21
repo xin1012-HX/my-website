@@ -98,45 +98,55 @@
             100% { transform: translateX(-100%); }
         }
 
-        /* --- 工作室介绍与个人肖像排版 --- */
+        /* --- 核心修改：个人信息居中排版 --- */
         .studio-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
             border-bottom: 1px solid var(--line-color);
+            background-color: #fff; /* 提亮背景色，让头像区更纯粹 */
         }
 
         .studio-info {
-            padding: 4vw;
-            border-right: 1px solid var(--line-color);
+            padding: 6vw 4vw;
+            max-width: 1000px; /* 限制最大宽度 */
+            margin: 0 auto; /* 让整个文字和头像容器在网页中绝对居中 */
+        }
+
+        .section-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            color: #666;
+            text-align: center; /* 标签居中 */
         }
 
         .studio-info h1 {
             font-family: 'Playfair Display', serif;
             font-size: 4vw;
             line-height: 1.1;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            text-align: center; /* 标题居中 */
         }
 
-        /* 头像与文字并排的杂志风 CSS */
+        /* 头像与文字的杂志风排版 */
         .author-profile {
             display: flex;
-            gap: 25px; 
+            gap: 40px; /* 加大间距让排版更舒展 */
             align-items: flex-start;
         }
 
         .author-photo {
-            width: 140px; 
-            height: 140px;
+            width: 160px; /* 稍微放大了一点头像，因为现在没有右边栏了，空间更充足 */
+            height: 160px;
             object-fit: cover;
             border: 1px solid var(--line-color);
-            padding: 4px; /* 留出白边营造相框质感 */
+            padding: 4px; 
             background-color: #fff;
             flex-shrink: 0; 
             transition: filter 0.4s ease;
         }
 
         .author-photo:hover {
-            filter: grayscale(100%); /* 鼠标悬停变黑白的高级交互 */
+            filter: grayscale(100%); 
         }
 
         .author-text {
@@ -146,39 +156,11 @@
         }
 
         .author-text p {
-            font-size: 14px;
+            font-size: 15px;
             color: #444;
             text-align: justify;
             margin: 0;
-        }
-
-        /* 业务能力列表 */
-        .studio-services {
-            padding: 4vw;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .section-label {
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-            color: #666;
-        }
-
-        .services-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            font-size: 13px;
-            text-transform: uppercase;
-        }
-
-        .services-list span::before {
-            content: '— ';
-            color: var(--brand-red);
+            line-height: 1.8; /* 增加行高，让阅读更舒适 */
         }
 
         /* --- 双层长图滚动 --- */
@@ -318,13 +300,11 @@
 
         /* --- 手机端响应式 --- */
         @media (max-width: 768px) {
-            .studio-section { grid-template-columns: 1fr; }
-            .studio-info { border-right: none; border-bottom: 1px solid var(--line-color); }
+            .studio-info h1 { font-size: 32px; }
+            .author-profile { flex-direction: column; align-items: center; gap: 20px; }
+            .author-photo { width: 120px; height: 120px; }
+            .author-text p { text-align: center; text-align-last: center; }
             
-            /* 手机端头像自适应缩小并换行 */
-            .author-profile { flex-direction: column; gap: 15px; }
-            .author-photo { width: 100px; height: 100px; }
-
             .scrolling-banner-track img { height: 180px; }
             .archive-item { grid-template-columns: 1fr; gap: 10px; padding: 20px; }
             .item-title { font-size: 24px; }
@@ -371,22 +351,6 @@
                     <p>Founded by Xin (Louis) He, Triumphal Architecture derives its philosophy from the precision of draft schemas and the enduring triumph of structure. Our mission is to seamlessly integrate architecture with our clients' visions, overturning traditional paradigms to enhance modern aesthetics.</p>
                     <p>As an incoming B.S. Architecture student at UIUC and a multi-award winner of the AIA Toledo HSDC, Louis He brings a rigorous, sincere attitude to every project, ensuring "High Quality" and "Safety" from physical constructions to virtual game environments.</p>
                 </div>
-            </div>
-
-        </div>
-        <div class="studio-services">
-            <div class="section-label">02 // Capabilities</div>
-            <div class="services-list">
-                <span>Architecture Design</span>
-                <span>Interior Design</span>
-                <span>Blueprint Drafting</span>
-                <span>Decoration Projects</span>
-                <span>Civil Engineering</span>
-                <span>Physical Modeling</span>
-                <span>Urban Planning</span>
-                <span>Government Bidding</span>
-                <span>Virtual Environments</span>
-                <span>Brand Sponsorship</span>
             </div>
         </div>
     </section>
