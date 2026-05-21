@@ -29,7 +29,7 @@
             flex-direction: column;
         }
 
-        /* --- 导航栏样式 --- */
+        /* --- 导航栏 --- */
         header {
             display: flex;
             justify-content: space-between;
@@ -39,7 +39,6 @@
             background-color: #fff;
         }
 
-        /* Logo与品牌名并排容器 */
         .brand-container {
             display: flex;
             align-items: center; 
@@ -49,15 +48,9 @@
             transition: opacity 0.3s ease;
         }
 
-        .brand-container:hover {
-            opacity: 0.7;
-        }
+        .brand-container:hover { opacity: 0.7; }
 
-        .brand-logo {
-            height: 100px; 
-            width: auto;
-            display: block;
-        }
+        .brand-logo { height: 100px; width: auto; display: block; }
 
         .brand-text {
             font-family: 'Playfair Display', serif;
@@ -105,7 +98,7 @@
             100% { transform: translateX(-100%); }
         }
 
-        /* --- 工作室介绍 --- */
+        /* --- 工作室介绍与个人肖像排版 --- */
         .studio-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -124,13 +117,42 @@
             margin-bottom: 30px;
         }
 
-        .studio-info p {
-            font-size: 14px;
-            color: #444;
-            margin-bottom: 20px;
-            text-align: justify;
+        /* 头像与文字并排的杂志风 CSS */
+        .author-profile {
+            display: flex;
+            gap: 25px; 
+            align-items: flex-start;
         }
 
+        .author-photo {
+            width: 140px; 
+            height: 140px;
+            object-fit: cover;
+            border: 1px solid var(--line-color);
+            padding: 4px; /* 留出白边营造相框质感 */
+            background-color: #fff;
+            flex-shrink: 0; 
+            transition: filter 0.4s ease;
+        }
+
+        .author-photo:hover {
+            filter: grayscale(100%); /* 鼠标悬停变黑白的高级交互 */
+        }
+
+        .author-text {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; 
+        }
+
+        .author-text p {
+            font-size: 14px;
+            color: #444;
+            text-align: justify;
+            margin: 0;
+        }
+
+        /* 业务能力列表 */
         .studio-services {
             padding: 4vw;
             display: flex;
@@ -207,9 +229,7 @@
             background-color: #fff;
         }
 
-        .archive-list {
-            background-color: #fff;
-        }
+        .archive-list { background-color: #fff; }
 
         .archive-item {
             display: grid;
@@ -296,9 +316,15 @@
 
         .footer-block a:hover { text-decoration: underline; }
 
+        /* --- 手机端响应式 --- */
         @media (max-width: 768px) {
             .studio-section { grid-template-columns: 1fr; }
             .studio-info { border-right: none; border-bottom: 1px solid var(--line-color); }
+            
+            /* 手机端头像自适应缩小并换行 */
+            .author-profile { flex-direction: column; gap: 15px; }
+            .author-photo { width: 100px; height: 100px; }
+
             .scrolling-banner-track img { height: 180px; }
             .archive-item { grid-template-columns: 1fr; gap: 10px; padding: 20px; }
             .item-title { font-size: 24px; }
@@ -338,8 +364,15 @@
         <div class="studio-info">
             <div class="section-label">01 // The Philosophy</div>
             <h1>Exquisite & Graceful.</h1>
-            <p>Founded by Xin (Louis) He, Triumphal Architecture derives its philosophy from the precision of draft schemas and the enduring triumph of structure. Our mission is to seamlessly integrate architecture with our clients' visions, overturning traditional paradigms to enhance modern aesthetics.</p>
-            <p>As an incoming B.S. Architecture student at UIUC and a multi-award winner of the AIA Toledo HSDC, Louis He brings a rigorous, sincere attitude to every project, ensuring "High Quality" and "Safety" from physical constructions to virtual game environments.</p>
+            
+            <div class="author-profile">
+                <img src="profile.jpg" alt="Xin (Louis) He Profile" class="author-photo">
+                <div class="author-text">
+                    <p>Founded by Xin (Louis) He, Triumphal Architecture derives its philosophy from the precision of draft schemas and the enduring triumph of structure. Our mission is to seamlessly integrate architecture with our clients' visions, overturning traditional paradigms to enhance modern aesthetics.</p>
+                    <p>As an incoming B.S. Architecture student at UIUC and a multi-award winner of the AIA Toledo HSDC, Louis He brings a rigorous, sincere attitude to every project, ensuring "High Quality" and "Safety" from physical constructions to virtual game environments.</p>
+                </div>
+            </div>
+
         </div>
         <div class="studio-services">
             <div class="section-label">02 // Capabilities</div>
@@ -424,7 +457,7 @@
             <div class="item-title">Helix Tower</div>
             <div class="item-meta">2024</div>
             <div class="item-meta">Structure Concept</div>
-            <img src="helix-tower.jpg" alt="Thumb" class="item-thumb" onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&w=400&q=80'">
+            <img src="helix-1.jpg" alt="Thumb" class="item-thumb" onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&w=400&q=80'">
         </a>
 
         <a href="tiny-library.html" class="archive-item">
@@ -434,7 +467,7 @@
             <div class="item-meta">Volume Zero / Top 50</div>
             <img src="tiny-birdseye.jpg" alt="Thumb" class="item-thumb" onerror="this.src='https://images.unsplash.com/photo-1541123437800-1413157719f5?ixlib=rb-4.0.3&w=400&q=80'">
         </a>
-        
+
     </section>
 
     <footer id="contact">
@@ -446,7 +479,7 @@
         <div class="footer-block">
             <h4>Inquiries</h4>
             <a href="mailto:26xhe@mvcds.org">26xhe@mvcds.org</a>
-            <a href="mailto:xin521iloveu@gmail.com">xin521iloveu@gmail.com</a>
+            <a href="mailto:xin521iloveu@outlook.com">xin521iloveu@outlook.com</a>
             <p>+1 (567) 413-0509</p>
             <p>WeChat: douya-7485</p>
         </div>
@@ -455,10 +488,10 @@
             <p><strong>Toledo, OH, USA</strong><br>Maumee Valley CDS</p>
             <p style="margin-top: 10px;"><strong>Beijing, China</strong><br>Qicai Huayuan, Haidian</p>
         </div>
-       <div class="footer-block">
+        <div class="footer-block">
             <h4>Social / Connect</h4>
-            <a href="https://www.linkedin.com/in/xin-he-a198a2350/" target="_blank">LinkedIn</a>
-            <a href="https://www.instagram.com/xin521iloveu/" target="_blank">Instagram</a>
+            <a href="你的LinkedIn网址" target="_blank">LinkedIn</a>
+            <a href="你的Instagram网址" target="_blank">Instagram</a>
             <a href="#">Behance</a>
             <p style="margin-top: 20px; font-size: 10px; color: #888;">&copy; 2026 Triumphal Architecture.<br>All Rights Reserved.</p>
         </div>
