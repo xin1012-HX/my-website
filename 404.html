@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>404: Space Not Found - TRIUMPHAL ARCHITECTURE</title>
+    <meta name="description" content="The requested page could not be found.">
+    
+    <link rel="icon" href="favicon.png" type="image/png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg-color: #F4F4F4; 
+            --text-color: #111;
+            --line-color: #111; 
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-color); 
+            line-height: 1.6;
+            padding: 2vw;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* 确保页面至少占满全屏高度 */
+        }
+
+        .wrapper {
+            border: 1px solid var(--line-color);
+            display: flex;
+            flex-direction: column;
+            flex: 1; /* 让外框撑满剩余空间 */
+        }
+
+        /* --- 导航栏 --- */
+        header { 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5vw 2vw; 
+            border-bottom: 1px solid var(--line-color); 
+            background-color: #fff;
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center; 
+            gap: 20px; 
+            text-decoration: none;
+            color: var(--text-color); 
+            transition: opacity 0.3s ease;
+        }
+
+        .brand-container:hover { opacity: 0.7; }
+
+        .brand-logo { height: 100px; width: auto; display: block; }
+
+        .brand-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px; 
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+
+        /* --- 404 核心展示区 --- */
+        .error-section {
+            flex: 1; /* 占据中间所有可用空间 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10vw 4vw;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .error-code {
+            font-family: 'Playfair Display', serif;
+            font-size: 15vw; /* 巨型动态字体，极具视觉冲击力 */
+            line-height: 1;
+            color: var(--text-color);
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+        }
+
+        .error-title {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .error-message {
+            font-size: 16px;
+            color: #444;
+            max-width: 600px;
+            margin-bottom: 50px;
+            line-height: 1.8;
+        }
+
+        .back-home-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            border: 1px solid var(--line-color);
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            background-color: transparent;
+        }
+
+        .back-home-btn:hover {
+            background-color: var(--text-color);
+            color: #fff;
+        }
+
+        /* 底部版权 */
+        footer { 
+            text-align: center; 
+            padding: 30px 0; 
+            font-size: 11px; 
+            text-transform: uppercase;
+            color: #888; 
+            background-color: #fff;
+            border-top: 1px solid var(--line-color);
+        }
+
+        @media (max-width: 768px) {
+            .brand-logo { height: 60px; }
+            .brand-text { font-size: 18px; }
+            .error-code { font-size: 120px; }
+            .error-message { padding: 0 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <header>
+        <a href="index.html" class="brand-container">
+            <img src="logo.png" alt="Triumphal Architecture Logo" class="brand-logo">
+            <div class="brand-text">
+                Triumphal<br>Architecture
+            </div>
+        </a>
+    </header>
+
+    <section class="error-section">
+        <div class="error-code">404</div>
+        <div class="error-title">// Space Not Found //</div>
+        <p class="error-message">
+            The blueprint for this space has not been drafted yet, or the structure you are looking for has been demolished.<br>Please return to the main pavilion to explore existing projects.
+        </p>
+        <a href="index.html" class="back-home-btn">Return to Index</a>
+    </section>
+
+    <footer>
+        &copy; 2026 TRIUMPHAL ARCHITECTURE. ALL RIGHTS RESERVED.
+    </footer>
+</div>
+
+</body>
+</html>
