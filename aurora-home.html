@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aurora Shelter "Home" - TRIUMPHAL ARCHITECTURE</title>
-    <meta name="description" content="A social architecture project designed by Xin (Louis) He, focusing on humanitarian shelter solutions.">
+    <meta name="description" content="A humanitarian social architecture project designed by Xin (Louis) He, conceptualizing a resilient framework for displaced populations.">
+    
     <link rel="icon" href="favicon.png" type="image/png">
 
     <meta property="og:title" content="Aurora Shelter 'Home' | Xin (Louis) He">
-    <meta property="og:description" content="Social architecture exploring humanitarian needs, community cohesion, and emergency refuge.">
+    <meta property="og:description" content="Social architecture exploring humanitarian needs, modular micro-communities, and tectonic refuge frameworks.">
     <meta property="og:image" content="https://xin-studio.design/aurora-birdseye.jpg">
     <meta property="og:url" content="https://xin-studio.design/aurora-home.html">
     <meta property="og:type" content="article">
@@ -16,53 +17,202 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { --bg-color: #F4F4F4; --text-color: #111; --line-color: #111; --warm-bg: #FAF8F5; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; padding: 2vw; }
-        .wrapper { border: 1px solid var(--line-color); min-height: 90vh; }
-        header { display: flex; justify-content: space-between; align-items: center; padding: 1.5vw 2vw; border-bottom: 1px solid var(--line-color); background-color: #fff; }
-        .brand-container { display: flex; align-items: center; gap: 20px; text-decoration: none; color: var(--text-color); transition: opacity 0.3s ease; }
+        
+        :root {
+            --bg-color: #F4F4F4; 
+            --text-color: #111;
+            --line-color: #111; 
+            --warm-bg: #FAF8F5; /* 保持统一的温馨暖米色画布背景 */
+        }
+
+        html {
+            scroll-behavior: smooth; /* 丝滑平滑滚动 */
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-color); 
+            line-height: 1.6;
+            padding: 2vw;
+        }
+
+        .wrapper {
+            border: 1px solid var(--line-color);
+            min-height: 90vh;
+        }
+
+        /* --- 导航栏 --- */
+        header { 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5vw 2vw; 
+            border-bottom: 1px solid var(--line-color); 
+            background-color: #fff;
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center; 
+            gap: 20px; 
+            text-decoration: none;
+            color: var(--text-color); 
+            transition: opacity 0.3s ease;
+        }
+
         .brand-container:hover { opacity: 0.7; }
+
         .brand-logo { height: 100px; width: auto; display: block; }
-        .brand-text { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; line-height: 1.1; }
-        .back-button { text-decoration: none; color: var(--text-color); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; transition: opacity 0.3s; font-weight: 500; }
+
+        .brand-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px; 
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+
+        .back-button { 
+            text-decoration: none; 
+            color: var(--text-color); 
+            font-size: 12px; 
+            text-transform: uppercase;
+            letter-spacing: 1px; 
+            transition: opacity 0.3s; 
+            font-weight: 500;
+        }
         .back-button:hover { opacity: 0.6; }
-        .project-header { padding: 60px 4vw 40px 4vw; text-align: center; border-bottom: 1px solid var(--line-color); background-color: var(--bg-color); }
-        .project-header h1 { font-family: 'Playfair Display', serif; font-size: 40px; margin-bottom: 20px; letter-spacing: 2px; text-transform: uppercase; }
-        .project-header p { font-size: 15px; color: #444; max-width: 800px; margin: 0 auto; text-align: justify; }
-        .warm-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 3vw; padding: 4vw; background-color: var(--warm-bg); align-items: start; }
-        .gallery-item { display: flex; flex-direction: column; gap: 15px; }
-        .gallery-item img { width: 100%; height: auto; display: block; border-radius: 6px; box-shadow: 0 8px 24px rgba(0,0,0,0.06); transition: transform 0.4s ease; }
-        .gallery-item img:hover { transform: translateY(-5px); }
-        .gallery-caption { font-family: 'Playfair Display', serif; font-style: italic; font-size: 15px; color: #666; text-align: center; letter-spacing: 1px; }
-        footer { text-align: center; padding: 30px 0; font-size: 11px; text-transform: uppercase; color: #888; background-color: #fff; border-top: 1px solid var(--line-color); }
-        @media (max-width: 768px) { .warm-gallery { grid-template-columns: 1fr; } .project-header h1 { font-size: 28px; } .brand-logo { height: 60px; } .brand-text { font-size: 18px; } }
+
+        /* --- 页面标题区 --- */
+        .project-header { 
+            padding: 60px 4vw 40px 4vw; 
+            text-align: center; 
+            border-bottom: 1px solid var(--line-color);
+            background-color: var(--bg-color);
+        }
+
+        .project-header h1 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 40px; 
+            margin-bottom: 20px; 
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
+        }
+
+        .project-header p { 
+            font-size: 15px; 
+            color: #444; 
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: justify;
+        }
+
+        /* --- 3️⃣ 修复：恢复温馨双列瀑布流排版区 --- */
+        .warm-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr; 
+            gap: 3vw;
+            padding: 4vw;
+            background-color: var(--warm-bg); 
+            align-items: start; /* 顶部绝对对齐 */
+        }
+
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto; /* 高度自然延伸，坚决不裁切任何设计信息 */
+            display: block;
+            border-radius: 6px; 
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06); 
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: translateY(-5px); 
+        }
+
+        .gallery-caption {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 15px;
+            color: #666;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        /* 底部版权 */
+        footer { 
+            text-align: center; 
+            padding: 30px 0; 
+            font-size: 11px; 
+            text-transform: uppercase;
+            color: #888; 
+            background-color: #fff;
+            border-top: 1px solid var(--line-color);
+        }
+
+        @media (max-width: 768px) {
+            .warm-gallery { grid-template-columns: 1fr; } 
+            .project-header h1 { font-size: 28px; }
+            .brand-logo { height: 60px; }
+            .brand-text { font-size: 18px; }
+        }
     </style>
 </head>
 <body>
+
 <div class="wrapper">
+    
     <header>
         <a href="index.html" class="brand-container">
             <img src="logo.png" alt="Triumphal Architecture Logo" class="brand-logo">
-            <div class="brand-text">Triumphal<br>Architecture</div>
+            <div class="brand-text">
+                Triumphal<br>Architecture
+            </div>
         </a>
         <a href="index.html" class="back-button">← Back to Index</a>
     </header>
+
     <section class="project-header">
         <h1>Aurora Shelter "Home"</h1>
-        <p>A humanitarian architecture project addressing displaced populations and emergency response. "Home" is conceptualized not merely as a physical shell, but as a framework for restoring dignity, security, and communal cohesion. The design integrates rapid-assembly tectonic components with localized sustainable materials to form resilient, modular micro-communities.</p>
+        <p>A humanitarian architecture project addressing displaced populations and emergency response. "Home" is conceptualized not merely as a physical shell, but as a framework for restoring dignity, security, and communal cohesion. <br><br>The design integrates rapid-assembly tectonic components with localized sustainable materials to form resilient, modular micro-communities, bridging the immediate need for emergency refuge with the long-term goal of social integration.</p>
     </section>
+
     <section class="warm-gallery">
+        
         <div class="gallery-item">
             <img src="aurora-birdseye.jpg" alt="Bird's-Eye View" loading="lazy">
             <div class="gallery-caption">Bird's-Eye View</div>
         </div>
+
         <div class="gallery-item">
-            <img src="aurora-birdseye.jpg" alt="Axonometric Study" loading="lazy" style="filter: hue-rotate(30deg);">
-            <div class="gallery-caption">Spatial Configuration Study</div>
+            <img src="aurora-interior.jpg" alt="Interior Render" loading="lazy">
+            <div class="gallery-caption">Interior View</div>
         </div>
+
+        <div class="gallery-item">
+            <img src="aurora-plan.jpg" alt="Floor Plan Study" loading="lazy">
+            <div class="gallery-caption">Floor Plan Study</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="aurora-axonometric.jpg" alt="Axonometric Tectonic Breakdown" loading="lazy">
+            <div class="gallery-caption">Axonometric Tectonic Breakdown</div>
+        </div>
+
     </section>
-    <footer>&copy; 2026 TRIUMPHAL ARCHITECTURE. ALL RIGHTS RESERVED.</footer>
+
+    <footer>
+        &copy; 2026 TRIUMPHAL ARCHITECTURE. ALL RIGHTS RESERVED.
+    </footer>
 </div>
+
 </body>
 </html>
