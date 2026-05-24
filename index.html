@@ -45,13 +45,20 @@
             flex-direction: column;
         }
 
-        header {
+        header { 
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5vw 2vw;
-            border-bottom: 1px solid var(--line-color);
-            background-color: #fff;
+            padding: 1.5vw 2vw; 
+            border-bottom: 1px solid var(--line-color); 
+            
+            /* --- 魔法开启：悬浮与毛玻璃质感 --- */
+            position: sticky;
+            top: 0;
+            z-index: 1000; /* 确保导航栏永远在所有图片的最高层 */
+            background-color: rgba(255, 255, 255, 0.85); /* 85%的半透明纯白 */
+            backdrop-filter: blur(12px); /* 顶级的磨砂玻璃模糊效果 */
+            -webkit-backdrop-filter: blur(12px); /* 照顾一下用苹果 Safari 浏览器的招生官 */
         }
 
         .brand-container {
