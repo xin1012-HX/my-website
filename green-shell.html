@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Shell - TRIUMPHAL ARCHITECTURE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg-color: #F4F4F4; 
+            --text-color: #111;
+            --line-color: #111; 
+            --warm-bg: #FAF8F5; 
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-color); 
+            line-height: 1.6;
+            padding: 2vw;
+        }
+
+        .wrapper {
+            border: 1px solid var(--line-color);
+            min-height: 90vh;
+        }
+
+        /* --- 导航栏 --- */
+        header { 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5vw 2vw; 
+            border-bottom: 1px solid var(--line-color); 
+            background-color: #fff;
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center; 
+            gap: 20px; 
+            text-decoration: none;
+            color: var(--text-color); 
+            transition: opacity 0.3s ease;
+        }
+
+        .brand-container:hover { opacity: 0.7; }
+
+        .brand-logo { height: 100px; width: auto; display: block; }
+
+        .brand-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px; 
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+
+        .back-button { 
+            text-decoration: none; 
+            color: var(--text-color); 
+            font-size: 12px; 
+            text-transform: uppercase;
+            letter-spacing: 1px; 
+            transition: opacity 0.3s; 
+            font-weight: 500;
+        }
+        .back-button:hover { opacity: 0.6; }
+
+        /* --- 页面标题区 --- */
+        .project-header { 
+            padding: 60px 4vw 40px 4vw; 
+            text-align: center; 
+            border-bottom: 1px solid var(--line-color);
+            background-color: var(--bg-color);
+        }
+
+        .project-header h1 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 40px; 
+            margin-bottom: 20px; 
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
+        }
+
+        .project-header p { 
+            font-size: 15px; 
+            color: #444; 
+            max-width: 900px;
+            margin: 0 auto 20px auto;
+            text-align: justify;
+        }
+
+        /* --- 温馨画廊网格区 (自适应高度、不裁剪原图) --- */
+        .warm-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr; 
+            gap: 4vw;
+            padding: 5vw;
+            background-color: var(--warm-bg); 
+            align-items: start; /* 确保顶部绝对对齐，高度自适应 */
+        }
+
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto; /* 高度自适应，不丢失任何细节 */
+            display: block;
+            border-radius: 6px; 
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06); 
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item img:hover { transform: translateY(-5px); }
+
+        .gallery-caption {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 15px;
+            color: #666;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        /* 底部版权 */
+        footer { 
+            text-align: center; 
+            padding: 30px 0; 
+            font-size: 11px; 
+            text-transform: uppercase;
+            color: #888; 
+            background-color: #fff;
+            border-top: 1px solid var(--line-color);
+        }
+
+        @media (max-width: 768px) {
+            .warm-gallery { grid-template-columns: 1fr; } 
+            .project-header h1 { font-size: 28px; }
+            .brand-logo { height: 60px; }
+            .brand-text { font-size: 18px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <header>
+        <a href="index.html" class="brand-container">
+            <img src="logo.png" alt="Triumphal Architecture Logo" class="brand-logo">
+            <div class="brand-text">
+                Triumphal<br>Architecture
+            </div>
+        </a>
+        <a href="index.html" class="back-button">← Back to Index</a>
+    </header>
+
+    <section class="project-header">
+        <h1>Green Shell</h1>
+        <p>My passion for architecture stems from the integration of organic morphology, technological innovation, and public welfare. This philosophy is materialized in "Green Shell," a parametric eco-pavilion designed for Toledo, Ohio. Developed using Rhino and Grasshopper, the project utilizes generative algorithms to construct a complex triangular shell structure. The continuous surface is populated with nodes and transformed into an intricate network of hollowed triangular panels.</p>
+        
+        <p>Beyond formal exploration, this project is a conscious act of placemaking. By harmoniously blending art and nature, it offers an urban oasis where visitors can experience the dynamic interplay of light, shadow, and open space. Inspired by Georgia Tech architecture lecturer Marco Ancheita's belief that design must deeply interact with its site, "Green Shell" acts as a responsive organism. Its porous canopy filters sunlight to nourish the native greenery below, effectively generating a localized microclimate that breathes life into the urban fabric.</p>
+    </section>
+
+    <section class="warm-gallery">
+        
+        <div class="gallery-item">
+            <img src="shell-location.png" alt="Location Analysis">
+            <div class="gallery-caption">Location Analysis</div>
+        </div>
+        <div class="gallery-item">
+            <img src="shell-concept.jpg" alt="Design Concept">
+            <div class="gallery-caption">Design Concept</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="shell-section.jpg" alt="Section">
+            <div class="gallery-caption">Section</div>
+        </div>
+        <div class="gallery-item">
+            <img src="shell-render.jpg" alt="Render">
+            <div class="gallery-caption">Render</div>
+        </div>
+
+    </section>
+
+    <footer>
+        &copy; 2026 TRIUMPHAL ARCHITECTURE. ALL RIGHTS RESERVED.
+    </footer>
+</div>
+
+</body>
+</html>
