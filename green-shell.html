@@ -91,18 +91,18 @@
             font-size: 15px; 
             color: #444; 
             max-width: 900px;
-            margin: 0 auto 20px auto;
+            margin: 0 auto;
             text-align: justify;
         }
 
-        /* --- 温馨画廊网格区 (自适应高度、不裁剪原图) --- */
+        /* --- 温馨画廊网格区 --- */
         .warm-gallery {
             display: grid;
             grid-template-columns: 1fr 1fr; 
             gap: 4vw;
             padding: 5vw;
             background-color: var(--warm-bg); 
-            align-items: start; /* 确保顶部绝对对齐，高度自适应 */
+            align-items: start; 
         }
 
         .gallery-item {
@@ -113,7 +113,7 @@
 
         .gallery-item img {
             width: 100%;
-            height: auto; /* 高度自适应，不丢失任何细节 */
+            height: auto; 
             display: block;
             border-radius: 6px; 
             box-shadow: 0 8px 24px rgba(0,0,0,0.06); 
@@ -129,6 +129,30 @@
             color: #666;
             text-align: center;
             letter-spacing: 1px;
+        }
+
+        /* --- 文字排版块样式 (和 Tiny Library 统一) --- */
+        .text-block {
+            padding: 1vw 2vw 2vw 2vw; 
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .text-block h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .text-block p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.8;
+            text-align: justify;
         }
 
         /* 底部版权 */
@@ -147,6 +171,7 @@
             .project-header h1 { font-size: 28px; }
             .brand-logo { height: 60px; }
             .brand-text { font-size: 18px; }
+            .text-block { padding: 0; margin-top: 20px; }
         }
     </style>
 </head>
@@ -165,9 +190,7 @@
 
     <section class="project-header">
         <h1>Green Shell</h1>
-        <p>My passion for architecture stems from the integration of organic morphology, technological innovation, and public welfare. This philosophy is materialized in "Green Shell," a parametric eco-pavilion designed for Toledo, Ohio. Developed using Rhino and Grasshopper, the project utilizes generative algorithms to construct a complex triangular shell structure. The continuous surface is populated with nodes and transformed into an intricate network of hollowed triangular panels.</p>
-        
-        <p>Beyond formal exploration, this project is a conscious act of placemaking. By harmoniously blending art and nature, it offers an urban oasis where visitors can experience the dynamic interplay of light, shadow, and open space. Inspired by Georgia Tech architecture lecturer Marco Ancheita's belief that design must deeply interact with its site, "Green Shell" acts as a responsive organism. Its porous canopy filters sunlight to nourish the native greenery below, effectively generating a localized microclimate that breathes life into the urban fabric.</p>
+        <p>My passion for architecture stems from the integration of organic morphology, technological innovation, and public welfare. This philosophy is materialized in "Green Shell," a parametric eco-pavilion designed for Toledo, Ohio. Beyond formal exploration, this project is a conscious act of placemaking, harmoniously blending art and nature to offer an urban oasis where visitors can experience the dynamic interplay of light, shadow, and open space.</p>
     </section>
 
     <section class="warm-gallery">
@@ -175,7 +198,16 @@
         <div class="gallery-item">
             <img src="shell-location.png" alt="Location Analysis">
             <div class="gallery-caption">Location Analysis</div>
+            
+            <div class="text-block" style="margin-top: 40px;">
+                <h3>Site Context</h3>
+                <p>Inspired by Georgia Tech architecture lecturer Marco Ancheita's belief that design must deeply interact with its site, "Green Shell" acts as a responsive organism. The pavilion is strategically situated in Toledo, creating a localized microclimate that breathes life into the urban fabric.</p>
+                
+                <h3 style="margin-top: 40px;">Algorithmic Generation</h3>
+                <p>Developed using Rhino and Grasshopper, the project utilizes generative algorithms to construct a complex triangular shell structure. The continuous surface is populated with nodes and transformed into an intricate network of hollowed triangular panels, acting as a porous canopy that filters sunlight and nourishes the native greenery below.</p>
+            </div>
         </div>
+
         <div class="gallery-item">
             <img src="shell-concept.jpg" alt="Design Concept">
             <div class="gallery-caption">Design Concept</div>
