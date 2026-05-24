@@ -3,7 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TRIUMPHAL ARCHITECTURE | Archive</title>
+    
+    <title>TRIUMPHAL ARCHITECTURE | Xin (Louis) He</title>
+    <meta name="description" content="Official architecture portfolio of Xin (Louis) He. Exploring organic morphology, technological innovation, and public welfare.">
+    
+    <link rel="icon" href="favicon.png" type="image/png">
+
+    <meta property="og:title" content="Triumphal Architecture | Xin (Louis) He">
+    <meta property="og:description" content="Official architecture portfolio of Xin (Louis) He. Exploring organic morphology, technological innovation, and public welfare.">
+    <meta property="og:image" content="https://xin-studio.design/social-cover.jpg">
+    <meta property="og:url" content="https://xin-studio.design">
+    <meta property="og:type" content="website">
+
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -13,6 +24,11 @@
             --text-color: #111;
             --line-color: #111; 
             --brand-red: #7B1113; 
+        }
+
+        /* 加入了平滑滚动效果 (Smooth Scrolling) */
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -29,7 +45,6 @@
             flex-direction: column;
         }
 
-        /* --- 导航栏 --- */
         header {
             display: flex;
             justify-content: space-between;
@@ -74,7 +89,6 @@
 
         nav a:hover { color: var(--brand-red); }
 
-        /* --- 跑马灯 --- */
         .marquee-container {
             border-bottom: 1px solid var(--line-color);
             padding: 10px 0;
@@ -98,7 +112,6 @@
             100% { transform: translateX(-100%); }
         }
 
-        /* --- 艺术网页：全居中、拉长式美学排版 --- */
         .studio-section {
             border-bottom: 1px solid var(--line-color);
             background-color: #fff; 
@@ -106,11 +119,11 @@
 
         .studio-info {
             padding: 8vw 4vw 7vw 4vw;
-            max-width: 900px; /* 完美契合长句行宽的黄金艺术比例 */
+            max-width: 900px; 
             margin: 0 auto; 
             display: flex;
             flex-direction: column;
-            align-items: center; /* 确保所有核心元素严格中轴线对齐 */
+            align-items: center; 
         }
 
         .section-label {
@@ -132,17 +145,16 @@
             letter-spacing: 1px;
         }
 
-        /* 肖像居上结构 */
         .author-profile {
             display: flex;
             flex-direction: column;
-            align-items: center; /* 头像置顶并居中 */
-            gap: 45px; /* 头像与下方拉长文本之间的艺术留白 */
+            align-items: center; 
+            gap: 45px; 
             width: 100%;
         }
 
         .author-photo {
-            width: 180px; /* 独立置顶后，将头像调大，更具主理人标杆感 */
+            width: 180px; 
             height: 180px;
             object-fit: cover;
             border: 1px solid var(--line-color);
@@ -157,7 +169,6 @@
             transform: scale(1.02);
         }
 
-        /* 下方拉长的文字介绍 */
         .author-text {
             display: flex;
             flex-direction: column;
@@ -168,13 +179,12 @@
         .author-text p {
             font-size: 15px;
             color: #333;
-            text-align: justify; /* 左右两端完全对齐，呈现如纸张印刷般的豆腐块边缘 */
+            text-align: justify; 
             margin: 0;
-            line-height: 1.9; /* 宽屏拉长后，加大行高能让视线换行时极度舒适 */
+            line-height: 1.9; 
             letter-spacing: 0.3px;
         }
 
-        /* --- 双层长图滚动 --- */
         .scrolling-banner {
             width: 100%;
             overflow: hidden;
@@ -210,7 +220,6 @@
             100% { transform: translateX(0); } 
         }
 
-        /* --- 档案索引区 --- */
         .archive-header {
             padding: 15px 2vw;
             font-size: 11px;
@@ -276,7 +285,6 @@
             border: 1px solid #fff;
         }
 
-        /* --- 底部联络区 --- */
         footer {
             border-top: 1px solid var(--line-color);
             display: grid;
@@ -309,7 +317,6 @@
 
         .footer-block a:hover { text-decoration: underline; }
 
-        /* --- 手机端响应式 --- */
         @media (max-width: 768px) {
             .studio-info h1 { font-size: 36px; margin-bottom: 35px; }
             .author-profile { gap: 30px; }
@@ -358,7 +365,6 @@
             
             <div class="author-profile">
                 <img src="profile.jpg" alt="Xin (Louis) He Profile" class="author-photo">
-                
                 <div class="author-text">
                     <p>Founded by Xin (Louis) He, Triumphal Architecture derives its philosophy from the precision of draft schemas and the enduring triumph of structure. Our mission is to seamlessly integrate architecture with our clients' visions, overturning traditional paradigms to enhance modern aesthetics.</p>
                     <p>As an incoming B.S. Architecture student at UIUC and a multi-award winner of the AIA Toledo HSDC, Louis He brings a rigorous, sincere attitude to every project, ensuring "High Quality" and "Safety" from physical constructions to virtual game environments.</p>
@@ -369,15 +375,15 @@
 
     <section class="scrolling-banner">
         <div class="scrolling-banner-track">
-            <img src="panorama.jpg" alt="Triumphal Architecture Panorama 1">
-            <img src="panorama.jpg" alt="Triumphal Architecture Panorama 1">
+            <img src="panorama.jpg" alt="Triumphal Architecture Panorama 1" loading="lazy">
+            <img src="panorama.jpg" alt="Triumphal Architecture Panorama 1" loading="lazy">
         </div>
     </section>
 
     <section class="scrolling-banner">
         <div class="scrolling-banner-track reverse">
-            <img src="panorama2.jpg" alt="Triumphal Architecture Panorama 2">
-            <img src="panorama2.jpg" alt="Triumphal Architecture Panorama 2">
+            <img src="panorama2.jpg" alt="Triumphal Architecture Panorama 2" loading="lazy">
+            <img src="panorama2.jpg" alt="Triumphal Architecture Panorama 2" loading="lazy">
         </div>
     </section>
 
@@ -393,7 +399,7 @@
             <div class="item-title">Aurora Shelter "Home"</div>
             <div class="item-meta">2025</div>
             <div class="item-meta">Social Architecture</div>
-            <img src="aurora-birdseye.jpg" alt="Thumb" class="item-thumb" onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&w=400&q=80'">
+            <img src="aurora-birdseye.jpg" alt="Thumb" class="item-thumb" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&w=400&q=80'">
         </a>
 
         <a href="z-day.html" class="archive-item">
@@ -401,7 +407,7 @@
             <div class="item-title">Z-Day: Rise of the Horde</div>
             <div class="item-meta">2025</div>
             <div class="item-meta">Virtual/Game Env.</div>
-            <img src="z-day-camera.jpg" alt="Thumb" class="item-thumb" onerror="this.src='https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-4.0.3&w=400&q=80'">
+            <img src="z-day-camera.jpg" alt="Thumb" class="item-thumb" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-4.0.3&w=400&q=80'">
         </a>
 
         <a href="magazine-design.html" class="archive-item">
@@ -409,7 +415,7 @@
             <div class="item-title">Architecture Magazine Design</div>
             <div class="item-meta">2026</div>
             <div class="item-meta">Editorial / Print</div>
-            <img src="cover-chinese.jpg" alt="Thumb" class="item-thumb" onerror="this.src='https://images.unsplash.com/photo-1590059378825-9f5b35c05ab3?ixlib=rb-4.0.3&w=400&q=80'">
+            <img src="cover-chinese.jpg" alt="Thumb" class="item-thumb" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1590059378825-9f5b35c05ab3?ixlib=rb-4.0.3&w=400&q=80'">
         </a>
 
         <a href="flower-in-the-rock.html" class="archive-item">
@@ -417,7 +423,7 @@
             <div class="item-title">Flower in the Rock</div>
             <div class="item-meta">2025</div>
             <div class="item-meta">Tectonic Model</div>
-            <img src="flower-rock-cover.jpg" alt="Thumb" class="item-thumb" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&w=400&q=80'">
+            <img src="flower-rock-cover.jpg" alt="Thumb" class="item-thumb" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&w=400&q=80'">
         </a>
 
         <a href="germination.html" class="archive-item">
@@ -425,7 +431,7 @@
             <div class="item-title">Germination</div>
             <div class="item-meta">2024</div>
             <div class="item-meta">Morphology</div>
-            <img src="germination-cover.jpg" alt="Thumb" class="item-thumb" onerror="this.src='https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&w=400&q=80'">
+            <img src="germination-cover.jpg" alt="Thumb" class="item-thumb" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&w=400&q=80'">
         </a>
 
         <a href="helix-tower.html" class="archive-item">
@@ -433,7 +439,7 @@
             <div class="item-title">Helix Tower</div>
             <div class="item-meta">2024</div>
             <div class="item-meta">Structure Concept</div>
-            <img src="helix-1.jpg" alt="Thumb" class="item-thumb" onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&w=400&q=80'">
+            <img src="helix-1.jpg" alt="Thumb" class="item-thumb" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&w=400&q=80'">
         </a>
 
         <a href="tiny-library.html" class="archive-item">
@@ -441,7 +447,7 @@
             <div class="item-title">Tiny Library: Mobile Bridge</div>
             <div class="item-meta">2025</div>
             <div class="item-meta">Volume Zero / Top 50</div>
-            <img src="tiny-birdseye.jpg" alt="Thumb" class="item-thumb" onerror="this.src='https://images.unsplash.com/photo-1541123437800-1413157719f5?ixlib=rb-4.0.3&w=400&q=80'">
+            <img src="tiny-birdseye.jpg" alt="Thumb" class="item-thumb" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1541123437800-1413157719f5?ixlib=rb-4.0.3&w=400&q=80'">
         </a>
 
         <a href="green-shell.html" class="archive-item">
@@ -449,9 +455,9 @@
             <div class="item-title">Green Shell Pavilion</div>
             <div class="item-meta">2025</div>
             <div class="item-meta">Parametric Design</div>
-            <img src="shell-render.jpg" alt="Thumb" class="item-thumb" onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&w=400&q=80'">
+            <img src="shell-render.jpg" alt="Thumb" class="item-thumb" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&w=400&q=80'">
         </a>
-        
+
     </section>
 
     <footer id="contact">
