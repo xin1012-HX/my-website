@@ -22,11 +22,11 @@
             --bg-color: #F4F4F4; 
             --text-color: #111;
             --line-color: #111; 
-            --warm-bg: #FAF8F5; /* 保持统一的温馨暖米色画布背景 */
+            --warm-bg: #FAF8F5; 
         }
 
         html {
-            scroll-behavior: smooth; /* 丝滑平滑滚动 */
+            scroll-behavior: smooth; 
         }
 
         body { 
@@ -109,14 +109,14 @@
             text-align: justify;
         }
 
-        /* --- 3️⃣ 修复：恢复温馨双列瀑布流排版区 --- */
+        /* --- 温馨双列瀑布流排版区 (高度自适应) --- */
         .warm-gallery {
             display: grid;
             grid-template-columns: 1fr 1fr; 
-            gap: 3vw;
-            padding: 4vw;
+            gap: 4vw;
+            padding: 5vw;
             background-color: var(--warm-bg); 
-            align-items: start; /* 顶部绝对对齐 */
+            align-items: start; 
         }
 
         .gallery-item {
@@ -127,7 +127,7 @@
 
         .gallery-item img {
             width: 100%;
-            height: auto; /* 高度自然延伸，坚决不裁切任何设计信息 */
+            height: auto; 
             display: block;
             border-radius: 6px; 
             box-shadow: 0 8px 24px rgba(0,0,0,0.06); 
@@ -188,23 +188,43 @@
     <section class="warm-gallery">
         
         <div class="gallery-item">
-            <img src="aurora-birdseye.jpg" alt="Bird's-Eye View" loading="lazy">
-            <div class="gallery-caption">Bird's-Eye View</div>
+            <img src="aurora-1.jpg" alt="Image 1" loading="lazy">
+            <div class="gallery-caption">Caption 1</div>
         </div>
 
         <div class="gallery-item">
-            <img src="aurora-interior.jpg" alt="Interior Render" loading="lazy">
-            <div class="gallery-caption">Interior View</div>
+            <img src="aurora-2.jpg" alt="Image 2" loading="lazy">
+            <div class="gallery-caption">Caption 2</div>
         </div>
 
         <div class="gallery-item">
-            <img src="aurora-plan.jpg" alt="Floor Plan Study" loading="lazy">
-            <div class="gallery-caption">Floor Plan Study</div>
+            <img src="aurora-3.jpg" alt="Image 3" loading="lazy">
+            <div class="gallery-caption">Caption 3</div>
         </div>
 
         <div class="gallery-item">
-            <img src="aurora-axonometric.jpg" alt="Axonometric Tectonic Breakdown" loading="lazy">
-            <div class="gallery-caption">Axonometric Tectonic Breakdown</div>
+            <img src="aurora-4.jpg" alt="Image 4" loading="lazy">
+            <div class="gallery-caption">Caption 4</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="aurora-5.jpg" alt="Image 5" loading="lazy">
+            <div class="gallery-caption">Caption 5</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="aurora-6.jpg" alt="Image 6" loading="lazy">
+            <div class="gallery-caption">Caption 6</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="aurora-7.jpg" alt="Image 7" loading="lazy">
+            <div class="gallery-caption">Caption 7</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="aurora-8.jpg" alt="Image 8" loading="lazy">
+            <div class="gallery-caption">Caption 8</div>
         </div>
 
     </section>
