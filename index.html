@@ -26,7 +26,6 @@
             --brand-red: #7B1113; 
         }
 
-        /* 加入了平滑滚动效果 (Smooth Scrolling) */
         html {
             scroll-behavior: smooth;
         }
@@ -45,20 +44,20 @@
             flex-direction: column;
         }
 
-        header { 
+        /* --- 毛玻璃悬浮导航栏 --- */
+        header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5vw 2vw; 
-            border-bottom: 1px solid var(--line-color); 
+            padding: 1.5vw 2vw;
+            border-bottom: 1px solid var(--line-color);
             
-            /* --- 魔法开启：悬浮与毛玻璃质感 --- */
             position: sticky;
             top: 0;
-            z-index: 1000; /* 确保导航栏永远在所有图片的最高层 */
-            background-color: rgba(255, 255, 255, 0.85); /* 85%的半透明纯白 */
-            backdrop-filter: blur(12px); /* 顶级的磨砂玻璃模糊效果 */
-            -webkit-backdrop-filter: blur(12px); /* 照顾一下用苹果 Safari 浏览器的招生官 */
+            z-index: 1000; 
+            background-color: rgba(255, 255, 255, 0.85); 
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px); 
         }
 
         .brand-container {
@@ -181,6 +180,7 @@
             flex-direction: column;
             gap: 20px; 
             width: 100%;
+            align-items: center; /* 让文字和按钮居中对齐 */
         }
 
         .author-text p {
@@ -190,6 +190,27 @@
             margin: 0;
             line-height: 1.9; 
             letter-spacing: 0.3px;
+        }
+
+        /* --- 全新：高级简历下载按钮 --- */
+        .cv-download-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 14px 32px;
+            border: 1px solid var(--line-color);
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+        .cv-download-btn:hover {
+            background-color: var(--text-color);
+            color: #fff;
         }
 
         .scrolling-banner {
@@ -375,6 +396,8 @@
                 <div class="author-text">
                     <p>Founded by Xin (Louis) He, Triumphal Architecture derives its philosophy from the precision of draft schemas and the enduring triumph of structure. Our mission is to seamlessly integrate architecture with our clients' visions, overturning traditional paradigms to enhance modern aesthetics.</p>
                     <p>As an incoming B.S. Architecture student at UIUC and a multi-award winner of the AIA Toledo HSDC, Louis He brings a rigorous, sincere attitude to every project, ensuring "High Quality" and "Safety" from physical constructions to virtual game environments.</p>
+                    
+                    <a href="Xin_Louis_He_CV.pdf" download class="cv-download-btn">Download CV</a>
                 </div>
             </div>
         </div>
@@ -469,26 +492,26 @@
 
     <footer id="contact">
         <div class="footer-block">
-            <h4>Founder</h4>
+            <h4>Director</h4>
             <p>Xin (Louis) He<br>He/Him</p>
             <p>B.S. Architecture<br>UIUC Class of 2030</p>
         </div>
         <div class="footer-block">
             <h4>Inquiries</h4>
             <a href="mailto:26xhe@mvcds.org">26xhe@mvcds.org</a>
-            <a href="mailto:xin521iloveu@gamil.com">xin521iloveu@gmail.com</a>
+            <a href="mailto:xin521iloveu@outlook.com">xin521iloveu@outlook.com</a>
             <p>+1 (567) 413-0509</p>
             <p>WeChat: douya-7485</p>
         </div>
         <div class="footer-block">
             <h4>Locations</h4>
-            <p><strong>Toledo, OH, USA</strong><br>Maumee Valley Country Day School</p>
+            <p><strong>Toledo, OH, USA</strong><br>Maumee Valley CDS</p>
             <p style="margin-top: 10px;"><strong>Beijing, China</strong><br>Qicai Huayuan, Haidian</p>
         </div>
         <div class="footer-block">
             <h4>Social / Connect</h4>
-            <a href="https://www.linkedin.com/in/xin-he-a198a2350/?skipRedirect=true" target="_blank">LinkedIn</a>
-            <a href="https://www.instagram.com/xin521iloveu/" target="_blank">Instagram</a>
+            <a href="你的LinkedIn网址" target="_blank">LinkedIn</a>
+            <a href="你的Instagram网址" target="_blank">Instagram</a>
             <a href="#">Behance</a>
             <p style="margin-top: 20px; font-size: 10px; color: #888;">&copy; 2026 Triumphal Architecture.<br>All Rights Reserved.</p>
         </div>
