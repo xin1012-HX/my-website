@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Aurora Shelter "Home" - TRIUMPHAL ARCHITECTURE</title>
-    <meta name="description" content="A humanitarian social architecture project designed by Xin (Louis) He, conceptualizing a resilient framework for displaced populations.">
+    <meta name="description" content="A humanitarian architecture project addressing displaced populations in Toledo, designed by Xin (Louis) He.">
     
     <link rel="icon" href="favicon.png" type="image/png">
 
     <meta property="og:title" content="Aurora Shelter 'Home' | Xin (Louis) He">
-    <meta property="og:description" content="Social architecture exploring humanitarian needs, modular micro-communities, and tectonic refuge frameworks.">
+    <meta property="og:description" content="A humanitarian architecture project addressing displaced populations and emergency response in Toledo.">
     <meta property="og:image" content="https://xin-studio.design/aurora-birdseye.jpg">
     <meta property="og:url" content="https://xin-studio.design/aurora-home.html">
     <meta property="og:type" content="article">
@@ -22,11 +23,12 @@
             --bg-color: #F4F4F4; 
             --text-color: #111;
             --line-color: #111; 
-            --warm-bg: #FAF8F5; 
+            --warm-bg: #FAF8F5; /* 温馨的暖米色背景 */
         }
 
+        /* 注入丝滑平滑滚动 */
         html {
-            scroll-behavior: smooth; 
+            scroll-behavior: smooth;
         }
 
         body { 
@@ -85,9 +87,9 @@
         }
         .back-button:hover { opacity: 0.6; }
 
-        /* --- 页面标题区 --- */
+        /* --- 页面标题与故事背景区 --- */
         .project-header { 
-            padding: 60px 4vw 40px 4vw; 
+            padding: 80px 4vw 60px 4vw; 
             text-align: center; 
             border-bottom: 1px solid var(--line-color);
             background-color: var(--bg-color);
@@ -95,8 +97,8 @@
 
         .project-header h1 { 
             font-family: 'Playfair Display', serif; 
-            font-size: 40px; 
-            margin-bottom: 20px; 
+            font-size: 42px; 
+            margin-bottom: 30px; 
             letter-spacing: 2px; 
             text-transform: uppercase; 
         }
@@ -104,19 +106,19 @@
         .project-header p { 
             font-size: 15px; 
             color: #444; 
-            max-width: 800px;
-            margin: 0 auto;
+            max-width: 850px;
+            margin: 0 auto 20px auto;
             text-align: justify;
+            line-height: 1.8;
         }
 
-        /* --- 温馨双列瀑布流排版区 (高度自适应) --- */
+        /* --- 温馨画廊区 (2列布局) --- */
         .warm-gallery {
             display: grid;
-            grid-template-columns: 1fr 1fr; 
-            gap: 4vw;
-            padding: 5vw;
-            background-color: var(--warm-bg); 
-            align-items: start; 
+            grid-template-columns: 1fr 1fr;
+            gap: 3vw;
+            padding: 4vw;
+            background-color: var(--warm-bg); /* 暖色背景 */
         }
 
         .gallery-item {
@@ -127,15 +129,14 @@
 
         .gallery-item img {
             width: 100%;
-            height: auto; 
-            display: block;
-            border-radius: 6px; 
-            box-shadow: 0 8px 24px rgba(0,0,0,0.06); 
+            height: auto;
+            border-radius: 6px; /* 微微的圆角显得更有温度 */
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06); /* 柔和的弥散阴影 */
             transition: transform 0.4s ease;
         }
 
         .gallery-item img:hover {
-            transform: translateY(-5px); 
+            transform: translateY(-5px); /* 鼠标悬浮微微上浮 */
         }
 
         .gallery-caption {
@@ -147,7 +148,7 @@
             letter-spacing: 1px;
         }
 
-        /* 底部版权 */
+        /* --- 底部版权 --- */
         footer { 
             text-align: center; 
             padding: 30px 0; 
@@ -158,8 +159,9 @@
             border-top: 1px solid var(--line-color);
         }
 
+        /* --- 手机端响应式 --- */
         @media (max-width: 768px) {
-            .warm-gallery { grid-template-columns: 1fr; } 
+            .warm-gallery { grid-template-columns: 1fr; }
             .project-header h1 { font-size: 28px; }
             .brand-logo { height: 60px; }
             .brand-text { font-size: 18px; }
@@ -182,49 +184,51 @@
 
     <section class="project-header">
         <h1>Aurora Shelter "Home"</h1>
-        <p>A humanitarian architecture project addressing displaced populations and emergency response. "Home" is conceptualized not merely as a physical shell, but as a framework for restoring dignity, security, and communal cohesion. <br><br>The design integrates rapid-assembly tectonic components with localized sustainable materials to form resilient, modular micro-communities, bridging the immediate need for emergency refuge with the long-term goal of social integration.</p>
+        <p>Beyond academia, my experiences in the streets and shelters of the Toledo community allowed me to grasp the deeper significance of architecture. During winter, I often saw unhoused individuals standing along Toledo’s freezing streets, clutching torn pieces of cardboard with faint words of "home needed." I rarely dared to meet their eyes or linger my gaze, because I was afraid that misplaced pity might compromise the dignity they struggled to preserve. Yet I could not stop wondering where they would go once they disappeared from those corners—whether they had found shelter, or simply been carried away by the harsh wind.</p>
+        <p>Fate is something that is hard to explain. In early 2025, I was given the opportunity to confront these questions directly through the AIA Toledo architectural competition, where I designed a shelter for unhoused women and children. During the early stages of the project, I visited the Aurora Project and spoke with residents who had experienced displacement. Their concerns were not about form or structure, but about safety, dignity, and the simple need for a place that could truly be called "home."</p>
+        <p>In response, I rejected an institutional shelter model and instead designed a residential environment grounded in Toledo’s local style. By drawing on familiar spatial patterns, I sought to restore a sense of belonging and dignity rather than reinforce marginalization. When the Toledo City Council formally recognized the project, I realized that architecture’s power extends beyond providing shelter, which can participate in public dialogue and contribute to social healing.</p>
     </section>
 
     <section class="warm-gallery">
         
         <div class="gallery-item">
-            <img src="aurora-1.jpg" alt="Image 1" loading="lazy">
-            <div class="gallery-caption">Caption 1</div>
+            <img src="aurora-front-yard.jpg" alt="Front Yard" loading="lazy">
+            <div class="gallery-caption">Front Yard</div>
         </div>
 
         <div class="gallery-item">
-            <img src="aurora-2.jpg" alt="Image 2" loading="lazy">
-            <div class="gallery-caption">Caption 2</div>
+            <img src="aurora-front-gate.jpg" alt="Front Gate" loading="lazy">
+            <div class="gallery-caption">Front Gate</div>
         </div>
 
         <div class="gallery-item">
-            <img src="aurora-3.jpg" alt="Image 3" loading="lazy">
-            <div class="gallery-caption">Caption 3</div>
+            <img src="aurora-parking.jpg" alt="Parking Lot" loading="lazy">
+            <div class="gallery-caption">Parking Lot</div>
         </div>
 
         <div class="gallery-item">
-            <img src="aurora-4.jpg" alt="Image 4" loading="lazy">
-            <div class="gallery-caption">Caption 4</div>
+            <img src="aurora-pathway.jpg" alt="Pathway" loading="lazy">
+            <div class="gallery-caption">Pathway</div>
         </div>
 
         <div class="gallery-item">
-            <img src="aurora-5.jpg" alt="Image 5" loading="lazy">
-            <div class="gallery-caption">Caption 5</div>
+            <img src="aurora-back-garden.jpg" alt="Back Garden" loading="lazy">
+            <div class="gallery-caption">Back Garden</div>
         </div>
 
         <div class="gallery-item">
-            <img src="aurora-6.jpg" alt="Image 6" loading="lazy">
-            <div class="gallery-caption">Caption 6</div>
+            <img src="aurora-parking-top.jpg" alt="Parking Lot Top View" loading="lazy">
+            <div class="gallery-caption">Parking Lot Top View</div>
         </div>
 
         <div class="gallery-item">
-            <img src="aurora-7.jpg" alt="Image 7" loading="lazy">
-            <div class="gallery-caption">Caption 7</div>
+            <img src="aurora-birdseye.jpg" alt="Bird's-Eye View" loading="lazy">
+            <div class="gallery-caption">Bird's-Eye View</div>
         </div>
 
         <div class="gallery-item">
-            <img src="aurora-8.jpg" alt="Image 8" loading="lazy">
-            <div class="gallery-caption">Caption 8</div>
+            <img src="aurora-east-pathway.jpg" alt="East Pathway" loading="lazy">
+            <div class="gallery-caption">East Pathway</div>
         </div>
 
     </section>
