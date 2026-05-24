@@ -1,180 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" href="favicon.png" type="image/png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Tiny Library - TRIUMPHAL ARCHITECTURE</title>
+    <meta name="description" content="Volume Zero Tiny Library Competition - Global Top 50. A mobile bridge project by Xin (Louis) He.">
+    
+    <link rel="icon" href="favicon.png" type="image/png">
+
+    <meta property="og:title" content="Tiny Library: Mobile Bridge | Xin (Louis) He">
+    <meta property="og:description" content="Global Top 50 in Volume Zero. A vertically stacked productive space bridging nature and the community.">
+    <meta property="og:image" content="https://xin-studio.design/tiny-birdseye.jpg">
+    <meta property="og:url" content="https://xin-studio.design/tiny-library.html">
+    <meta property="og:type" content="article">
+
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        :root {
-            --bg-color: #F4F4F4; 
-            --text-color: #111;
-            --line-color: #111; 
-            --warm-bg: #FAF8F5; 
-        }
+        :root { --bg-color: #F4F4F4; --text-color: #111; --line-color: #111; --warm-bg: #FAF8F5; }
+        html { scroll-behavior: smooth; }
 
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: var(--bg-color); 
-            color: var(--text-color); 
-            line-height: 1.6;
-            padding: 2vw;
-        }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; padding: 2vw; }
+        .wrapper { border: 1px solid var(--line-color); min-height: 90vh; }
 
-        .wrapper {
-            border: 1px solid var(--line-color);
-            min-height: 90vh;
-        }
-
-        /* --- 导航栏 --- */
-        header { 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5vw 2vw; 
-            border-bottom: 1px solid var(--line-color); 
-            background-color: #fff;
-        }
-
-        .brand-container {
-            display: flex;
-            align-items: center; 
-            gap: 20px; 
-            text-decoration: none;
-            color: var(--text-color); 
-            transition: opacity 0.3s ease;
-        }
-
+        header { display: flex; justify-content: space-between; align-items: center; padding: 1.5vw 2vw; border-bottom: 1px solid var(--line-color); background-color: #fff; }
+        .brand-container { display: flex; align-items: center; gap: 20px; text-decoration: none; color: var(--text-color); transition: opacity 0.3s ease; }
         .brand-container:hover { opacity: 0.7; }
-
         .brand-logo { height: 100px; width: auto; display: block; }
-
-        .brand-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 26px; 
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            line-height: 1.1;
-        }
-
-        .back-button { 
-            text-decoration: none; 
-            color: var(--text-color); 
-            font-size: 12px; 
-            text-transform: uppercase;
-            letter-spacing: 1px; 
-            transition: opacity 0.3s; 
-            font-weight: 500;
-        }
+        .brand-text { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; line-height: 1.1; }
+        .back-button { text-decoration: none; color: var(--text-color); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; transition: opacity 0.3s; font-weight: 500; }
         .back-button:hover { opacity: 0.6; }
 
-        /* --- 页面标题区 --- */
-        .project-header { 
-            padding: 60px 4vw 40px 4vw; 
-            text-align: center; 
-            border-bottom: 1px solid var(--line-color);
-            background-color: var(--bg-color);
-        }
+        .project-header { padding: 60px 4vw 40px 4vw; text-align: center; border-bottom: 1px solid var(--line-color); background-color: var(--bg-color); }
+        .project-header h1 { font-family: 'Playfair Display', serif; font-size: 40px; margin-bottom: 10px; letter-spacing: 2px; text-transform: uppercase; }
+        .project-award { font-size: 13px; text-transform: uppercase; letter-spacing: 2px; color: #7B1113; margin-bottom: 30px; font-weight: 600; }
+        .project-header p { font-size: 15px; color: #444; max-width: 900px; margin: 0 auto; text-align: justify; }
 
-        .project-header h1 { 
-            font-family: 'Playfair Display', serif; 
-            font-size: 40px; 
-            margin-bottom: 10px; 
-            letter-spacing: 2px; 
-            text-transform: uppercase; 
-        }
-
-        .project-award {
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #7B1113;
-            margin-bottom: 30px;
-            font-weight: 600;
-        }
-
-        .project-header p { 
-            font-size: 15px; 
-            color: #444; 
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: justify;
-        }
-
-        /* --- 温馨画廊网格区 --- */
-        .warm-gallery {
-            display: grid;
-            grid-template-columns: 1fr 1fr; 
-            gap: 4vw;
-            padding: 5vw;
-            background-color: var(--warm-bg); 
-            align-items: start; 
-        }
-
-        .gallery-item {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: auto; 
-            display: block;
-            border-radius: 6px; 
-            box-shadow: 0 8px 24px rgba(0,0,0,0.06); 
-            transition: transform 0.4s ease;
-        }
-
+        .warm-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 4vw; padding: 5vw; background-color: var(--warm-bg); align-items: start; }
+        .gallery-item { display: flex; flex-direction: column; gap: 15px; }
+        .gallery-item img { width: 100%; height: auto; display: block; border-radius: 6px; box-shadow: 0 8px 24px rgba(0,0,0,0.06); transition: transform 0.4s ease; }
         .gallery-item img:hover { transform: translateY(-5px); }
+        .gallery-caption { font-family: 'Playfair Display', serif; font-style: italic; font-size: 15px; color: #666; text-align: center; letter-spacing: 1px; }
 
-        .gallery-caption {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 15px;
-            color: #666;
-            text-align: center;
-            letter-spacing: 1px;
-        }
+        .text-block { padding: 2vw; display: flex; flex-direction: column; justify-content: flex-start; }
+        .text-block h3 { font-family: 'Playfair Display', serif; font-size: 24px; color: #333; margin-bottom: 15px; border-bottom: 1px solid #ddd; padding-bottom: 10px; }
+        .text-block p { font-size: 15px; color: #555; line-height: 1.8; text-align: justify; }
 
-        /* --- 专门针对这三段文字的排版样式 --- */
-        .text-block {
-            padding: 2vw; /* 给文字留出呼吸空间 */
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-        }
-
-        .text-block h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            color: #333;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 10px;
-        }
-
-        .text-block p {
-            font-size: 15px;
-            color: #555;
-            line-height: 1.8;
-            text-align: justify;
-        }
-
-        /* 底部版权 */
-        footer { 
-            text-align: center; 
-            padding: 30px 0; 
-            font-size: 11px; 
-            text-transform: uppercase;
-            color: #888; 
-            background-color: #fff;
-            border-top: 1px solid var(--line-color);
-        }
+        footer { text-align: center; padding: 30px 0; font-size: 11px; text-transform: uppercase; color: #888; background-color: #fff; border-top: 1px solid var(--line-color); }
 
         @media (max-width: 768px) {
             .warm-gallery { grid-template-columns: 1fr; } 
@@ -210,16 +84,16 @@
     <section class="warm-gallery">
         
         <div class="gallery-item">
-            <img src="tiny-site.jpg" alt="Site Analysis" loading ="lazy">
+            <img src="tiny-site.jpg" alt="Site Analysis" loading="lazy">
             <div class="gallery-caption">Site Analysis</div>
         </div>
         <div class="gallery-item">
-            <img src="tiny-birdseye.jpg" alt="Bird's-Eye View" loading ="lazy">
+            <img src="tiny-birdseye.jpg" alt="Bird's-Eye View" loading="lazy">
             <div class="gallery-caption">Bird's-Eye View</div>
         </div>
 
         <div class="gallery-item">
-            <img src="tiny-interior-river.jpg" alt="Interior (River Direction)" loading ="lazy">
+            <img src="tiny-interior-river.jpg" alt="Interior (River Direction)" loading="lazy">
             <div class="gallery-caption">Interior (River Direction)</div>
             
             <div class="text-block" style="margin-top: 40px;">
@@ -228,12 +102,12 @@
             </div>
         </div>
         <div class="gallery-item">
-            <img src="tiny-section-river.jpg" alt="Section (River Direction)" loading ="lazy">
+            <img src="tiny-section-river.jpg" alt="Section (River Direction)" loading="lazy">
             <div class="gallery-caption">Section (River Direction)</div>
         </div>
 
         <div class="gallery-item">
-            <img src="tiny-interior-forest.jpg" alt="Interior (Forest Direction)" loading ="lazy">
+            <img src="tiny-interior-forest.jpg" alt="Interior (Forest Direction)" loading="lazy">
             <div class="gallery-caption">Interior (Forest Direction)</div>
             
             <div class="text-block" style="margin-top: 40px;">
@@ -242,12 +116,12 @@
             </div>
         </div>
         <div class="gallery-item">
-            <img src="tiny-section-forest.jpg" alt="Section (Forest Direction)" loading ="lazy">
+            <img src="tiny-section-forest.jpg" alt="Section (Forest Direction)" loading="lazy">
             <div class="gallery-caption">Section (Forest Direction)</div>
         </div>
 
         <div class="gallery-item">
-            <img src="tiny-interior-park.jpg" alt="Interior (Park Direction)" loading ="lazy">
+            <img src="tiny-interior-park.jpg" alt="Interior (Park Direction)" loading="lazy">
             <div class="gallery-caption">Interior (Park Direction)</div>
             
             <div class="text-block" style="margin-top: 40px;">
@@ -256,16 +130,16 @@
             </div>
         </div>
         <div class="gallery-item">
-            <img src="tiny-section-park.jpg" alt="Section (Park Direction)" loading ="lazy">
+            <img src="tiny-section-park.jpg" alt="Section (Park Direction)" loading="lazy">
             <div class="gallery-caption">Section (Park Direction)</div>
         </div>
 
         <div class="gallery-item">
-            <img src="tiny-plan-1f.jpg" alt="1st Floor Plan" loading ="lazy">
+            <img src="tiny-plan-1f.jpg" alt="1st Floor Plan" loading="lazy">
             <div class="gallery-caption">1st Floor Plan</div>
         </div>
         <div class="gallery-item">
-            <img src="tiny-plan-2f.jpg" alt="2nd Floor Plan" loading ="lazy">
+            <img src="tiny-plan-2f.jpg" alt="2nd Floor Plan" loading="lazy">
             <div class="gallery-caption">2nd Floor Plan</div>
         </div>
 
