@@ -315,13 +315,14 @@
         </div>
     </footer>
 </div>
+    
 <div id="lightbox" onclick="this.classList.remove('active')">
     <img src="" alt="Zoomed Image" id="lightbox-img">
 </div>
 
 <script>
     // 专门抓取详情页里 .media-item 容器下的所有图片
-    const images = document.querySelectorAll('.media-item img');
+    const images = document.querySelectorAll('.gallery-item img, .media-item img');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
 
