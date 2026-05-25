@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NYNBH0V6Y5"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -9,7 +8,7 @@
       gtag('js', new Date());
 
       gtag('config', 'G-NYNBH0V6Y5');
-</script>
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -33,6 +32,7 @@
             --text-color: #111;
             --line-color: #111; 
             --brand-red: #7B1113; 
+            --warm-bg: #FAF8F5; 
         }
 
         html {
@@ -51,6 +51,7 @@
             border: 1px solid var(--line-color);
             display: flex;
             flex-direction: column;
+            background-color: #fff;
         }
 
         /* --- 毛玻璃悬浮导航栏 --- */
@@ -189,7 +190,7 @@
             flex-direction: column;
             gap: 20px; 
             width: 100%;
-            align-items: center; /* 让文字和按钮居中对齐 */
+            align-items: center; 
         }
 
         .author-text p {
@@ -201,7 +202,6 @@
             letter-spacing: 0.3px;
         }
 
-        /* --- 全新：高级简历下载按钮 --- */
         .cv-download-btn {
             display: inline-block;
             margin-top: 30px;
@@ -322,8 +322,103 @@
             border: 1px solid #fff;
         }
 
+        /* --- 艺术展览网格专区 CSS --- */
+        .art-statement {
+            padding: 4vw 6vw;
+            background-color: var(--bg-color);
+            border-bottom: 1px solid var(--line-color);
+            text-align: center;
+        }
+
+        .art-statement h3 {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 15px;
+            color: #222;
+        }
+
+        .art-statement p {
+            font-size: 14px;
+            color: #444;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            background-color: var(--line-color); 
+            gap: 1px;
+            border-bottom: 1px solid var(--line-color);
+        }
+
+        .catalog-item {
+            background-color: var(--warm-bg);
+            padding: 3vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .artwork-container {
+            width: 100%;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            margin-bottom: 25px;
+        }
+
+        .artwork-container img {
+            width: 100%;
+            height: 280px;
+            object-fit: contain; 
+            display: block;
+            background-color: #fafafa;
+            transition: transform 0.4s ease;
+        }
+
+        .artwork-container img:hover {
+            transform: scale(1.02);
+        }
+
+        .museum-label {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            border-top: 1px dotted #999;
+            padding-top: 15px;
+        }
+
+        .art-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #111;
+        }
+
+        .art-meta {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        .art-desc {
+            font-size: 13px;
+            color: #444;
+            text-align: justify;
+            line-height: 1.6;
+            margin-top: 5px;
+        }
+
+        /* --- Footer --- */
         footer {
-            border-top: 1px solid var(--line-color);
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr;
             background-color: #fff;
@@ -354,6 +449,10 @@
 
         .footer-block a:hover { text-decoration: underline; }
 
+        @media (max-width: 1024px) { 
+            .catalog-grid { grid-template-columns: 1fr 1fr; } 
+        }
+
         @media (max-width: 768px) {
             .studio-info h1 { font-size: 36px; margin-bottom: 35px; }
             .author-profile { gap: 30px; }
@@ -364,6 +463,10 @@
             .archive-item { grid-template-columns: 1fr; gap: 10px; padding: 20px; }
             .item-title { font-size: 24px; }
             .item-index, .item-thumb { display: none; }
+            
+            .catalog-grid { grid-template-columns: 1fr; }
+            .art-statement h3 { font-size: 16px; }
+
             footer { grid-template-columns: 1fr 1fr; }
             .footer-block:nth-child(2) { border-right: none; }
             .footer-block:nth-child(1), .footer-block:nth-child(2) { border-bottom: 1px solid var(--line-color); }
@@ -376,7 +479,7 @@
 
 <div class="wrapper">
     <header>
-        <a href="index.html" class="brand-container">
+        <a href="#" class="brand-container">
             <img src="logo.png" alt="Triumphal Architecture Logo" class="brand-logo">
             <div class="brand-text">
                 Triumphal<br>Architecture
@@ -384,7 +487,8 @@
         </a>
         <nav>
             <a href="#studio">Studio</a>
-            <a href="#archive">Index</a>
+            <a href="#archive">Architecture</a>
+            <a href="#art">Art</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
@@ -427,7 +531,7 @@
     </section>
 
     <div class="archive-header" id="archive">
-        <span>Index / Selected Works</span>
+        <span>Architecture / Selected Works</span>
         <span>2024 — 2026</span>
     </div>
 
@@ -496,6 +600,155 @@
             <div class="item-meta">Parametric Design</div>
             <img src="shell-render.jpg" alt="Thumb" class="item-thumb" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&w=400&q=80'">
         </a>
+
+    </section>
+
+    <div class="archive-header" id="art">
+        <span>Fine Art / Sculptures</span>
+        <span>AP 3-D Art & Design</span>
+    </div>
+    
+    <div class="art-statement">
+        <h3>"I explored the relationship between material progress and ecological damage. If animals must evolve to survive human impact."</h3>
+        <p>This conceptual matrix runs through my artworks in various sculptural subject matters, observing how humans relentlessly seek convenience, efficiency, technology, and personal interest without thought of ecological impact. My work serves as a stark advocate for protection and empathy toward vulnerable species.</p>
+    </div>
+
+    <section class="catalog-grid">
+        
+        <div class="catalog-item">
+            <div class="artwork-container"><img src="art-snail.jpg" alt="Evolution" loading="lazy"></div>
+            <div class="museum-label">
+                <div class="art-title">Evolution</div>
+                <div class="art-meta">Dimensions: 8.25 x 8.25 x 4.5 in.<br>Materials: Ceramic, iron chain</div>
+                <p class="art-desc">The severely compromised environment forces the gastropod to become grotesquely personified, developing human-like teeth as a direct morphological consequence of anthropocentric impact.</p>
+            </div>
+        </div>
+
+        <div class="catalog-item">
+            <div class="artwork-container"><img src="art-oyster.jpg" alt="Residuum" loading="lazy"></div>
+            <div class="museum-label">
+                <div class="art-title">Residuum</div>
+                <div class="art-meta">Dimensions: 1.5 x 10 x 10 in.<br>Materials: Ceramic, natural sand, scoop-net, acrylic, found object</div>
+                <p class="art-desc">Mimicking a degraded shoreline topography where the empty oyster shell completely loses its organic flesh, discarded helplessly amongst synthetic maritime refuse.</p>
+            </div>
+        </div>
+
+        <div class="catalog-item">
+            <div class="artwork-container"><img src="art-slugs.jpg" alt="Decay" loading="lazy"></div>
+            <div class="museum-label">
+                <div class="art-title">Decay</div>
+                <div class="art-meta">Dimensions: 2 x 10.5 x 8 in.<br>Materials: Clay, preserved moss, plastic, water bottle, warning sticker</div>
+                <p class="art-desc">A heavy infiltration of commercial plastic components illustrates the bio-chemical hazards leaking into the soil, creating a toxic contrast against vibrant, living green moss.</p>
+            </div>
+        </div>
+
+        <div class="catalog-item">
+            <div class="artwork-container"><img src="art-fish.jpg" alt="Toxification" loading="lazy"></div>
+            <div class="museum-label">
+                <div class="art-title">Toxification</div>
+                <div class="art-meta">Dimensions: 2.5 x 11.75 x 7 in.<br>Materials: Ceramic, foamcord, collage magazine print</div>
+                <p class="art-desc">Erupting pustules and scales map out fatal aquatic mutations, while deep lacerations and missing flesh signify invasive human scientific experimentation on weak lives.</p>
+            </div>
+        </div>
+
+        <div class="catalog-item">
+            <div class="artwork-container"><img src="art-bear.jpg" alt="Delicacy" loading="lazy"></div>
+            <div class="museum-label">
+                <div class="art-title">Delicacy</div>
+                <div class="art-meta">Dimensions: 2.5 x 10 x 10 in.<br>Materials: Ceramic, acrylic paint, porcelain plate, salt, black pepper</div>
+                <p class="art-desc">An indictment on commodification and human desire. The severed bear paw remains a brutal, mutilated limb despite being masked by haute-cuisine culinary staging and seasoning.</p>
+            </div>
+        </div>
+
+        <div class="catalog-item">
+            <div class="artwork-container"><img src="art-snake.jpg" alt="Skin of Envy" loading="lazy"></div>
+            <div class="museum-label">
+                <div class="art-title">Skin of Envy</div>
+                <div class="art-meta">Dimensions: 5.5 x 8 x 7.25 in.<br>Materials: Ceramic, plastic wrap, barcode</div>
+                <p class="art-desc">Plastic wrap and commercial barcodes tightly suffocate the reptile, directly symbolizing the ruthless commodification and consumption of snakeskin in luxury fashion.</p>
+            </div>
+        </div>
+
+        <div class="catalog-item">
+            <div class="artwork-container"><img src="art-octopus.jpg" alt="Echoes of Wrath" loading="lazy"></div>
+            <div class="museum-label">
+                <div class="art-title">Echoes of Wrath</div>
+                <div class="art-meta">Dimensions: 8 x 8.5 x 6.75 in.<br>Materials: Ceramic, synthetic plastic rings, acrylic paint</div>
+                <p class="art-desc">By forcibly seizing underwater territories, human naval systems deploy destructive sonar wave frequencies, leaving violent concentric scars embedded in the cephalopod's flesh.</p>
+            </div>
+        </div>
+
+        <div class="catalog-item">
+            <div class="artwork-container"><img src="art-chicken.jpg" alt="Feeding Gluttony" loading="lazy"></div>
+            <div class="museum-label">
+                <div class="art-title">Feeding Gluttony</div>
+                <div class="art-meta">Dimensions: 20 x 20 x 14 in.<br>Materials: Cardboard, natural straw, corn kernels, wooden dowel rods, plastic</div>
+                <p class="art-desc">A mechanical feeding tube directly penetrates the consumer chicken's entrails, framing the animal as a mere manufacturing asset engineered to grow rapidly for human consumption.</p>
+            </div>
+        </div>
+
+        <div class="catalog-item">
+            <div class="artwork-container"><img src="art-deer.jpg" alt="Trophy of Greed" loading="lazy"></div>
+            <div class="museum-label">
+                <div class="art-title">Trophy of Greed</div>
+                <div class="art-meta">Dimensions: 23 x 27 x 10 in.<br>Materials: Wooden dowel rods, acrylic paint, Blender 3D printed joints</div>
+                <p class="art-desc">A structural, wireframe stag head is brutally pierced by hunting arrows, reflecting humanity's insatiable, archaic pursuit of dominance and trophy status mounted on a wall.</p>
+            </div>
+        </div>
+
+        <div class="catalog-item">
+            <div class="artwork-container"><img src="art-dolphin.jpg" alt="Theatre of Pride" loading="lazy"></div>
+            <div class="museum-label">
+                <div class="art-title">Theatre of Pride</div>
+                <div class="art-meta">Dimensions: 8 x 10.25 x 6.5 in.<br>Materials: Ceramic, shaped plastic, acrylic paint</div>
+                <p class="art-desc">Capturing the exact moment a captive cetacean leaps through an artificial ring of flame—turning individual systematic exploitation into mass spectacle and entertainment.</p>
+            </div>
+        </div>
+
+        <div class="catalog-item">
+            <div class="artwork-container"><img src="art-frog.jpg" alt="Two Seconds of Gravity" loading="lazy"></div>
+            <div class="museum-label">
+                <div class="art-title">Two Seconds of Gravity</div>
+                <div class="art-meta">Dimensions: 6.75 x 9.5 x 6 in.<br>Materials: Ceramic, Blender 3D printed tire matrix, acrylic paint</div>
+                <p class="art-desc">The heavy, synthetic tread of a car tire conveys a crushing sense of urban oppression. The trapped amphibian is pinned to the asphalt, utterly unable to jump.</p>
+            </div>
+        </div>
+
+        <div class="catalog-item">
+            <div class="artwork-container"><img src="art-tusk.jpg" alt="Packaged Relic" loading="lazy"></div>
+            <div class="museum-label">
+                <div class="art-title">Packaged Relic</div>
+                <div class="art-meta">Dimensions: 19.5 x 8.5 x 8.5 in.<br>Materials: Ceramic, foamcord, wooden rod, collage newspaper, fabric thread</div>
+                <p class="art-desc">Utilizing printed financial media to construct a poached elephant tusk, bound rigidly within three stark pillars to show the literal conversion of wildlife into commercial capital.</p>
+            </div>
+        </div>
+
+        <div class="catalog-item">
+            <div class="artwork-container"><img src="art-wolf.jpg" alt="The Rusted Howl" loading="lazy"></div>
+            <div class="museum-label">
+                <div class="art-title">The Rusted Howl</div>
+                <div class="art-meta">Dimensions: 7.25 x 6 x 4.5 in.<br>Materials: Ceramic, industrial steel screws</div>
+                <p class="art-desc">An apex predator's head is discarded callously on a pile of urban stones, its evolutionary fangs completely replaced with cold, threaded industrial machinery screws.</p>
+            </div>
+        </div>
+
+        <div class="catalog-item">
+            <div class="artwork-container"><img src="art-nest.jpg" alt="Infrastructure of Silence" loading="lazy"></div>
+            <div class="museum-label">
+                <div class="art-title">Infrastructure of Silence</div>
+                <div class="art-meta">Dimensions: 21.25 x 19 x 17.5 in.<br>Materials: Natural branches, coconut fiber, wire filaments, fractured eggshells</div>
+                <p class="art-desc">High-voltage transmission infrastructure stands looming directly over a fragile bird's nest, exposing the constant, unseen electro-magnetic hazards encroaching upon local ecosystems.</p>
+            </div>
+        </div>
+
+        <div class="catalog-item">
+            <div class="artwork-container"><img src="art-eagle.jpg" alt="Imprisoned Freedom" loading="lazy"></div>
+            <div class="museum-label">
+                <div class="art-title">Imprisoned Freedom</div>
+                <div class="art-meta">Dimensions: 9 x 16 x 23 in.<br>Materials: Wire framework, Blender 3D printed hand mass, acrylic</div>
+                <p class="art-desc">An eagle engineered to yearn for the expansive sky is tightly clutched and anchored by a massive human hand, serving as an ultimate emblem of forced subjugation.</p>
+            </div>
+        </div>
 
     </section>
 
