@@ -6,7 +6,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-NYNBH0V6Y5');
     </script>
     <meta charset="UTF-8">
@@ -35,9 +34,7 @@
             --warm-bg: #FAF8F5; 
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -54,14 +51,12 @@
             background-color: #fff;
         }
 
-        /* --- 毛玻璃悬浮导航栏 --- */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1.5vw 2vw;
             border-bottom: 1px solid var(--line-color);
-            
             position: sticky;
             top: 0;
             z-index: 1000; 
@@ -78,19 +73,9 @@
             color: var(--text-color); 
             transition: opacity 0.3s ease;
         }
-
         .brand-container:hover { opacity: 0.7; }
-
         .brand-logo { height: 100px; width: auto; display: block; }
-
-        .brand-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 26px; 
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            line-height: 1.1;
-        }
+        .brand-text { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; line-height: 1.1; }
 
         nav a {
             text-decoration: none;
@@ -102,371 +87,93 @@
             font-weight: 500;
             transition: color 0.3s;
         }
-
         nav a:hover { color: var(--brand-red); }
 
-        .marquee-container {
-            border-bottom: 1px solid var(--line-color);
-            padding: 10px 0;
-            overflow: hidden;
-            background-color: #E8E8E8;
-            color: var(--brand-red);
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 14px;
-            letter-spacing: 1px;
-            white-space: nowrap;
-        }
+        .marquee-container { border-bottom: 1px solid var(--line-color); padding: 10px 0; overflow: hidden; background-color: #E8E8E8; color: var(--brand-red); font-family: 'Playfair Display', serif; font-style: italic; font-size: 14px; letter-spacing: 1px; white-space: nowrap; }
+        .marquee-content { display: inline-block; animation: marquee 20s linear infinite; }
+        @keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
-        .marquee-content {
-            display: inline-block;
-            animation: marquee 20s linear infinite;
-        }
+        .studio-section { border-bottom: 1px solid var(--line-color); background-color: #fff; }
+        .studio-info { padding: 8vw 4vw 7vw 4vw; max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+        .section-label { font-size: 10px; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px; color: #666; text-align: center; }
+        .studio-info h1 { font-family: 'Playfair Display', serif; font-size: 4.5vw; font-weight: 400; line-height: 1.1; margin-bottom: 50px; text-align: center; letter-spacing: 1px; }
 
-        @keyframes marquee {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
+        .author-profile { display: flex; flex-direction: column; align-items: center; gap: 45px; width: 100%; }
+        .author-photo { width: 180px; height: 180px; object-fit: cover; border: 1px solid var(--line-color); padding: 5px; background-color: #fff; transition: filter 0.4s ease, transform 0.4s ease; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); }
+        .author-photo:hover { filter: grayscale(100%); transform: scale(1.02); }
+        .author-text { display: flex; flex-direction: column; gap: 20px; width: 100%; align-items: center; }
+        .author-text p { font-size: 15px; color: #333; text-align: justify; margin: 0; line-height: 1.9; letter-spacing: 0.3px; }
 
-        .studio-section {
-            border-bottom: 1px solid var(--line-color);
-            background-color: #fff; 
-        }
+        .cv-download-btn { display: inline-block; margin-top: 30px; padding: 14px 32px; border: 1px solid var(--line-color); color: var(--text-color); text-decoration: none; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; transition: all 0.3s ease; background-color: transparent; cursor: pointer; }
+        .cv-download-btn:hover { background-color: var(--text-color); color: #fff; }
 
-        .studio-info {
-            padding: 8vw 4vw 7vw 4vw;
-            max-width: 900px; 
-            margin: 0 auto; 
-            display: flex;
-            flex-direction: column;
-            align-items: center; 
-        }
+        .scrolling-banner { width: 100%; overflow: hidden; border-bottom: 1px solid var(--line-color); display: flex; background-color: #000; }
+        .scrolling-banner-track { display: flex; width: max-content; animation: scroll-left 40s linear infinite; }
+        .scrolling-banner-track.reverse { animation: scroll-right 40s linear infinite; }
+        .scrolling-banner-track img { height: 350px; object-fit: cover; display: block; pointer-events: none; }
+        @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        @keyframes scroll-right { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
 
-        .section-label {
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 20px;
-            color: #666;
-            text-align: center;
-        }
-
-        .studio-info h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4.5vw;
-            font-weight: 400;
-            line-height: 1.1;
-            margin-bottom: 50px;
-            text-align: center;
-            letter-spacing: 1px;
-        }
-
-        .author-profile {
-            display: flex;
-            flex-direction: column;
-            align-items: center; 
-            gap: 45px; 
-            width: 100%;
-        }
-
-        .author-photo {
-            width: 180px; 
-            height: 180px;
-            object-fit: cover;
-            border: 1px solid var(--line-color);
-            padding: 5px; 
-            background-color: #fff;
-            transition: filter 0.4s ease, transform 0.4s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        }
-
-        .author-photo:hover {
-            filter: grayscale(100%);
-            transform: scale(1.02);
-        }
-
-        .author-text {
-            display: flex;
-            flex-direction: column;
-            gap: 20px; 
-            width: 100%;
-            align-items: center; 
-        }
-
-        .author-text p {
-            font-size: 15px;
-            color: #333;
-            text-align: justify; 
-            margin: 0;
-            line-height: 1.9; 
-            letter-spacing: 0.3px;
-        }
-
-        .cv-download-btn {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 14px 32px;
-            border: 1px solid var(--line-color);
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: all 0.3s ease;
-            background-color: transparent;
-            cursor: pointer;
-        }
-
-        .cv-download-btn:hover {
-            background-color: var(--text-color);
-            color: #fff;
-        }
-
-        .scrolling-banner {
-            width: 100%;
-            overflow: hidden;
-            border-bottom: 1px solid var(--line-color);
-            display: flex;
-            background-color: #000;
-        }
-
-        .scrolling-banner-track {
-            display: flex;
-            width: max-content;
-            animation: scroll-left 40s linear infinite; 
-        }
-
-        .scrolling-banner-track.reverse {
-            animation: scroll-right 40s linear infinite;
-        }
-
-        .scrolling-banner-track img {
-            height: 350px; 
-            object-fit: cover;
-            display: block;
-            pointer-events: none; 
-        }
-
-        @keyframes scroll-left {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); } 
-        }
-
-        @keyframes scroll-right {
-            0% { transform: translateX(-50%); }
-            100% { transform: translateX(0); } 
-        }
-
-        .archive-header {
-            padding: 15px 2vw;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 1px solid var(--line-color);
-            background-color: #fff;
-        }
-
+        .archive-header { padding: 15px 2vw; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; display: flex; justify-content: space-between; border-bottom: 1px solid var(--line-color); background-color: #fff; }
         .archive-list { background-color: #fff; }
-
-        .archive-item {
-            display: grid;
-            grid-template-columns: 0.5fr 3fr 1fr 1fr 1fr; 
-            align-items: center;
-            padding: 2vw;
-            border-bottom: 1px solid var(--line-color);
-            text-decoration: none;
-            color: var(--text-color);
-            transition: background-color 0.3s, color 0.3s;
-            position: relative;
-        }
-
+        .archive-item { display: grid; grid-template-columns: 0.5fr 3fr 1fr 1fr 1fr; align-items: center; padding: 2vw; border-bottom: 1px solid var(--line-color); text-decoration: none; color: var(--text-color); transition: background-color 0.3s, color 0.3s; position: relative; }
         .archive-item:last-child { border-bottom: none; }
-
-        .archive-item:hover {
-            background-color: var(--text-color);
-            color: var(--bg-color);
-        }
-
+        .archive-item:hover { background-color: var(--text-color); color: var(--bg-color); }
         .item-index { font-size: 12px; font-weight: 300; }
+        .item-title { font-family: 'Playfair Display', serif; font-size: 2.5vw; font-weight: 400; }
+        .item-meta { font-size: 12px; text-transform: uppercase; opacity: 0.8; }
+        .item-thumb { width: 120px; height: 80px; object-fit: cover; justify-self: end; opacity: 0; transform: scale(0.95); transition: all 0.4s ease; position: absolute; right: 2vw; }
+        .archive-item:hover .item-thumb { opacity: 1; transform: scale(1); z-index: 10; border: 1px solid #fff; }
+
+        .art-statement { padding: 4vw 6vw; background-color: var(--bg-color); border-bottom: 1px solid var(--line-color); text-align: center; }
+        .art-statement h3 { font-family: 'Playfair Display', serif; font-style: italic; font-size: 20px; font-weight: 400; margin-bottom: 15px; color: #222; }
+        .art-statement p { font-size: 14px; color: #444; max-width: 800px; margin: 0 auto; line-height: 1.8; text-align: justify; }
+
+        .catalog-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; background-color: var(--line-color); gap: 1px; border-bottom: 1px solid var(--line-color); }
+        .catalog-item { background-color: var(--warm-bg); padding: 3vw; display: flex; flex-direction: column; justify-content: space-between; }
+        .artwork-container { width: 100%; background-color: #fff; border: 1px solid #ddd; padding: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); margin-bottom: 25px; }
+        .artwork-container img { width: 100%; height: 280px; object-fit: contain; display: block; background-color: #fafafa; transition: transform 0.4s ease; }
         
-        .item-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5vw;
-            font-weight: 400;
-        }
+        .museum-label { display: flex; flex-direction: column; gap: 8px; border-top: 1px dotted #999; padding-top: 15px; }
+        .art-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: #111; }
+        .art-meta { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #666; line-height: 1.4; }
+        .art-desc { font-size: 13px; color: #444; text-align: justify; line-height: 1.6; margin-top: 5px; }
 
-        .item-meta {
-            font-size: 12px;
-            text-transform: uppercase;
-            opacity: 0.8;
-        }
-
-        .item-thumb {
-            width: 120px;
-            height: 80px;
-            object-fit: cover;
-            justify-self: end;
-            opacity: 0;
-            transform: scale(0.95);
-            transition: all 0.4s ease;
-            position: absolute;
-            right: 2vw;
-        }
-
-        .archive-item:hover .item-thumb {
-            opacity: 1;
-            transform: scale(1);
-            z-index: 10;
-            border: 1px solid #fff;
-        }
-
-        /* --- 艺术展览网格专区 CSS --- */
-        .art-statement {
-            padding: 4vw 6vw;
-            background-color: var(--bg-color);
-            border-bottom: 1px solid var(--line-color);
-            text-align: center;
-        }
-
-        .art-statement h3 {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 20px;
-            font-weight: 400;
-            margin-bottom: 15px;
-            color: #222;
-        }
-
-        .art-statement p {
-            font-size: 14px;
-            color: #444;
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.8;
-            text-align: justify;
-        }
-
-        .catalog-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            background-color: var(--line-color); 
-            gap: 1px;
-            border-bottom: 1px solid var(--line-color);
-        }
-
-        .catalog-item {
-            background-color: var(--warm-bg);
-            padding: 3vw;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .artwork-container {
-            width: 100%;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            padding: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            margin-bottom: 25px;
-        }
-
-        .artwork-container img {
-            width: 100%;
-            height: 280px;
-            object-fit: contain; 
-            display: block;
-            background-color: #fafafa;
-            transition: transform 0.4s ease;
-        }
-
-        .artwork-container img:hover {
-            transform: scale(1.02);
-        }
-
-        .museum-label {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            border-top: 1px dotted #999;
-            padding-top: 15px;
-        }
-
-        .art-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 18px;
-            font-weight: 700;
-            color: #111;
-        }
-
-        .art-meta {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #666;
-            line-height: 1.4;
-        }
-
-        .art-desc {
-            font-size: 13px;
-            color: #444;
-            text-align: justify;
-            line-height: 1.6;
-            margin-top: 5px;
-        }
-
-        /* --- Footer --- */
-        footer {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            background-color: #fff;
-        }
-
-        .footer-block {
-            padding: 2vw;
-            border-right: 1px solid var(--line-color);
-            font-size: 12px;
-        }
-
+        footer { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; background-color: #fff; }
+        .footer-block { padding: 2vw; border-right: 1px solid var(--line-color); font-size: 12px; }
         .footer-block:last-child { border-right: none; }
-        
-        .footer-block h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 18px;
-            margin-bottom: 15px;
-            color: var(--brand-red);
-        }
-
-        .footer-block p, .footer-block a {
-            color: var(--text-color);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 5px;
-            line-height: 1.6;
-        }
-
+        .footer-block h4 { font-family: 'Playfair Display', serif; font-size: 18px; margin-bottom: 15px; color: var(--brand-red); }
+        .footer-block p, .footer-block a { color: var(--text-color); text-decoration: none; display: block; margin-bottom: 5px; line-height: 1.6; }
         .footer-block a:hover { text-decoration: underline; }
 
-        @media (max-width: 1024px) { 
-            .catalog-grid { grid-template-columns: 1fr 1fr; } 
+        /* --- 魔法开启：沉浸式图纸放大镜 CSS --- */
+        #lightbox {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            display: flex; justify-content: center; align-items: center;
+            z-index: 9999; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
         }
+        #lightbox.active { opacity: 1; pointer-events: auto; }
+        #lightbox img {
+            max-width: 90vw; max-height: 90vh; object-fit: contain;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            transform: scale(0.95); transition: transform 0.3s ease;
+        }
+        #lightbox.active img { transform: scale(1); }
+        .zoomable { cursor: zoom-in; }
 
+        @media (max-width: 1024px) { .catalog-grid { grid-template-columns: 1fr 1fr; } }
         @media (max-width: 768px) {
             .studio-info h1 { font-size: 36px; margin-bottom: 35px; }
             .author-profile { gap: 30px; }
             .author-photo { width: 130px; height: 130px; }
             .author-text p { text-align: center; }
-            
             .scrolling-banner-track img { height: 180px; }
             .archive-item { grid-template-columns: 1fr; gap: 10px; padding: 20px; }
             .item-title { font-size: 24px; }
             .item-index, .item-thumb { display: none; }
-            
             .catalog-grid { grid-template-columns: 1fr; }
             .art-statement h3 { font-size: 16px; }
-
             footer { grid-template-columns: 1fr 1fr; }
             .footer-block:nth-child(2) { border-right: none; }
             .footer-block:nth-child(1), .footer-block:nth-child(2) { border-bottom: 1px solid var(--line-color); }
@@ -481,9 +188,7 @@
     <header>
         <a href="#" class="brand-container">
             <img src="logo.png" alt="Triumphal Architecture Logo" class="brand-logo">
-            <div class="brand-text">
-                Triumphal<br>Architecture
-            </div>
+            <div class="brand-text">Triumphal<br>Architecture</div>
         </a>
         <nav>
             <a href="#studio">Studio</a>
@@ -503,13 +208,11 @@
         <div class="studio-info">
             <div class="section-label">01 // The Philosophy</div>
             <h1>Exquisite & Graceful.</h1>
-            
             <div class="author-profile">
-                <img src="profile.jpg" alt="Xin (Louis) He Profile" class="author-photo">
+                <img src="profile.jpg" alt="Xin (Louis) He Profile" class="author-photo zoomable">
                 <div class="author-text">
                     <p>Founded by Xin (Louis) He, Triumphal Architecture derives its philosophy from the precision of draft schemas and the enduring triumph of structure. Our mission is to seamlessly integrate architecture with our clients' visions, overturning traditional paradigms to enhance modern aesthetics.</p>
                     <p>As an incoming B.S. Architecture student at UIUC and a multi-award winner of the AIA Toledo HSDC, Louis He brings a rigorous, sincere attitude to every project, ensuring "High Quality" and "Safety" from physical constructions to virtual game environments.</p>
-                    
                     <a href="Xin_Louis_He_CV.pdf" download class="cv-download-btn">Download CV</a>
                 </div>
             </div>
@@ -518,15 +221,15 @@
 
     <section class="scrolling-banner">
         <div class="scrolling-banner-track">
-            <img src="panorama.jpg" alt="Triumphal Architecture Panorama 1" loading="lazy">
-            <img src="panorama.jpg" alt="Triumphal Architecture Panorama 1" loading="lazy">
+            <img src="panorama.jpg" alt="Panorama 1" loading="lazy">
+            <img src="panorama.jpg" alt="Panorama 1" loading="lazy">
         </div>
     </section>
 
     <section class="scrolling-banner">
         <div class="scrolling-banner-track reverse">
-            <img src="panorama2.jpg" alt="Triumphal Architecture Panorama 2" loading="lazy">
-            <img src="panorama2.jpg" alt="Triumphal Architecture Panorama 2" loading="lazy">
+            <img src="panorama2.jpg" alt="Panorama 2" loading="lazy">
+            <img src="panorama2.jpg" alt="Panorama 2" loading="lazy">
         </div>
     </section>
 
@@ -536,71 +239,62 @@
     </div>
 
     <section class="archive-list">
-        
         <a href="aurora-home.html" class="archive-item">
             <div class="item-index">001</div>
             <div class="item-title">Aurora Shelter "Home"</div>
             <div class="item-meta">2025</div>
             <div class="item-meta">Social Architecture</div>
-            <img src="aurora-birdseye.jpg" alt="Thumb" class="item-thumb" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&w=400&q=80'">
+            <img src="aurora-birdseye.jpg" alt="Thumb" class="item-thumb" loading="lazy">
         </a>
-
         <a href="z-day.html" class="archive-item">
             <div class="item-index">002</div>
             <div class="item-title">Z-Day: Rise of the Horde</div>
             <div class="item-meta">2025</div>
             <div class="item-meta">Virtual/Game Env.</div>
-            <img src="z-day-camera.jpg" alt="Thumb" class="item-thumb" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-4.0.3&w=400&q=80'">
+            <img src="z-day-camera.jpg" alt="Thumb" class="item-thumb" loading="lazy">
         </a>
-
         <a href="magazine-design.html" class="archive-item">
             <div class="item-index">003</div>
             <div class="item-title">Architecture Magazine Design</div>
             <div class="item-meta">2026</div>
             <div class="item-meta">Editorial / Print</div>
-            <img src="cover-chinese.jpg" alt="Thumb" class="item-thumb" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1590059378825-9f5b35c05ab3?ixlib=rb-4.0.3&w=400&q=80'">
+            <img src="cover-chinese.jpg" alt="Thumb" class="item-thumb" loading="lazy">
         </a>
-
         <a href="flower-in-the-rock.html" class="archive-item">
             <div class="item-index">004</div>
             <div class="item-title">Flower in the Rock</div>
             <div class="item-meta">2025</div>
             <div class="item-meta">Tectonic Model</div>
-            <img src="flower-rock-cover.jpg" alt="Thumb" class="item-thumb" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&w=400&q=80'">
+            <img src="flower-rock-cover.jpg" alt="Thumb" class="item-thumb" loading="lazy">
         </a>
-
         <a href="germination.html" class="archive-item">
             <div class="item-index">005</div>
             <div class="item-title">Germination</div>
             <div class="item-meta">2024</div>
             <div class="item-meta">Morphology</div>
-            <img src="germination-cover.jpg" alt="Thumb" class="item-thumb" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&w=400&q=80'">
+            <img src="germination-cover.jpg" alt="Thumb" class="item-thumb" loading="lazy">
         </a>
-
         <a href="helix-tower.html" class="archive-item">
             <div class="item-index">006</div>
             <div class="item-title">Helix Tower</div>
             <div class="item-meta">2024</div>
             <div class="item-meta">Structure Concept</div>
-            <img src="helix-1.jpg" alt="Thumb" class="item-thumb" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&w=400&q=80'">
+            <img src="helix-1.jpg" alt="Thumb" class="item-thumb" loading="lazy">
         </a>
-
         <a href="tiny-library.html" class="archive-item">
             <div class="item-index">007</div>
             <div class="item-title">Tiny Library: Mobile Bridge</div>
             <div class="item-meta">2025</div>
             <div class="item-meta">Volume Zero / Top 50</div>
-            <img src="tiny-birdseye.jpg" alt="Thumb" class="item-thumb" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1541123437800-1413157719f5?ixlib=rb-4.0.3&w=400&q=80'">
+            <img src="tiny-birdseye.jpg" alt="Thumb" class="item-thumb" loading="lazy">
         </a>
-
         <a href="green-shell.html" class="archive-item">
             <div class="item-index">008</div>
             <div class="item-title">Green Shell Pavilion</div>
             <div class="item-meta">2025</div>
             <div class="item-meta">Parametric Design</div>
-            <img src="shell-render.jpg" alt="Thumb" class="item-thumb" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&w=400&q=80'">
+            <img src="shell-render.jpg" alt="Thumb" class="item-thumb" loading="lazy">
         </a>
-
     </section>
 
     <div class="archive-header" id="art">
@@ -614,7 +308,6 @@
     </div>
 
     <section class="catalog-grid">
-        
         <div class="catalog-item">
             <div class="artwork-container"><img src="art-snail.jpg" alt="Evolution" loading="lazy"></div>
             <div class="museum-label">
@@ -749,7 +442,6 @@
                 <p class="art-desc">An eagle engineered to yearn for the expansive sky is tightly clutched and anchored by a massive human hand, serving as an ultimate emblem of forced subjugation.</p>
             </div>
         </div>
-
     </section>
 
     <footer id="contact">
@@ -774,11 +466,30 @@
             <h4>Social / Connect</h4>
             <a href="https://www.linkedin.com/in/xin-he-a198a2350/?skipRedirect=true" target="_blank">LinkedIn</a>
             <a href="https://www.instagram.com/xin521iloveu/" target="_blank">Instagram</a>
-            <a href="https://www.behance.net/xinhe53" target="_blank">Behance</a>
+            <a href="你的Behance链接" target="_blank">Behance</a>
             <p style="margin-top: 20px; font-size: 10px; color: #888;">&copy; 2026 Triumphal Architecture.<br>All Rights Reserved.</p>
         </div>
     </footer>
 </div>
+
+<div id="lightbox" onclick="this.classList.remove('active')">
+    <img src="" alt="Zoomed Image" id="lightbox-img">
+</div>
+
+<script>
+    // 监听所有的艺术品图片，不影响建筑缩略图的跳转
+    const images = document.querySelectorAll('.artwork-container img, .author-photo');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    images.forEach(img => {
+        img.classList.add('zoomable'); 
+        img.addEventListener('click', () => {
+            lightboxImg.src = img.src; 
+            lightbox.classList.add('active'); 
+        });
+    });
+</script>
 
 </body>
 </html>
