@@ -158,14 +158,44 @@
         }
 
         /* --- 底部版权 --- */
-        footer { 
-            text-align: center; 
-            padding: 30px 0; 
-            font-size: 11px; 
-            text-transform: uppercase;
-            color: #888; 
-            background-color: #fff;
+        footer {
             border-top: 1px solid var(--line-color);
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            background-color: #fff;
+            text-align: left; /* 覆盖原本的居中 */
+        }
+
+        .footer-block {
+            padding: 2vw;
+            border-right: 1px solid var(--line-color);
+            font-size: 12px;
+            text-transform: none; /* 覆盖原本的大写 */
+        }
+
+        .footer-block:last-child { border-right: none; }
+        
+        .footer-block h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #7B1113; /* 勃艮第红 */
+        }
+
+        .footer-block p, .footer-block a {
+            color: var(--text-color);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 5px;
+            line-height: 1.6;
+        }
+
+        .footer-block a:hover { text-decoration: underline; }
+
+        @media (max-width: 768px) {
+            footer { grid-template-columns: 1fr 1fr; }
+            .footer-block:nth-child(2) { border-right: none; }
+            .footer-block:nth-child(1), .footer-block:nth-child(2) { border-bottom: 1px solid var(--line-color); }
         }
 
         /* --- 手机端响应式 --- */
@@ -242,8 +272,31 @@
 
     </section>
 
-    <footer>
-        &copy; 2026 TRIUMPHAL ARCHITECTURE. ALL RIGHTS RESERVED.
+    <footer id="contact">
+        <div class="footer-block">
+            <h4>Founder</h4>
+            <p>Xin (Louis) He<br>He/Him</p>
+            <p>B.S. Architecture<br>UIUC Class of 2030</p>
+        </div>
+        <div class="footer-block">
+            <h4>Inquiries</h4>
+            <a href="mailto:26xhe@mvcds.org">26xhe@mvcds.org</a>
+            <a href="mailto:xin521iloveu@gmail.com">xin521iloveu@gmail.com</a>
+            <p>+1 (567) 413-0509</p>
+            <p>WeChat: douya-7485</p>
+        </div>
+        <div class="footer-block">
+            <h4>Locations</h4>
+            <p><strong>Toledo, OH, USA</strong><br>Maumee Valley Country Day School</p>
+            <p style="margin-top: 10px;"><strong>Beijing, China</strong><br>Qicai Huayuan, Haidian</p>
+        </div>
+        <div class="footer-block">
+            <h4>Social / Connect</h4>
+            <a href="https://www.linkedin.com/in/xin-he-a198a2350/?skipRedirect=true" target="_blank">LinkedIn</a>
+            <a href="https://www.instagram.com/xin521iloveu/" target="_blank">Instagram</a>
+            <a href="你的Behance链接" target="_blank">Behance</a>
+            <p style="margin-top: 20px; font-size: 10px; color: #888;">&copy; 2026 Triumphal Architecture.<br>All Rights Reserved.</p>
+        </div>
     </footer>
 </div>
 
