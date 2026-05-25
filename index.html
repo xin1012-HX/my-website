@@ -36,12 +36,21 @@
 
         html { scroll-behavior: smooth; }
 
+        /* --- 魔法开启 3：页面转场淡入淡出 CSS --- */
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.5;
             padding: 2vw; 
+            opacity: 0; /* 初始设为完全透明 */
+            transition: opacity 0.5s ease; /* 设定 0.5 秒的柔和过渡 */
+        }
+        body.page-loaded {
+            opacity: 1; /* 当 JS 接管后，变为不透明（淡入） */
+        }
+        body.page-leaving {
+            opacity: 0; /* 当点击链接跳转时，变为透明（淡出） */
         }
 
         .wrapper {
@@ -147,25 +156,16 @@
         .footer-block p, .footer-block a { color: var(--text-color); text-decoration: none; display: block; margin-bottom: 5px; line-height: 1.6; }
         .footer-block a:hover { text-decoration: underline; }
 
-        /* --- 魔法开启：沉浸式图纸放大镜 CSS --- */
+        /* --- 魔法开启 1：沉浸式图纸放大镜 CSS --- */
         #lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.92); display: flex; justify-content: center; align-items: center; z-index: 9999; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
         #lightbox.active { opacity: 1; pointer-events: auto; }
         #lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; box-shadow: 0 10px 40px rgba(0,0,0,0.5); transform: scale(0.95); transition: transform 0.3s ease; }
         #lightbox.active img { transform: scale(1); }
         .zoomable { cursor: zoom-in; }
 
-        /* --- 魔法开启：滚动浮现动画 (Scroll Reveal) CSS --- */
-        .reveal-element {
-            opacity: 0;
-            transform: translateY(40px); /* 初始状态：透明且偏下40像素 */
-            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
-            will-change: opacity, transform; /* 开启硬件加速，让动画如丝般顺滑 */
-        }
-        .reveal-element.visible {
-            opacity: 1;
-            transform: translateY(0); /* 进入视口：渐显并回到原位 */
-        }
-        /* 针对网格瀑布流的延迟效果，产生阶梯式浮现感 */
+        /* --- 魔法开启 2：滚动浮现动画 (Scroll Reveal) CSS --- */
+        .reveal-element { opacity: 0; transform: translateY(40px); transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1); will-change: opacity, transform; }
+        .reveal-element.visible { opacity: 1; transform: translateY(0); }
         .delay-1 { transition-delay: 0.1s; }
         .delay-2 { transition-delay: 0.2s; }
         .delay-3 { transition-delay: 0.3s; }
@@ -324,7 +324,6 @@
                 <p class="art-desc">The severely compromised environment forces the gastropod to become grotesquely personified, developing human-like teeth as a direct morphological consequence of anthropocentric impact.</p>
             </div>
         </div>
-
         <div class="catalog-item reveal-element delay-1">
             <div class="artwork-container"><img src="art-oyster.jpg" alt="Residuum" loading="lazy"></div>
             <div class="museum-label">
@@ -333,7 +332,6 @@
                 <p class="art-desc">Mimicking a degraded shoreline topography where the empty oyster shell completely loses its organic flesh, discarded helplessly amongst synthetic maritime refuse.</p>
             </div>
         </div>
-
         <div class="catalog-item reveal-element delay-2">
             <div class="artwork-container"><img src="art-slugs.jpg" alt="Decay" loading="lazy"></div>
             <div class="museum-label">
@@ -342,7 +340,6 @@
                 <p class="art-desc">A heavy infiltration of commercial plastic components illustrates the bio-chemical hazards leaking into the soil, creating a toxic contrast against vibrant, living green moss.</p>
             </div>
         </div>
-
         <div class="catalog-item reveal-element">
             <div class="artwork-container"><img src="art-fish.jpg" alt="Toxification" loading="lazy"></div>
             <div class="museum-label">
@@ -351,7 +348,6 @@
                 <p class="art-desc">Erupting pustules and scales map out fatal aquatic mutations, while deep lacerations and missing flesh signify invasive human scientific experimentation on weak lives.</p>
             </div>
         </div>
-
         <div class="catalog-item reveal-element delay-1">
             <div class="artwork-container"><img src="art-bear.jpg" alt="Delicacy" loading="lazy"></div>
             <div class="museum-label">
@@ -360,7 +356,6 @@
                 <p class="art-desc">An indictment on commodification and human desire. The severed bear paw remains a brutal, mutilated limb despite being masked by haute-cuisine culinary staging and seasoning.</p>
             </div>
         </div>
-
         <div class="catalog-item reveal-element delay-2">
             <div class="artwork-container"><img src="art-snake.jpg" alt="Skin of Envy" loading="lazy"></div>
             <div class="museum-label">
@@ -369,7 +364,6 @@
                 <p class="art-desc">Plastic wrap and commercial barcodes tightly suffocate the reptile, directly symbolizing the ruthless commodification and consumption of snakeskin in luxury fashion.</p>
             </div>
         </div>
-
         <div class="catalog-item reveal-element">
             <div class="artwork-container"><img src="art-octopus.jpg" alt="Echoes of Wrath" loading="lazy"></div>
             <div class="museum-label">
@@ -378,7 +372,6 @@
                 <p class="art-desc">By forcibly seizing underwater territories, human naval systems deploy destructive sonar wave frequencies, leaving violent concentric scars embedded in the cephalopod's flesh.</p>
             </div>
         </div>
-
         <div class="catalog-item reveal-element delay-1">
             <div class="artwork-container"><img src="art-chicken.jpg" alt="Feeding Gluttony" loading="lazy"></div>
             <div class="museum-label">
@@ -387,7 +380,6 @@
                 <p class="art-desc">A mechanical feeding tube directly penetrates the consumer chicken's entrails, framing the animal as a mere manufacturing asset engineered to grow rapidly for human consumption.</p>
             </div>
         </div>
-
         <div class="catalog-item reveal-element delay-2">
             <div class="artwork-container"><img src="art-deer.jpg" alt="Trophy of Greed" loading="lazy"></div>
             <div class="museum-label">
@@ -396,7 +388,6 @@
                 <p class="art-desc">A structural, wireframe stag head is brutally pierced by hunting arrows, reflecting humanity's insatiable, archaic pursuit of dominance and trophy status mounted on a wall.</p>
             </div>
         </div>
-
         <div class="catalog-item reveal-element">
             <div class="artwork-container"><img src="art-dolphin.jpg" alt="Theatre of Pride" loading="lazy"></div>
             <div class="museum-label">
@@ -405,7 +396,6 @@
                 <p class="art-desc">Capturing the exact moment a captive cetacean leaps through an artificial ring of flame—turning individual systematic exploitation into mass spectacle and entertainment.</p>
             </div>
         </div>
-
         <div class="catalog-item reveal-element delay-1">
             <div class="artwork-container"><img src="art-frog.jpg" alt="Two Seconds of Gravity" loading="lazy"></div>
             <div class="museum-label">
@@ -414,7 +404,6 @@
                 <p class="art-desc">The heavy, synthetic tread of a car tire conveys a crushing sense of urban oppression. The trapped amphibian is pinned to the asphalt, utterly unable to jump.</p>
             </div>
         </div>
-
         <div class="catalog-item reveal-element delay-2">
             <div class="artwork-container"><img src="art-tusk.jpg" alt="Packaged Relic" loading="lazy"></div>
             <div class="museum-label">
@@ -423,7 +412,6 @@
                 <p class="art-desc">Utilizing printed financial media to construct a poached elephant tusk, bound rigidly within three stark pillars to show the literal conversion of wildlife into commercial capital.</p>
             </div>
         </div>
-
         <div class="catalog-item reveal-element">
             <div class="artwork-container"><img src="art-wolf.jpg" alt="The Rusted Howl" loading="lazy"></div>
             <div class="museum-label">
@@ -432,7 +420,6 @@
                 <p class="art-desc">An apex predator's head is discarded callously on a pile of urban stones, its evolutionary fangs completely replaced with cold, threaded industrial machinery screws.</p>
             </div>
         </div>
-
         <div class="catalog-item reveal-element delay-1">
             <div class="artwork-container"><img src="art-nest.jpg" alt="Infrastructure of Silence" loading="lazy"></div>
             <div class="museum-label">
@@ -441,7 +428,6 @@
                 <p class="art-desc">High-voltage transmission infrastructure stands looming directly over a fragile bird's nest, exposing the constant, unseen electro-magnetic hazards encroaching upon local ecosystems.</p>
             </div>
         </div>
-
         <div class="catalog-item reveal-element delay-2">
             <div class="artwork-container"><img src="art-eagle.jpg" alt="Imprisoned Freedom" loading="lazy"></div>
             <div class="museum-label">
@@ -485,7 +471,7 @@
 </div>
 
 <script>
-    // 1. 灯箱放大镜系统
+    // --- 1. 灯箱放大镜系统 ---
     const images = document.querySelectorAll('.artwork-container img, .author-photo');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
@@ -498,28 +484,57 @@
         });
     });
 
-    // 2. 魔法开启：滚动浮现动画系统 (Intersection Observer API)
+    // --- 2. 滚动浮现动画系统 ---
     const revealElements = document.querySelectorAll('.reveal-element');
-    
-    // 配置侦测器：当元素在屏幕中露出 10% 时触发动画
-    const revealOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px"
-    };
-
+    const revealOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
     const revealOnScroll = new IntersectionObserver(function(entries, observer) {
         entries.forEach(entry => {
-            if (!entry.isIntersecting) {
-                return;
-            } else {
-                entry.target.classList.add('visible'); // 加上触发类名，执行 CSS 缓动
-                observer.unobserve(entry.target); // 动画只触发一次，避免上下滚动反复闪烁
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible'); 
+                observer.unobserve(entry.target); 
             }
         });
     }, revealOptions);
+    revealElements.forEach(el => revealOnScroll.observe(el));
 
-    revealElements.forEach(el => {
-        revealOnScroll.observe(el);
+    // --- 3. 魔法开启：页面淡入淡出转场系统 (Page Transitions) ---
+    // 监听页面加载完成，移除透明度，实现淡入
+    document.addEventListener("DOMContentLoaded", () => {
+        document.body.classList.add('page-loaded');
+    });
+
+    // 解决 Safari 浏览器后退按钮导致页面卡在透明状态的问题
+    window.addEventListener('pageshow', function (event) {
+        if (!document.body.classList.contains('page-loaded')) {
+            document.body.classList.add('page-loaded');
+            document.body.classList.remove('page-leaving');
+        }
+    });
+
+    // 监听所有链接点击，执行淡出
+    const transitionLinks = document.querySelectorAll('a');
+    transitionLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            const target = this.getAttribute('target');
+            const isDownload = this.hasAttribute('download');
+            const isMailto = href && href.startsWith('mailto:');
+            const isAnchor = href && href.startsWith('#'); // 排除锚点跳转
+
+            // 如果是新窗口打开、下载链接、发邮件、或者只是页面内的滚动锚点，则不执行淡出动画
+            if (target === '_blank' || isDownload || isMailto || isAnchor) {
+                return;
+            }
+
+            e.preventDefault(); // 阻止瞬间跳转
+            document.body.classList.remove('page-loaded');
+            document.body.classList.add('page-leaving'); // 触发变暗
+
+            // 等待半秒钟变暗动画结束后，再真正跳转页面
+            setTimeout(() => {
+                window.location.href = href;
+            }, 400);
+        });
     });
 </script>
 
