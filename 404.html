@@ -17,6 +17,7 @@
             --bg-color: #F4F4F4; 
             --text-color: #111;
             --line-color: #111; 
+            --brand-red: #7B1113;
         }
 
         /* --- 魔法开启：页面淡入淡出转场 CSS --- */
@@ -182,6 +183,32 @@
             .error-code { font-size: 120px; }
             .error-message { padding: 0 20px; }
         }
+        /* --- 魔法开启 4：高定事务所专属光标 CSS --- */
+        /* 仅在支持鼠标的设备（电脑）上生效，不影响手机和平板的触摸体验 */
+        @media (pointer: fine) {
+            body { cursor: none; }
+            a, .zoomable, button { cursor: none !important; }
+            
+            #custom-cursor {
+                position: fixed;
+                top: 0; left: 0;
+                width: 10px; height: 10px;
+                background-color: var(--brand-red); 
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+                pointer-events: none; /* 确保光标不会阻挡下面的点击动作 */
+                z-index: 10000; /* 永远在最顶层 */
+                transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease, border 0.3s ease;
+                will-change: transform, width, height;
+            }
+            
+            /* 当鼠标悬浮在链接或图片上时的膨胀环形态 */
+            #custom-cursor.hovering {
+                width: 45px; height: 45px;
+                background-color: rgba(123, 17, 19, 0.05); /* 极微弱的红色填充 */
+                border: 1px solid var(--brand-red);
+            }
+        }
     </style>
 </head>
 <body>
@@ -272,6 +299,26 @@
             }, 400);
         });
     });
+    // --- 魔法开启 4：高定光标引擎 ---
+    // 判断如果是电脑端（有精细鼠标指针），才生成自定义光标
+    if (window.matchMedia("(pointer: fine)").matches) {
+        const cursor = document.createElement('div');
+        cursor.id = 'custom-cursor';
+        document.body.appendChild(cursor);
+
+        // 让圆点跟随鼠标的真实坐标
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        // 侦测所有可点击元素，加上悬浮膨胀变形效果
+        const interactables = document.querySelectorAll('a, .zoomable, button');
+        interactables.forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+        });
+    }
 </script>
 </body>
 </html>
