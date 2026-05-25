@@ -133,6 +133,7 @@
         .catalog-item { background-color: var(--warm-bg); padding: 3vw; display: flex; flex-direction: column; justify-content: space-between; }
         .artwork-container { width: 100%; background-color: #fff; border: 1px solid #ddd; padding: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); margin-bottom: 25px; }
         .artwork-container img { width: 100%; height: 280px; object-fit: contain; display: block; background-color: #fafafa; transition: transform 0.4s ease; }
+        .artwork-container img:hover { transform: scale(1.02); }
         
         .museum-label { display: flex; flex-direction: column; gap: 8px; border-top: 1px dotted #999; padding-top: 15px; }
         .art-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: #111; }
@@ -147,20 +148,27 @@
         .footer-block a:hover { text-decoration: underline; }
 
         /* --- 魔法开启：沉浸式图纸放大镜 CSS --- */
-        #lightbox {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.92);
-            display: flex; justify-content: center; align-items: center;
-            z-index: 9999; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
-        }
+        #lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.92); display: flex; justify-content: center; align-items: center; z-index: 9999; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
         #lightbox.active { opacity: 1; pointer-events: auto; }
-        #lightbox img {
-            max-width: 90vw; max-height: 90vh; object-fit: contain;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            transform: scale(0.95); transition: transform 0.3s ease;
-        }
+        #lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; box-shadow: 0 10px 40px rgba(0,0,0,0.5); transform: scale(0.95); transition: transform 0.3s ease; }
         #lightbox.active img { transform: scale(1); }
         .zoomable { cursor: zoom-in; }
+
+        /* --- 魔法开启：滚动浮现动画 (Scroll Reveal) CSS --- */
+        .reveal-element {
+            opacity: 0;
+            transform: translateY(40px); /* 初始状态：透明且偏下40像素 */
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform; /* 开启硬件加速，让动画如丝般顺滑 */
+        }
+        .reveal-element.visible {
+            opacity: 1;
+            transform: translateY(0); /* 进入视口：渐显并回到原位 */
+        }
+        /* 针对网格瀑布流的延迟效果，产生阶梯式浮现感 */
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
 
         @media (max-width: 1024px) { .catalog-grid { grid-template-columns: 1fr 1fr; } }
         @media (max-width: 768px) {
@@ -205,12 +213,12 @@
     </div>
 
     <section class="studio-section" id="studio">
-        <div class="studio-info">
+        <div class="studio-info reveal-element">
             <div class="section-label">01 // The Philosophy</div>
             <h1>Exquisite & Graceful.</h1>
             <div class="author-profile">
-                <img src="profile.jpg" alt="Xin (Louis) He Profile" class="author-photo zoomable">
-                <div class="author-text">
+                <img src="profile.jpg" alt="Xin (Louis) He Profile" class="author-photo zoomable reveal-element delay-1">
+                <div class="author-text reveal-element delay-2">
                     <p>Founded by Xin (Louis) He, Triumphal Architecture derives its philosophy from the precision of draft schemas and the enduring triumph of structure. Our mission is to seamlessly integrate architecture with our clients' visions, overturning traditional paradigms to enhance modern aesthetics.</p>
                     <p>As an incoming B.S. Architecture student at UIUC and a multi-award winner of the AIA Toledo HSDC, Louis He brings a rigorous, sincere attitude to every project, ensuring "High Quality" and "Safety" from physical constructions to virtual game environments.</p>
                     <a href="Xin_Louis_He_CV.pdf" download class="cv-download-btn">Download CV</a>
@@ -233,62 +241,62 @@
         </div>
     </section>
 
-    <div class="archive-header" id="archive">
+    <div class="archive-header reveal-element" id="archive">
         <span>Architecture / Selected Works</span>
         <span>2024 — 2026</span>
     </div>
 
     <section class="archive-list">
-        <a href="aurora-home.html" class="archive-item">
+        <a href="aurora-home.html" class="archive-item reveal-element">
             <div class="item-index">001</div>
             <div class="item-title">Aurora Shelter "Home"</div>
             <div class="item-meta">2025</div>
             <div class="item-meta">Social Architecture</div>
             <img src="aurora-birdseye.jpg" alt="Thumb" class="item-thumb" loading="lazy">
         </a>
-        <a href="z-day.html" class="archive-item">
+        <a href="z-day.html" class="archive-item reveal-element delay-1">
             <div class="item-index">002</div>
             <div class="item-title">Z-Day: Rise of the Horde</div>
             <div class="item-meta">2025</div>
             <div class="item-meta">Virtual/Game Env.</div>
             <img src="z-day-camera.jpg" alt="Thumb" class="item-thumb" loading="lazy">
         </a>
-        <a href="magazine-design.html" class="archive-item">
+        <a href="magazine-design.html" class="archive-item reveal-element">
             <div class="item-index">003</div>
             <div class="item-title">Architecture Magazine Design</div>
             <div class="item-meta">2026</div>
             <div class="item-meta">Editorial / Print</div>
             <img src="cover-chinese.jpg" alt="Thumb" class="item-thumb" loading="lazy">
         </a>
-        <a href="flower-in-the-rock.html" class="archive-item">
+        <a href="flower-in-the-rock.html" class="archive-item reveal-element delay-1">
             <div class="item-index">004</div>
             <div class="item-title">Flower in the Rock</div>
             <div class="item-meta">2025</div>
             <div class="item-meta">Tectonic Model</div>
             <img src="flower-rock-cover.jpg" alt="Thumb" class="item-thumb" loading="lazy">
         </a>
-        <a href="germination.html" class="archive-item">
+        <a href="germination.html" class="archive-item reveal-element">
             <div class="item-index">005</div>
             <div class="item-title">Germination</div>
             <div class="item-meta">2024</div>
             <div class="item-meta">Morphology</div>
             <img src="germination-cover.jpg" alt="Thumb" class="item-thumb" loading="lazy">
         </a>
-        <a href="helix-tower.html" class="archive-item">
+        <a href="helix-tower.html" class="archive-item reveal-element delay-1">
             <div class="item-index">006</div>
             <div class="item-title">Helix Tower</div>
             <div class="item-meta">2024</div>
             <div class="item-meta">Structure Concept</div>
             <img src="helix-1.jpg" alt="Thumb" class="item-thumb" loading="lazy">
         </a>
-        <a href="tiny-library.html" class="archive-item">
+        <a href="tiny-library.html" class="archive-item reveal-element">
             <div class="item-index">007</div>
             <div class="item-title">Tiny Library: Mobile Bridge</div>
             <div class="item-meta">2025</div>
             <div class="item-meta">Volume Zero / Top 50</div>
             <img src="tiny-birdseye.jpg" alt="Thumb" class="item-thumb" loading="lazy">
         </a>
-        <a href="green-shell.html" class="archive-item">
+        <a href="green-shell.html" class="archive-item reveal-element delay-1">
             <div class="item-index">008</div>
             <div class="item-title">Green Shell Pavilion</div>
             <div class="item-meta">2025</div>
@@ -297,18 +305,18 @@
         </a>
     </section>
 
-    <div class="archive-header" id="art">
+    <div class="archive-header reveal-element" id="art">
         <span>Fine Art / Sculptures</span>
         <span>AP 3-D Art & Design</span>
     </div>
     
-    <div class="art-statement">
+    <div class="art-statement reveal-element">
         <h3>"I explored the relationship between material progress and ecological damage. If animals must evolve to survive human impact."</h3>
         <p>This conceptual matrix runs through my artworks in various sculptural subject matters, observing how humans relentlessly seek convenience, efficiency, technology, and personal interest without thought of ecological impact. My work serves as a stark advocate for protection and empathy toward vulnerable species.</p>
     </div>
 
     <section class="catalog-grid">
-        <div class="catalog-item">
+        <div class="catalog-item reveal-element">
             <div class="artwork-container"><img src="art-snail.jpg" alt="Evolution" loading="lazy"></div>
             <div class="museum-label">
                 <div class="art-title">Evolution</div>
@@ -317,7 +325,7 @@
             </div>
         </div>
 
-        <div class="catalog-item">
+        <div class="catalog-item reveal-element delay-1">
             <div class="artwork-container"><img src="art-oyster.jpg" alt="Residuum" loading="lazy"></div>
             <div class="museum-label">
                 <div class="art-title">Residuum</div>
@@ -326,7 +334,7 @@
             </div>
         </div>
 
-        <div class="catalog-item">
+        <div class="catalog-item reveal-element delay-2">
             <div class="artwork-container"><img src="art-slugs.jpg" alt="Decay" loading="lazy"></div>
             <div class="museum-label">
                 <div class="art-title">Decay</div>
@@ -335,7 +343,7 @@
             </div>
         </div>
 
-        <div class="catalog-item">
+        <div class="catalog-item reveal-element">
             <div class="artwork-container"><img src="art-fish.jpg" alt="Toxification" loading="lazy"></div>
             <div class="museum-label">
                 <div class="art-title">Toxification</div>
@@ -344,7 +352,7 @@
             </div>
         </div>
 
-        <div class="catalog-item">
+        <div class="catalog-item reveal-element delay-1">
             <div class="artwork-container"><img src="art-bear.jpg" alt="Delicacy" loading="lazy"></div>
             <div class="museum-label">
                 <div class="art-title">Delicacy</div>
@@ -353,7 +361,7 @@
             </div>
         </div>
 
-        <div class="catalog-item">
+        <div class="catalog-item reveal-element delay-2">
             <div class="artwork-container"><img src="art-snake.jpg" alt="Skin of Envy" loading="lazy"></div>
             <div class="museum-label">
                 <div class="art-title">Skin of Envy</div>
@@ -362,7 +370,7 @@
             </div>
         </div>
 
-        <div class="catalog-item">
+        <div class="catalog-item reveal-element">
             <div class="artwork-container"><img src="art-octopus.jpg" alt="Echoes of Wrath" loading="lazy"></div>
             <div class="museum-label">
                 <div class="art-title">Echoes of Wrath</div>
@@ -371,7 +379,7 @@
             </div>
         </div>
 
-        <div class="catalog-item">
+        <div class="catalog-item reveal-element delay-1">
             <div class="artwork-container"><img src="art-chicken.jpg" alt="Feeding Gluttony" loading="lazy"></div>
             <div class="museum-label">
                 <div class="art-title">Feeding Gluttony</div>
@@ -380,7 +388,7 @@
             </div>
         </div>
 
-        <div class="catalog-item">
+        <div class="catalog-item reveal-element delay-2">
             <div class="artwork-container"><img src="art-deer.jpg" alt="Trophy of Greed" loading="lazy"></div>
             <div class="museum-label">
                 <div class="art-title">Trophy of Greed</div>
@@ -389,7 +397,7 @@
             </div>
         </div>
 
-        <div class="catalog-item">
+        <div class="catalog-item reveal-element">
             <div class="artwork-container"><img src="art-dolphin.jpg" alt="Theatre of Pride" loading="lazy"></div>
             <div class="museum-label">
                 <div class="art-title">Theatre of Pride</div>
@@ -398,7 +406,7 @@
             </div>
         </div>
 
-        <div class="catalog-item">
+        <div class="catalog-item reveal-element delay-1">
             <div class="artwork-container"><img src="art-frog.jpg" alt="Two Seconds of Gravity" loading="lazy"></div>
             <div class="museum-label">
                 <div class="art-title">Two Seconds of Gravity</div>
@@ -407,7 +415,7 @@
             </div>
         </div>
 
-        <div class="catalog-item">
+        <div class="catalog-item reveal-element delay-2">
             <div class="artwork-container"><img src="art-tusk.jpg" alt="Packaged Relic" loading="lazy"></div>
             <div class="museum-label">
                 <div class="art-title">Packaged Relic</div>
@@ -416,7 +424,7 @@
             </div>
         </div>
 
-        <div class="catalog-item">
+        <div class="catalog-item reveal-element">
             <div class="artwork-container"><img src="art-wolf.jpg" alt="The Rusted Howl" loading="lazy"></div>
             <div class="museum-label">
                 <div class="art-title">The Rusted Howl</div>
@@ -425,7 +433,7 @@
             </div>
         </div>
 
-        <div class="catalog-item">
+        <div class="catalog-item reveal-element delay-1">
             <div class="artwork-container"><img src="art-nest.jpg" alt="Infrastructure of Silence" loading="lazy"></div>
             <div class="museum-label">
                 <div class="art-title">Infrastructure of Silence</div>
@@ -434,7 +442,7 @@
             </div>
         </div>
 
-        <div class="catalog-item">
+        <div class="catalog-item reveal-element delay-2">
             <div class="artwork-container"><img src="art-eagle.jpg" alt="Imprisoned Freedom" loading="lazy"></div>
             <div class="museum-label">
                 <div class="art-title">Imprisoned Freedom</div>
@@ -444,7 +452,7 @@
         </div>
     </section>
 
-    <footer id="contact">
+    <footer id="contact" class="reveal-element">
         <div class="footer-block">
             <h4>Founder</h4>
             <p>Xin (Louis) He<br>He/Him</p>
@@ -477,7 +485,7 @@
 </div>
 
 <script>
-    // 监听所有的艺术品图片，不影响建筑缩略图的跳转
+    // 1. 灯箱放大镜系统
     const images = document.querySelectorAll('.artwork-container img, .author-photo');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
@@ -488,6 +496,30 @@
             lightboxImg.src = img.src; 
             lightbox.classList.add('active'); 
         });
+    });
+
+    // 2. 魔法开启：滚动浮现动画系统 (Intersection Observer API)
+    const revealElements = document.querySelectorAll('.reveal-element');
+    
+    // 配置侦测器：当元素在屏幕中露出 10% 时触发动画
+    const revealOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+                return;
+            } else {
+                entry.target.classList.add('visible'); // 加上触发类名，执行 CSS 缓动
+                observer.unobserve(entry.target); // 动画只触发一次，避免上下滚动反复闪烁
+            }
+        });
+    }, revealOptions);
+
+    revealElements.forEach(el => {
+        revealOnScroll.observe(el);
     });
 </script>
 
