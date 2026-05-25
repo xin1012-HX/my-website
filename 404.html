@@ -19,6 +19,7 @@
             --line-color: #111; 
         }
 
+        /* --- 魔法开启：页面淡入淡出转场 CSS --- */
         body { 
             font-family: 'Inter', sans-serif; 
             background-color: var(--bg-color); 
@@ -27,7 +28,17 @@
             padding: 2vw;
             display: flex;
             flex-direction: column;
-            min-height: 100vh; /* 确保页面至少占满全屏高度 */
+            min-height: 100vh;
+            
+            /* 转场核心代码 */
+            opacity: 0; 
+            transition: opacity 0.5s ease; 
+        }
+        body.page-loaded {
+            opacity: 1; 
+        }
+        body.page-leaving {
+            opacity: 0; 
         }
 
         .wrapper {
@@ -221,6 +232,46 @@
         </div>
     </footer>
 </div>
+<script>
+    // --- 魔法开启：页面淡入淡出转场系统 (Page Transitions) ---
+    // 1. 监听页面加载完成，移除透明度，实现淡入
+    document.addEventListener("DOMContentLoaded", () => {
+        document.body.classList.add('page-loaded');
+    });
 
+    // 2. 解决 Safari 浏览器后退按钮导致页面卡在透明状态的问题
+    window.addEventListener('pageshow', function (event) {
+        if (!document.body.classList.contains('page-loaded')) {
+            document.body.classList.add('page-loaded');
+            document.body.classList.remove('page-leaving');
+        }
+    });
+
+    // 3. 监听所有链接点击，执行淡出
+    const transitionLinks = document.querySelectorAll('a');
+    transitionLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            const target = this.getAttribute('target');
+            const isDownload = this.hasAttribute('download');
+            const isMailto = href && href.startsWith('mailto:');
+            const isAnchor = href && href.startsWith('#'); 
+
+            // 排除新窗口、下载、邮件和锚点跳转
+            if (target === '_blank' || isDownload || isMailto || isAnchor) {
+                return;
+            }
+
+            e.preventDefault(); 
+            document.body.classList.remove('page-loaded');
+            document.body.classList.add('page-leaving'); 
+
+            // 等待半秒钟变暗动画结束后，再真正跳转页面
+            setTimeout(() => {
+                window.location.href = href;
+            }, 400);
+        });
+    });
+</script>
 </body>
 </html>
