@@ -300,7 +300,8 @@
 
 <script>
     // 自动抓取不管是叫 gallery-item 还是 media-item 里的所有图片
-    const images = document.querySelectorAll('.gallery-item img, .media-item img');
+    // 终极万能抓取：只要是在 section（展示区）里的图片，全部赋予放大镜，完美避开 logo
+    const images = document.querySelectorAll('section img');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
 
