@@ -206,6 +206,21 @@
             .brand-logo { height: 60px; }
             .brand-text { font-size: 18px; }
         }
+        /* --- 魔法开启：沉浸式图纸放大镜 CSS --- */
+        #lightbox {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            display: flex; justify-content: center; align-items: center;
+            z-index: 9999; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+        }
+        #lightbox.active { opacity: 1; pointer-events: auto; }
+        #lightbox img {
+            max-width: 90vw; max-height: 90vh; object-fit: contain;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            transform: scale(0.95); transition: transform 0.3s ease;
+        }
+        #lightbox.active img { transform: scale(1); }
+        .zoomable { cursor: zoom-in; }
     </style>
 </head>
 <body>
@@ -289,6 +304,23 @@
         </div>
     </footer>
 </div>
+<div id="lightbox" onclick="this.classList.remove('active')">
+    <img src="" alt="Zoomed Image" id="lightbox-img">
+</div>
 
+<script>
+    // 终极万能抓取：只要是在 section（展示区）里的图片，全部赋予放大镜
+    const images = document.querySelectorAll('section img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    images.forEach(img => {
+        img.classList.add('zoomable'); 
+        img.addEventListener('click', () => {
+            lightboxImg.src = img.src; 
+            lightbox.classList.add('active'); 
+        });
+    });
+</script>
 </body>
 </html>
