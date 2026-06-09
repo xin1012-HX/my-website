@@ -43,11 +43,7 @@
             color: var(--text-color);
             line-height: 1.5;
             padding: 2vw; 
-            opacity: 0; /* 初始设为完全透明 */
             transition: opacity 0.5s ease; /* 设定 0.5 秒的柔和过渡 */
-        }
-        body.page-loaded {
-            opacity: 1; /* 当 JS 接管后，变为不透明（淡入） */
         }
         body.page-leaving {
             opacity: 0; /* 当点击链接跳转时，变为透明（淡出） */
@@ -522,12 +518,6 @@
         });
     }, revealOptions);
     revealElements.forEach(el => revealOnScroll.observe(el));
-
-    // --- 3. 魔法开启：页面淡入淡出转场系统 (Page Transitions) ---
-    // 监听页面加载完成，移除透明度，实现淡入
-    document.addEventListener("DOMContentLoaded", () => {
-        document.body.classList.add('page-loaded');
-    });
 
     // 解决 Safari 浏览器后退按钮导致页面卡在透明状态的问题
     window.addEventListener('pageshow', function (event) {
